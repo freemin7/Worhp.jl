@@ -5,14 +5,14 @@ wsp = Worhp.LibWorhp.Workspace(undef);
 par = Worhp.LibWorhp.Params(undef);
 cnt = Worhp.LibWorhp.Control(undef);
 
-GC.@preserve opt wsp par cnt begin
 @test 0 == Worhp.LibWorhp.CheckWorhpVersion(Worhp.LibWorhp.WORHP_MAJOR, Worhp.LibWorhp.WORHP_MINOR, Worhp.LibWorhp.WORHP_PATCH)
 
 status = Ref{Cint}(123);
 
-optR, wspR, parR, cntR = pointer_from_objref(opt), pointer_from_objref(wsp), pointer_from_objref(par), pointer_from_objref(cnt)
+optR, wspR, parR, cntR = Ref(opt), Ref(wsp), Ref(par), Ref(cnt)
 
 Worhp.LibWorhp.WorhpPreInit(optR, wspR, parR, cntR)
+
 Worhp.LibWorhp.InitParams(status, parR)
 
 par.NLPprint = 1
@@ -47,6 +47,10 @@ unsafe_wrap(Array{Float64,1}, opt.GL, 3; own=false) .= [1.0, -par.Infty, 2.5]
 
 unsafe_wrap(Array{Float64,1}, opt.GU, 3; own=false).= [1.0, -1.0, 5.0]
 
+if wsp.DF.NeedStructure == true
+    row = unsafe_wrap(Array{Int32,1}, wsp.DF.row, 3; own=false)
+    row .= [1,2,3]
+end
 if wsp.DG.NeedStructure == true
     row = unsafe_wrap(Array{Int32,1}, wsp.DG.row, 6; own=false)
     col = unsafe_wrap(Array{Int32,1}, wsp.DG.col, 6; own=false)
@@ -77,7 +81,7 @@ function UserG(opt, wsp, par, cnt)
 
     G[1] = x[1]*x[1] + x[3]*x[3] + x[1] * x[3]
     G[2] = x[3] - x[4]
-    G[3] = x[1] + x[4]
+    G[3] = x[2] + x[4]
 end
 
 function UserDF(opt, wsp, par, cnt)
@@ -153,6 +157,8 @@ while cnt.status < Worhp.LibWorhp.TerminateSuccess && cnt.status > Worhp.LibWorh
 end
 
 Worhp.LibWorhp.StatusMsg(optR,wspR,parR,cntR)
-Worhp.LibWorhp.WorhpFree(optR, wspR, parR, cntR);
 
-end
+@test abs(opt.F + 0.5) < 10e-6 "Objective within 10e-6"
+
+@test sum(abs,unsafe_wrap(Array{Float64,1}, opt.X,4) - [0, 0.5, 1., 2.]) < 10e-6 "total error within 10e-6"
+Worhp.LibWorhp.WorhpFree(optR, wspR, parR, cntR);
