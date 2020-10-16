@@ -1,4 +1,4 @@
-module Worph
+module Worhp
 
 
 baremodule LibWorhp

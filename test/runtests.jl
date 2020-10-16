@@ -1,23 +1,28 @@
 using Worhp
 using Test
-opt = Worph.LibWorhp.OptVarStruct(undef);
-wsp = Worph.LibWorhp.Workspace(undef);
-par = Worph.LibWorhp.Params(undef);
-cnt = Worph.LibWorhp.Control(undef);
+optR = Ref(Worhp.LibWorhp.OptVarStruct);
+wspR = Ref(Worhp.LibWorhp.Workspace);
+parR = Ref(Worhp.LibWorhp.Params);
+cntR = Ref(Worhp.LibWorhp.Control);
 
-@test 0 == Worph.LibWorhp.CheckWorhpVersion(Worph.LibWorhp.WORHP_MAJOR, Worph.LibWorhp.WORHP_MINOR, Worph.LibWorhp.WORHP_PATCH)
+@test 0 == Worhp.LibWorhp.CheckWorhpVersion(Worhp.LibWorhp.WORHP_MAJOR, Worhp.LibWorhp.WORHP_MINOR, Worhp.LibWorhp.WORHP_PATCH)
 
 status = Ref{Cint}(123)
 
-Worph.LibWorhp.WorhpPreInit(Ref(opt), Ref(wsp), Ref(par), Ref(cnt))
-Worph.LibWorhp.InitParams(status, Ref(par))
+Worhp.LibWorhp.WorhpPreInit(optR, wspR, parR, cntR)
+Worhp.LibWorhp.InitParams(status, Ref(par))
+
+opt = optR[]
+wsp = wspR[]
+par = parR[]
+cnt = cntR[]
 
 par.NLPprint = 1
 
-Worph.LibWorhp.ReadParamsNoInit(status, "worhp.xml", Ref(par))
+Worhp.LibWorhp.ReadParamsNoInit(status, "worhp.xml", Ref(par))
 
-@test status[] != Worph.LibWorhp.DataError
-@test status[] != Worph.LibWorhp.InitErr
+@test status[] != Worhp.LibWorhp.DataError
+@test status[] != Worhp.LibWorhp.InitErr
 
 opt.n = 4
 opt.m = 3
@@ -26,9 +31,9 @@ wsp.DF.nnz = 3
 wsp.DG.nnz = 6
 wsp.HM.nnz = 1 + opt.n
 
-Worph.LibWorhp.WorhpInit(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
+Worhp.LibWorhp.WorhpInit(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
 
-@test Worph.LibWorhp.FirstCall == cnt.status
+@test Worhp.LibWorhp.FirstCall == cnt.status
 
 X = unsafe_wrap(Array{Float64,1}, opt.X, 4; own=false)
 X .= [2.0, 2.0, 1.0, 0.0]
@@ -121,40 +126,40 @@ function UserHM(opt, wsp, par, cnt)
 end
 
 
-while cnt.status < Worph.LibWorhp.TerminateSuccess && cnt.status > Worph.LibWorhp.TerminateError
+while cnt.status < Worhp.LibWorhp.TerminateSuccess && cnt.status > Worhp.LibWorhp.TerminateError
 
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.callWorhp) == true
-        Worph.LibWorhp.Worhp(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.callWorhp) == true
+        Worhp.LibWorhp.Worhp(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
     end
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.iterOutput) == true
-        Worph.LibWorhp.IterationOutput(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
-        Worph.LibWorhp.DoneUserAction(Ref(cnt),Worph.LibWorhp.iterOutput)
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.iterOutput) == true
+        Worhp.LibWorhp.IterationOutput(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
+        Worhp.LibWorhp.DoneUserAction(Ref(cnt),Worhp.LibWorhp.iterOutput)
     end
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.evalF) == true
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.evalF) == true
         UserF(opt, wsp, par, cnt)
-        Worph.LibWorhp.DoneUserAction(Ref(cnt),Worph.LibWorhp.evalF)
+        Worhp.LibWorhp.DoneUserAction(Ref(cnt),Worhp.LibWorhp.evalF)
     end
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.evalG) == true
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.evalG) == true
         UserG(opt, wsp, par, cnt)
-        Worph.LibWorhp.DoneUserAction(Ref(cnt),Worph.LibWorhp.evalG)
+        Worhp.LibWorhp.DoneUserAction(Ref(cnt),Worhp.LibWorhp.evalG)
     end
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.evalDF) == true
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.evalDF) == true
         UserDF(opt, wsp, par, cnt)
-        Worph.LibWorhp.DoneUserAction(Ref(cnt),Worph.LibWorhp.evalDF)
+        Worhp.LibWorhp.DoneUserAction(Ref(cnt),Worhp.LibWorhp.evalDF)
     end
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.evalDG) == true
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.evalDG) == true
         UserDG(opt, wsp, par, cnt)
-        Worph.LibWorhp.DoneUserAction(Ref(cnt),Worph.LibWorhp.evalDG)
+        Worhp.LibWorhp.DoneUserAction(Ref(cnt),Worhp.LibWorhp.evalDG)
     end
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.evalHM) == true
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.evalHM) == true
         UserHM(opt, wsp, par, cnt)
-        Worph.LibWorhp.DoneUserAction(Ref(cnt),Worph.LibWorhp.evalHM)
+        Worhp.LibWorhp.DoneUserAction(Ref(cnt),Worhp.LibWorhp.evalHM)
     end
-    if Worph.LibWorhp.GetUserAction(Ref(cnt), Worph.LibWorhp.fidif) == true
-        Worph.LibWorhp.WorhpFidif(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
+    if Worhp.LibWorhp.GetUserAction(Ref(cnt), Worhp.LibWorhp.fidif) == true
+        Worhp.LibWorhp.WorhpFidif(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
     end
 
 end
 
-Worph.LibWorhp.StatusMsg(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
-Worph.LibWorhp.WorhpFree(Ref(opt), Ref(wsp), Ref(par), Ref(cnt));
+Worhp.LibWorhp.StatusMsg(Ref(opt),Ref(wsp),Ref(par),Ref(cnt))
+Worhp.LibWorhp.WorhpFree(Ref(opt), Ref(wsp), Ref(par), Ref(cnt));
