@@ -262,7 +262,7 @@ using CBinding: 𝐣𝐥
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern FORTRAN_TRUE::Cbool
+	𝐣𝐥.@cextern FORTRAN_TRUE::𝐣𝐥.Cbool
 	```
 
 	 Runtime \"constant\" to be assigned the TRUE value used by the current compiler. This \"constant\" is used to communicate logical values with Fortran. Initialised with a standard value that *should* be recognised as .TRUE. by any decent compiler.
@@ -276,11 +276,11 @@ using CBinding: 𝐣𝐥
 	[C_std.h:88](/usr/include/worhp/C_std.h:88:24)
 	""" FORTRAN_TRUE
 	export FORTRAN_TRUE
-	𝐣𝐥.@cextern FORTRAN_TRUE::Cbool
+	𝐣𝐥.@cextern FORTRAN_TRUE::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern FORTRAN_FALSE::Cbool
+	𝐣𝐥.@cextern FORTRAN_FALSE::𝐣𝐥.Cbool
 	```
 
 	 Runtime \"constant\" to be assigned the FALSE value used by the current compiler. This \"constant\" is used to communicate logical values with Fortran. Initialised with a standard value that *should* be recognised as .FALSE. by any decent compiler.
@@ -294,7 +294,7 @@ using CBinding: 𝐣𝐥
 	[C_std.h:98](/usr/include/worhp/C_std.h:98:24)
 	""" FORTRAN_FALSE
 	export FORTRAN_FALSE
-	𝐣𝐥.@cextern FORTRAN_FALSE::Cbool
+	𝐣𝐥.@cextern FORTRAN_FALSE::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	## Reference
@@ -459,8 +459,8 @@ using CBinding: 𝐣𝐥
 		nGrp::mat_int
 		kind::𝐣𝐥.Cint
 		name::𝐣𝐥.Cchar[10]
-		NeedStructure::Cbool
-		Dense::Cbool
+		NeedStructure::𝐣𝐥.Cbool
+		Dense::𝐣𝐥.Cbool
 	}
 
 	𝐣𝐥.@doc """
@@ -477,7 +477,7 @@ using CBinding: 𝐣𝐥
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::Cbool, CCwithCol::Cbool)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::𝐣𝐥.Cbool, CCwithCol::𝐣𝐥.Cbool)::𝐣𝐥.Cint
 	```
 
 	## Reference
@@ -485,7 +485,7 @@ using CBinding: 𝐣𝐥
 	[C_cs.h:98](/usr/include/worhp/C_cs.h:98:16)
 	""" InitWorhpMatrix
 	export InitWorhpMatrix
-	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::Cbool, CCwithCol::Cbool)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::𝐣𝐥.Cbool, CCwithCol::𝐣𝐥.Cbool)::𝐣𝐥.Cint
 
 	𝐣𝐥.@doc """
 	```
@@ -691,15 +691,15 @@ using CBinding: 𝐣𝐥
 		nemin::𝐣𝐥.Cint
 		scaling::𝐣𝐥.Cint
 		factor_min::𝐣𝐥.Cint
-		ITSOL_PERFORMPRECOND::Cbool
-		ITSOL_PSYMMETRIC::Cbool
-		SCAL::Cbool
-		TRYSIMPLE::Cbool
-		solve_blas3::Cbool
-		solve_mf::Cbool
-		action::Cbool
-		initsymb::Cbool
-		initlu::Cbool
+		ITSOL_PERFORMPRECOND::𝐣𝐥.Cbool
+		ITSOL_PSYMMETRIC::𝐣𝐥.Cbool
+		SCAL::𝐣𝐥.Cbool
+		TRYSIMPLE::𝐣𝐥.Cbool
+		solve_blas3::𝐣𝐥.Cbool
+		solve_mf::𝐣𝐥.Cbool
+		action::𝐣𝐥.Cbool
+		initsymb::𝐣𝐥.Cbool
+		initlu::𝐣𝐥.Cbool
 		valsave::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		diag::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		perm::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
@@ -1071,13 +1071,13 @@ using CBinding: 𝐣𝐥
 		STATUS::𝐣𝐥.Cint
 		UDIM::𝐣𝐥.Cint
 		ZEROEV::𝐣𝐥.Cint
-		CALCWARM::Cbool
-		CHECKZ::Cbool
-		INITS::Cbool
-		ipRelax::Cbool
-		strict::Cbool
-		SCALEDQP::Cbool
-		WarmstartInitDone::Cbool
+		CALCWARM::𝐣𝐥.Cbool
+		CHECKZ::𝐣𝐥.Cbool
+		INITS::𝐣𝐥.Cbool
+		ipRelax::𝐣𝐥.Cbool
+		strict::𝐣𝐥.Cbool
+		SCALEDQP::𝐣𝐥.Cbool
+		WarmstartInitDone::𝐣𝐥.Cbool
 	}
 
 	𝐣𝐥.@doc """
@@ -1129,12 +1129,12 @@ using CBinding: 𝐣𝐥
 		method::𝐣𝐥.Cint
 		nsnLsMethod::𝐣𝐥.Cint
 		printLevel::𝐣𝐥.Cint
-		ipTryRelax::Cbool
-		lsScale::Cbool
-		lsTrySimple::Cbool
-		nsnGradStep::Cbool
-		scaleIntern::Cbool
-		strict::Cbool
+		ipTryRelax::𝐣𝐥.Cbool
+		lsScale::𝐣𝐥.Cbool
+		lsTrySimple::𝐣𝐥.Cbool
+		nsnGradStep::𝐣𝐥.Cbool
+		scaleIntern::𝐣𝐥.Cbool
+		strict::𝐣𝐥.Cbool
 	}
 
 	𝐣𝐥.@doc """
@@ -1148,7 +1148,7 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@cstruct FltNode {
 		CV::𝐣𝐥.Cdouble
 		F::𝐣𝐥.Cdouble
-		initialised::Cbool
+		initialised::𝐣𝐥.Cbool
 		next::𝐣𝐥.Ptr{𝐣𝐥.@cstruct FltNode}
 		prev::𝐣𝐥.Ptr{𝐣𝐥.@cstruct FltNode}
 	}
@@ -3612,8 +3612,8 @@ using CBinding: 𝐣𝐥
 		Mu::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		GPart::𝐣𝐥.Ptr{𝐣𝐥.Cint}
 		P::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		newX::Cbool
-		initialised::Cbool
+		newX::𝐣𝐥.Cbool
+		initialised::𝐣𝐥.Cbool
 	}
 
 	𝐣𝐥.@doc """
@@ -3630,17 +3630,17 @@ using CBinding: 𝐣𝐥
 	𝐣𝐥.@ctypedef Workspace 𝐣𝐥.@cstruct WorkspaceStruct {
 		NLP_ParModTypeSlacks::𝐣𝐥.Cint
 		NLP_ParModTypeObj::𝐣𝐥.Cint
-		NLP_ParUseDLFeas::Cbool
-		NLP_ParUseDGG::Cbool
-		NLP_ParSortMatrix::Cbool
+		NLP_ParUseDLFeas::𝐣𝐥.Cbool
+		NLP_ParUseDGG::𝐣𝐥.Cbool
+		NLP_ParSortMatrix::𝐣𝐥.Cbool
 		NLP_ParScaleMaxGrad::𝐣𝐥.Cdouble
 		NLP_ParScaleMin::𝐣𝐥.Cdouble
 		NLP_ParCheckNanInf::𝐣𝐥.Cint
-		NLP_ParStoreWarmstart::Cbool
-		NLP_ParStoreBounds::Cbool
+		NLP_ParStoreWarmstart::𝐣𝐥.Cbool
+		NLP_ParStoreBounds::𝐣𝐥.Cbool
 		NLP_ParObjLow::𝐣𝐥.Cdouble
 		NLP_ParObjUp::𝐣𝐥.Cdouble
-		NLP_IdxTypeStore::Cbool
+		NLP_IdxTypeStore::𝐣𝐥.Cbool
 		NLP_n::𝐣𝐥.Cint
 		NLP_nIeq::𝐣𝐥.Cint
 		NLP_nIeqLow::𝐣𝐥.Cint
@@ -3652,13 +3652,13 @@ using CBinding: 𝐣𝐥
 		NLP_mIeqLow::𝐣𝐥.Cint
 		NLP_mIeqUp::𝐣𝐥.Cint
 		NLP_mIeqLowUp::𝐣𝐥.Cint
-		NLP_ConstantF::Cbool
-		NLP_ConstantDF::Cbool
-		NLP_ConstantDG::Cbool
-		NLP_ConstantHM::Cbool
-		NLP_FeasibilityOnly::Cbool
-		NLP_UpdatedBoundsValue::Cbool
-		NLP_UpdatedBoundsType::Cbool
+		NLP_ConstantF::𝐣𝐥.Cbool
+		NLP_ConstantDF::𝐣𝐥.Cbool
+		NLP_ConstantDG::𝐣𝐥.Cbool
+		NLP_ConstantHM::𝐣𝐥.Cbool
+		NLP_FeasibilityOnly::𝐣𝐥.Cbool
+		NLP_UpdatedBoundsValue::𝐣𝐥.Cbool
+		NLP_UpdatedBoundsType::𝐣𝐥.Cbool
 		dim_NLP_X::size_t
 		dim_NLP_S::size_t
 		dim_NLP_Mu::size_t
@@ -3729,12 +3729,12 @@ using CBinding: 𝐣𝐥
 		dim_NLP_ActiveSetSU::size_t
 		dim_NLP_ActiveSetGL::size_t
 		dim_NLP_ActiveSetGU::size_t
-		NLP_ActiveSetXL::𝐣𝐥.Ptr{Cbool}
-		NLP_ActiveSetXU::𝐣𝐥.Ptr{Cbool}
-		NLP_ActiveSetSL::𝐣𝐥.Ptr{Cbool}
-		NLP_ActiveSetSU::𝐣𝐥.Ptr{Cbool}
-		NLP_ActiveSetGL::𝐣𝐥.Ptr{Cbool}
-		NLP_ActiveSetGU::𝐣𝐥.Ptr{Cbool}
+		NLP_ActiveSetXL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		NLP_ActiveSetXU::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		NLP_ActiveSetSL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		NLP_ActiveSetSU::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		NLP_ActiveSetGL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		NLP_ActiveSetGU::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
 		dim_NLP_DLx::size_t
 		dim_NLP_DLs::size_t
 		dim_NLP_DLxFeas::size_t
@@ -3768,14 +3768,14 @@ using CBinding: 𝐣𝐥
 		NLP_AcceptFeasMax::𝐣𝐥.Cdouble
 		NLP_AcceptComplMax::𝐣𝐥.Cdouble
 		NLP_AcceptMajorIter::𝐣𝐥.Cint
-		NLP_AcceptSolFound::Cbool
+		NLP_AcceptSolFound::𝐣𝐥.Cbool
 		dim_NLP_WarmX::size_t
 		dim_NLP_WarmMu::size_t
 		dim_NLP_WarmLambda::size_t
 		NLP_WarmX::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		NLP_WarmMu::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		NLP_WarmLambda::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		NLP_WarmStored::Cbool
+		NLP_WarmStored::𝐣𝐥.Cbool
 		dim_NLP_idxX::size_t
 		dim_NLP_idxG::size_t
 		dim_NLP_idxDF::size_t
@@ -3821,26 +3821,26 @@ using CBinding: 𝐣𝐥
 		NLP_nnzHMdiag::𝐣𝐥.Cint
 		NLP_idxObjSlack::𝐣𝐥.Cint
 		NLP_idxObjCon::𝐣𝐥.Cint
-		NLP_EvalOrigF::Cbool
-		NLP_EvalOrigG::Cbool
-		NLP_EvalOrigDF::Cbool
-		NLP_EvalOrigDG::Cbool
-		NLP_EvalOrigHM::Cbool
-		NLP_EvalOrigDL::Cbool
-		NLP_EvalOptiOrig::Cbool
-		NLP_EvalFeasOrig::Cbool
-		NLP_EvalComplOrig::Cbool
-		NLP_EvalF::Cbool
-		NLP_EvalG::Cbool
-		NLP_EvalDF::Cbool
-		NLP_EvalDG::Cbool
-		NLP_EvalHM::Cbool
-		NLP_EvalDL::Cbool
-		NLP_EvalDLFeas::Cbool
-		NLP_EvalDGG::Cbool
-		NLP_EvalOpti::Cbool
-		NLP_EvalFeas::Cbool
-		NLP_EvalCompl::Cbool
+		NLP_EvalOrigF::𝐣𝐥.Cbool
+		NLP_EvalOrigG::𝐣𝐥.Cbool
+		NLP_EvalOrigDF::𝐣𝐥.Cbool
+		NLP_EvalOrigDG::𝐣𝐥.Cbool
+		NLP_EvalOrigHM::𝐣𝐥.Cbool
+		NLP_EvalOrigDL::𝐣𝐥.Cbool
+		NLP_EvalOptiOrig::𝐣𝐥.Cbool
+		NLP_EvalFeasOrig::𝐣𝐥.Cbool
+		NLP_EvalComplOrig::𝐣𝐥.Cbool
+		NLP_EvalF::𝐣𝐥.Cbool
+		NLP_EvalG::𝐣𝐥.Cbool
+		NLP_EvalDF::𝐣𝐥.Cbool
+		NLP_EvalDG::𝐣𝐥.Cbool
+		NLP_EvalHM::𝐣𝐥.Cbool
+		NLP_EvalDL::𝐣𝐥.Cbool
+		NLP_EvalDLFeas::𝐣𝐥.Cbool
+		NLP_EvalDGG::𝐣𝐥.Cbool
+		NLP_EvalOpti::𝐣𝐥.Cbool
+		NLP_EvalFeas::𝐣𝐥.Cbool
+		NLP_EvalCompl::𝐣𝐥.Cbool
 		NLP_FidifF0::𝐣𝐥.Cdouble
 		dim_NLP_FidifDF0::size_t
 		NLP_FidifDF0::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
@@ -3906,12 +3906,12 @@ using CBinding: 𝐣𝐥
 		IP_PenaltyFeas0::𝐣𝐥.Cdouble
 		IP_PenaltySwitch::𝐣𝐥.Cdouble
 		IP_AugMuTrial::𝐣𝐥.Cint
-		IP_BarrierShiftPushedVarX::Cbool
-		IP_BarrierShiftPushedVarS::Cbool
-		IP_PenaltyUpdateIncrObj::Cbool
-		IP_PenaltyUpdateDecrObj::Cbool
-		IP_AugMuUpdated::Cbool
-		IP_AugLambdaUpdated::Cbool
+		IP_BarrierShiftPushedVarX::𝐣𝐥.Cbool
+		IP_BarrierShiftPushedVarS::𝐣𝐥.Cbool
+		IP_PenaltyUpdateIncrObj::𝐣𝐥.Cbool
+		IP_PenaltyUpdateDecrObj::𝐣𝐥.Cbool
+		IP_AugMuUpdated::𝐣𝐥.Cbool
+		IP_AugLambdaUpdated::𝐣𝐥.Cbool
 		dim_IP_ShiftXL::size_t
 		dim_IP_ShiftXU::size_t
 		dim_IP_ShiftSL::size_t
@@ -3945,7 +3945,7 @@ using CBinding: 𝐣𝐥
 		dim_IP_LeqX::size_t
 		dim_IP_LeqLinDependCon::size_t
 		IP_LeqX::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		IP_LeqLinDependCon::𝐣𝐥.Ptr{Cbool}
+		IP_LeqLinDependCon::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
 		IP_Leq01::𝐣𝐥.Cint
 		IP_Leq02::𝐣𝐥.Cint
 		IP_Leq03::𝐣𝐥.Cint
@@ -3984,26 +3984,26 @@ using CBinding: 𝐣𝐥
 		IP_LeqType::𝐣𝐥.Cint
 		IP_LeqBarrierType::𝐣𝐥.Cint
 		IP_LeqPenaltyType::𝐣𝐥.Cint
-		IP_LeqDoneMatrix::Cbool
-		IP_LeqDoneFactorization::Cbool
+		IP_LeqDoneMatrix::𝐣𝐥.Cbool
+		IP_LeqDoneFactorization::𝐣𝐥.Cbool
 		IP_LeqInertia::𝐣𝐥.Cint
 		IP_LeqItRefMinIter::𝐣𝐥.Cint
 		IP_LeqItRefMaxIter::𝐣𝐥.Cint
 		IP_LeqItRefRatio::𝐣𝐥.Cdouble
 		IP_LeqItRefIter::𝐣𝐥.Cint
-		IP_LeqIncQuality::Cbool
-		IP_LeqUseIdentity::Cbool
+		IP_LeqIncQuality::𝐣𝐥.Cbool
+		IP_LeqUseIdentity::𝐣𝐥.Cbool
 		IP_LeqSolveMode::𝐣𝐥.Cint
 		IP_LeqCurrRhs::𝐣𝐥.Cint
-		IP_LeqRegPrimal::Cbool
-		IP_LeqRegDual::Cbool
+		IP_LeqRegPrimal::𝐣𝐥.Cbool
+		IP_LeqRegDual::𝐣𝐥.Cbool
 		dim_IP_LeqGerschgorin::size_t
 		IP_LeqGerschgorin::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_LeqCheckVar::𝐣𝐥.Cint
 		IP_LeqCheckDim::𝐣𝐥.Cint
 		IP_LeqCheckEps::𝐣𝐥.Cdouble
-		IP_LeqCheckFail::Cbool
-		IP_LeqCheckEvalHM::Cbool
+		IP_LeqCheckFail::𝐣𝐥.Cbool
+		IP_LeqCheckEvalHM::𝐣𝐥.Cbool
 		dim_IP_DStdX::size_t
 		dim_IP_DStdS::size_t
 		dim_IP_DStdMu::size_t
@@ -4262,47 +4262,47 @@ using CBinding: 𝐣𝐥
 		IP_AugLambdaTrialXU::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_AugLambdaTrialSL::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_AugLambdaTrialSU::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		IP_EvalOpti::Cbool
-		IP_EvalOptiFeasApprox::Cbool
-		IP_EvalOptiFeas::Cbool
-		IP_EvalOptiFritzJohn::Cbool
-		IP_EvalOptiAugMu::Cbool
-		IP_EvalComplFeas::Cbool
-		IP_EvalComplFritzJohn::Cbool
-		IP_EvalObjBarr::Cbool
-		IP_EvalObjBarrPen::Cbool
-		IP_EvalFeas::Cbool
-		IP_EvalFeasBox::Cbool
-		IP_EvalFeasBarrPen::Cbool
-		IP_EvalCompl::Cbool
-		IP_EvalComplBarr::Cbool
-		IP_EvalComplBarrInv::Cbool
-		IP_EvalGradLagrFeas::Cbool
-		IP_EvalGradLagrFull::Cbool
-		IP_EvalDescD::Cbool
-		IP_EvalDescBarrD::Cbool
-		IP_EvalDescBarrPenD::Cbool
-		IP_EvalDescFeasD::Cbool
-		IP_EvalDescLeqD::Cbool
-		IP_EvalDLFeas::Cbool
-		IP_EvalDLAugMu::Cbool
-		IP_EvalD::Cbool
-		IP_EvalDStd::Cbool
-		IP_EvalDSensBar::Cbool
-		IP_EvalDSensBarShift::Cbool
-		IP_EvalDSensPenObj::Cbool
-		IP_EvalDSensPenFeas::Cbool
-		IP_EvalDSensAugMu::Cbool
-		IP_EvalDualTrustRegionMu::Cbool
-		IP_EvalDualTrustRegionLambda::Cbool
-		IP_EvalMeritFeasPen::Cbool
-		IP_EvalMeritComplBarr::Cbool
+		IP_EvalOpti::𝐣𝐥.Cbool
+		IP_EvalOptiFeasApprox::𝐣𝐥.Cbool
+		IP_EvalOptiFeas::𝐣𝐥.Cbool
+		IP_EvalOptiFritzJohn::𝐣𝐥.Cbool
+		IP_EvalOptiAugMu::𝐣𝐥.Cbool
+		IP_EvalComplFeas::𝐣𝐥.Cbool
+		IP_EvalComplFritzJohn::𝐣𝐥.Cbool
+		IP_EvalObjBarr::𝐣𝐥.Cbool
+		IP_EvalObjBarrPen::𝐣𝐥.Cbool
+		IP_EvalFeas::𝐣𝐥.Cbool
+		IP_EvalFeasBox::𝐣𝐥.Cbool
+		IP_EvalFeasBarrPen::𝐣𝐥.Cbool
+		IP_EvalCompl::𝐣𝐥.Cbool
+		IP_EvalComplBarr::𝐣𝐥.Cbool
+		IP_EvalComplBarrInv::𝐣𝐥.Cbool
+		IP_EvalGradLagrFeas::𝐣𝐥.Cbool
+		IP_EvalGradLagrFull::𝐣𝐥.Cbool
+		IP_EvalDescD::𝐣𝐥.Cbool
+		IP_EvalDescBarrD::𝐣𝐥.Cbool
+		IP_EvalDescBarrPenD::𝐣𝐥.Cbool
+		IP_EvalDescFeasD::𝐣𝐥.Cbool
+		IP_EvalDescLeqD::𝐣𝐥.Cbool
+		IP_EvalDLFeas::𝐣𝐥.Cbool
+		IP_EvalDLAugMu::𝐣𝐥.Cbool
+		IP_EvalD::𝐣𝐥.Cbool
+		IP_EvalDStd::𝐣𝐥.Cbool
+		IP_EvalDSensBar::𝐣𝐥.Cbool
+		IP_EvalDSensBarShift::𝐣𝐥.Cbool
+		IP_EvalDSensPenObj::𝐣𝐥.Cbool
+		IP_EvalDSensPenFeas::𝐣𝐥.Cbool
+		IP_EvalDSensAugMu::𝐣𝐥.Cbool
+		IP_EvalDualTrustRegionMu::𝐣𝐥.Cbool
+		IP_EvalDualTrustRegionLambda::𝐣𝐥.Cbool
+		IP_EvalMeritFeasPen::𝐣𝐥.Cbool
+		IP_EvalMeritComplBarr::𝐣𝐥.Cbool
 		IP_TolBarr::𝐣𝐥.Cdouble
 		IP_TolBarrPen::𝐣𝐥.Cdouble
 		IP_Lowpass::𝐣𝐥.Cdouble
 		IP_LowpassBarr::𝐣𝐥.Cdouble
 		IP_LowpassBarrPen::𝐣𝐥.Cdouble
-		IP_ModifiedOpt::Cbool
+		IP_ModifiedOpt::𝐣𝐥.Cbool
 		IP_UnmodifiedIter::counter
 		IP_IterFeasible::counter
 		IP_AdaptFilter::𝐣𝐥.Ptr{FilterNode}
@@ -4317,7 +4317,7 @@ using CBinding: 𝐣𝐥
 		IP_HistoryBarrPenOptKkt::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_HistoryAugLambdaUpdateBarrKkt::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_HistoryAugLambdaUpdateKkt::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		IP_Initialized::Cbool
+		IP_Initialized::𝐣𝐥.Cbool
 		IP_IterCentering::counter
 		IP_Status::𝐣𝐥.Cint
 		IP_StatusInitRestart::𝐣𝐥.Cint
@@ -4373,7 +4373,7 @@ using CBinding: 𝐣𝐥
 		Line_AlphaMaxMu::𝐣𝐥.Cdouble
 		Line_AlphaMax::𝐣𝐥.Cdouble
 		Line_AlphaMin::𝐣𝐥.Cdouble
-		Line_AlphaMaxFull::Cbool
+		Line_AlphaMaxFull::𝐣𝐥.Cbool
 		Line_FilterGlobal::𝐣𝐥.Ptr{FilterNode}
 		Line_FilterLocal::𝐣𝐥.Ptr{FilterNode}
 		Line_FilterCVmin::𝐣𝐥.Cdouble
@@ -4410,10 +4410,10 @@ using CBinding: 𝐣𝐥
 		Line_Status::𝐣𝐥.Cint
 		Line_Phase::𝐣𝐥.Cint
 		Line_Mode::𝐣𝐥.Cint
-		Line_Nonmon::Cbool
+		Line_Nonmon::𝐣𝐥.Cbool
 		Line_AcceptMethod::𝐣𝐥.Cint
 		Line_AcceptPhase::𝐣𝐥.Cint
-		Line_Constrained::Cbool
+		Line_Constrained::𝐣𝐥.Cbool
 		Line_MethodNum::𝐣𝐥.Cint
 		dim_Line_MethodInitStep::size_t
 		dim_Line_MethodCheck::size_t
@@ -4426,13 +4426,13 @@ using CBinding: 𝐣𝐥
 		Line_MethodBackupCheck::𝐣𝐥.Ptr{𝐣𝐥.Cint}
 		Line_MethodReduce::𝐣𝐥.Cint
 		Line_MethodBackupReduce::𝐣𝐥.Cint
-		Line_UpdatePrimal::Cbool
-		Line_UpdateDual::Cbool
-		Line_NeedUserDeriv::Cbool
+		Line_UpdatePrimal::𝐣𝐥.Cbool
+		Line_UpdateDual::𝐣𝐥.Cbool
+		Line_NeedUserDeriv::𝐣𝐥.Cbool
 		Line_MeritNonmon::𝐣𝐥.Cint
 		Line_MeritKktNonmon::𝐣𝐥.Cint
 		Line_FilterNonmon::𝐣𝐥.Cint
-		Line_Interp::Cbool
+		Line_Interp::𝐣𝐥.Cbool
 		Line_InterpMin::𝐣𝐥.Cdouble
 		Line_InterpMax::𝐣𝐥.Cdouble
 		Line_ArmijoBeta::𝐣𝐥.Cdouble
@@ -4472,12 +4472,12 @@ using CBinding: 𝐣𝐥
 		ZenDF2::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		dim_ZenStatus::size_t
 		dim_ZenStatus2::size_t
-		ZenStatusDX::𝐣𝐥.Ptr{Cbool}
-		ZenStatusDM::𝐣𝐥.Ptr{Cbool}
-		ZenStatusDL::𝐣𝐥.Ptr{Cbool}
-		ZenStatusDF::𝐣𝐥.Ptr{Cbool}
-		ZenStatusDF2::𝐣𝐥.Ptr{Cbool}
-		ZenStatusDG::𝐣𝐥.Ptr{Cbool}
+		ZenStatusDX::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		ZenStatusDM::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		ZenStatusDL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		ZenStatusDF::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		ZenStatusDF2::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		ZenStatusDG::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
 		FirstFilterNode::𝐣𝐥.Ptr{FilterNode}
 		qp::QPWorkspace
 		DebugMarker01::𝐣𝐥.Cint
@@ -4691,7 +4691,7 @@ using CBinding: 𝐣𝐥
 		fidif_saveDG::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		fidif_saveG0::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		fidif_last_indices::𝐣𝐥.Ptr{𝐣𝐥.Cint}
-		newEntriesX::𝐣𝐥.Ptr{Cbool}
+		newEntriesX::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
 		saved_userDF::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		saved_userDG::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		BStepOldX::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
@@ -4816,85 +4816,85 @@ using CBinding: 𝐣𝐥
 		TerminationMetSKKTiter::𝐣𝐥.Cint
 		CrossoverIter::𝐣𝐥.Cint
 		AresInLinesearch::𝐣𝐥.Cint
-		AcceptFeasible::Cbool
-		AcceptOptimal::Cbool
-		AcceptSolFound::Cbool
-		AcceptTerminationByConstantF::Cbool
-		AutoQPRecActive::Cbool
-		BettsUpdate::Cbool
-		Complementary::Cbool
-		Constrained::Cbool
-		BstepFeasFirstTimeBuildBox::Cbool
-		BstepFeasMeritFail::Cbool
-		BstepFeasActive::Cbool
-		BstepFeasAbortFactor::Cbool
-		BstepFeasFinished::Cbool
-		BstepSuccessful::Cbool
-		BstepFirstArmijoCall::Cbool
-		CheckDerivFidifDone::Cbool
-		CheckDerivUserDone::Cbool
-		DGslcDone::Cbool
-		DidLinesearchEvalF::Cbool
-		DidLinesearchEvalG::Cbool
-		DidLinesearchStartAres::Cbool
-		Feasible::Cbool
-		FeasibleDual::Cbool
-		FeasibleInit::Cbool
-		FeasibleInitFailed::Cbool
-		FeasibleInitDone::Cbool
-		FeasibleStep::Cbool
-		fidif_first_evald::Cbool
-		fidif_f_evald::Cbool
-		fidif_g_evald::Cbool
-		HMposdef::Cbool
-		HMslcDone::Cbool
-		InitialLMEst::Cbool
-		WasInitialLMEst::Cbool
-		KeepQPVectorsForBstep::Cbool
-		KKTok::Cbool
-		MajorIterFinished::Cbool
-		oldUserDF::Cbool
-		oldUserDG::Cbool
-		oldUserHM::Cbool
-		Optimal::Cbool
-		PostQPSensActive::Cbool
-		QPNotFinished::Cbool
-		RelaxCon::Cbool
-		adaptiveRelaxationChanged::Cbool
-		regStrategyGotoFlag::Cbool
-		saveFidifHM::Cbool
-		scaledQP::Cbool
-		setInactive::Cbool
-		switchModeActive::Cbool
-		switchModeFinished::Cbool
-		TakeQPSolError::Cbool
-		TerminationByConstantF::Cbool
-		UseId::Cbool
-		WasFeasMode::Cbool
-		Acceptable::Cbool
-		AresForce::Cbool
-		AugmentFilter::Cbool
-		CheckFullStepsize::Cbool
-		FeasRest::Cbool
-		FirstHessianReg::Cbool
-		FullStepsize::Cbool
-		FStepsize::Cbool
-		qppsa_qpdx_failed::Cbool
-		qppsa_qpdx_reg_available::Cbool
-		qppsa_HMReg_available::Cbool
-		qppsa_qpdx_relax_available::Cbool
-		qppsa_relaxpen_available::Cbool
-		qppsa_relaxpen_failed::Cbool
-		qppsa_HMreg_failed::Cbool
-		RejectedByFilter::Cbool
-		SecondHessianReg::Cbool
-		SLPstep::Cbool
-		SmallerAlpha::Cbool
-		SwitchingCond::Cbool
-		UseRegSens::Cbool
-		UseRelaxSens::Cbool
+		AcceptFeasible::𝐣𝐥.Cbool
+		AcceptOptimal::𝐣𝐥.Cbool
+		AcceptSolFound::𝐣𝐥.Cbool
+		AcceptTerminationByConstantF::𝐣𝐥.Cbool
+		AutoQPRecActive::𝐣𝐥.Cbool
+		BettsUpdate::𝐣𝐥.Cbool
+		Complementary::𝐣𝐥.Cbool
+		Constrained::𝐣𝐥.Cbool
+		BstepFeasFirstTimeBuildBox::𝐣𝐥.Cbool
+		BstepFeasMeritFail::𝐣𝐥.Cbool
+		BstepFeasActive::𝐣𝐥.Cbool
+		BstepFeasAbortFactor::𝐣𝐥.Cbool
+		BstepFeasFinished::𝐣𝐥.Cbool
+		BstepSuccessful::𝐣𝐥.Cbool
+		BstepFirstArmijoCall::𝐣𝐥.Cbool
+		CheckDerivFidifDone::𝐣𝐥.Cbool
+		CheckDerivUserDone::𝐣𝐥.Cbool
+		DGslcDone::𝐣𝐥.Cbool
+		DidLinesearchEvalF::𝐣𝐥.Cbool
+		DidLinesearchEvalG::𝐣𝐥.Cbool
+		DidLinesearchStartAres::𝐣𝐥.Cbool
+		Feasible::𝐣𝐥.Cbool
+		FeasibleDual::𝐣𝐥.Cbool
+		FeasibleInit::𝐣𝐥.Cbool
+		FeasibleInitFailed::𝐣𝐥.Cbool
+		FeasibleInitDone::𝐣𝐥.Cbool
+		FeasibleStep::𝐣𝐥.Cbool
+		fidif_first_evald::𝐣𝐥.Cbool
+		fidif_f_evald::𝐣𝐥.Cbool
+		fidif_g_evald::𝐣𝐥.Cbool
+		HMposdef::𝐣𝐥.Cbool
+		HMslcDone::𝐣𝐥.Cbool
+		InitialLMEst::𝐣𝐥.Cbool
+		WasInitialLMEst::𝐣𝐥.Cbool
+		KeepQPVectorsForBstep::𝐣𝐥.Cbool
+		KKTok::𝐣𝐥.Cbool
+		MajorIterFinished::𝐣𝐥.Cbool
+		oldUserDF::𝐣𝐥.Cbool
+		oldUserDG::𝐣𝐥.Cbool
+		oldUserHM::𝐣𝐥.Cbool
+		Optimal::𝐣𝐥.Cbool
+		PostQPSensActive::𝐣𝐥.Cbool
+		QPNotFinished::𝐣𝐥.Cbool
+		RelaxCon::𝐣𝐥.Cbool
+		adaptiveRelaxationChanged::𝐣𝐥.Cbool
+		regStrategyGotoFlag::𝐣𝐥.Cbool
+		saveFidifHM::𝐣𝐥.Cbool
+		scaledQP::𝐣𝐥.Cbool
+		setInactive::𝐣𝐥.Cbool
+		switchModeActive::𝐣𝐥.Cbool
+		switchModeFinished::𝐣𝐥.Cbool
+		TakeQPSolError::𝐣𝐥.Cbool
+		TerminationByConstantF::𝐣𝐥.Cbool
+		UseId::𝐣𝐥.Cbool
+		WasFeasMode::𝐣𝐥.Cbool
+		Acceptable::𝐣𝐥.Cbool
+		AresForce::𝐣𝐥.Cbool
+		AugmentFilter::𝐣𝐥.Cbool
+		CheckFullStepsize::𝐣𝐥.Cbool
+		FeasRest::𝐣𝐥.Cbool
+		FirstHessianReg::𝐣𝐥.Cbool
+		FullStepsize::𝐣𝐥.Cbool
+		FStepsize::𝐣𝐥.Cbool
+		qppsa_qpdx_failed::𝐣𝐥.Cbool
+		qppsa_qpdx_reg_available::𝐣𝐥.Cbool
+		qppsa_HMReg_available::𝐣𝐥.Cbool
+		qppsa_qpdx_relax_available::𝐣𝐥.Cbool
+		qppsa_relaxpen_available::𝐣𝐥.Cbool
+		qppsa_relaxpen_failed::𝐣𝐥.Cbool
+		qppsa_HMreg_failed::𝐣𝐥.Cbool
+		RejectedByFilter::𝐣𝐥.Cbool
+		SecondHessianReg::𝐣𝐥.Cbool
+		SLPstep::𝐣𝐥.Cbool
+		SmallerAlpha::𝐣𝐥.Cbool
+		SwitchingCond::𝐣𝐥.Cbool
+		UseRegSens::𝐣𝐥.Cbool
+		UseRelaxSens::𝐣𝐥.Cbool
 		DebugMarker04::𝐣𝐥.Cint
-		initialised::Cbool
+		initialised::𝐣𝐥.Cbool
 	}
 
 	𝐣𝐥.@doc """
@@ -4916,9 +4916,9 @@ using CBinding: 𝐣𝐥
 		TolComp::𝐣𝐥.Cdouble
 		AcceptTolFeas::𝐣𝐥.Cdouble
 		AcceptTolOpti::𝐣𝐥.Cdouble
-		KeepAcceptableSol::Cbool
-		LowPassFilter::Cbool
-		TooBig::Cbool
+		KeepAcceptableSol::𝐣𝐥.Cbool
+		LowPassFilter::𝐣𝐥.Cbool
+		TooBig::𝐣𝐥.Cbool
 		MaxCalls::𝐣𝐥.Cint
 		MaxIter::𝐣𝐥.Cint
 		Timeout::𝐣𝐥.Cdouble
@@ -4930,32 +4930,32 @@ using CBinding: 𝐣𝐥
 		Crossover::𝐣𝐥.Cint
 		CrossoverIter::𝐣𝐥.Cint
 		CrossoverTol::𝐣𝐥.Cdouble
-		ShowMonitor::Cbool
-		DetailedNewX::Cbool
+		ShowMonitor::𝐣𝐥.Cbool
+		DetailedNewX::𝐣𝐥.Cbool
 		LogLevel::𝐣𝐥.Cint
 		LogResult::𝐣𝐥.Cint
 		NLPprint::𝐣𝐥.Cint
-		UserDF::Cbool
-		UserDG::Cbool
-		UserHM::Cbool
-		FGtogether::Cbool
+		UserDF::𝐣𝐥.Cbool
+		UserDG::𝐣𝐥.Cbool
+		UserHM::𝐣𝐥.Cbool
+		FGtogether::𝐣𝐥.Cbool
 		UserHMstructure::𝐣𝐥.Cint
-		FidifHM::Cbool
-		FidifGroups::Cbool
-		ScaledFD::Cbool
-		CheckGroups::Cbool
-		FirstDifCentral::Cbool
-		SecondDifCentral::Cbool
+		FidifHM::𝐣𝐥.Cbool
+		FidifGroups::𝐣𝐥.Cbool
+		ScaledFD::𝐣𝐥.Cbool
+		CheckGroups::𝐣𝐥.Cbool
+		FirstDifCentral::𝐣𝐥.Cbool
+		SecondDifCentral::𝐣𝐥.Cbool
 		GroupMethod::𝐣𝐥.Cint
 		MaxGPart::𝐣𝐥.Cint
 		PairMethod::𝐣𝐥.Cint
 		FidifEps::𝐣𝐥.Cdouble
-		CheckStructureDF::Cbool
-		CheckStructureDG::Cbool
-		CheckStructureHM::Cbool
-		CheckValuesDF::Cbool
-		CheckValuesDG::Cbool
-		CheckValuesHM::Cbool
+		CheckStructureDF::𝐣𝐥.Cbool
+		CheckStructureDG::𝐣𝐥.Cbool
+		CheckStructureHM::𝐣𝐥.Cbool
+		CheckValuesDF::𝐣𝐥.Cbool
+		CheckValuesDG::𝐣𝐥.Cbool
+		CheckValuesHM::𝐣𝐥.Cbool
 		CheckDerivIter::𝐣𝐥.Cint
 		CheckDerivTolAbs::𝐣𝐥.Cdouble
 		CheckDerivTolRel::𝐣𝐥.Cdouble
@@ -4976,34 +4976,34 @@ using CBinding: 𝐣𝐥
 		SwitchModeIpResTol::𝐣𝐥.Cdouble
 		SwitchModeLsTol::𝐣𝐥.Cdouble
 		SwitchModeTermTol::𝐣𝐥.Cdouble
-		FJandND::Cbool
-		sKKTOnlyAcceptable::Cbool
-		ScaledKKT::Cbool
+		FJandND::𝐣𝐥.Cbool
+		sKKTOnlyAcceptable::𝐣𝐥.Cbool
+		ScaledKKT::𝐣𝐥.Cbool
 		BoundTolFac::𝐣𝐥.Cdouble
 		CheckFJ::𝐣𝐥.Cdouble
 		LowPassAlphaMerit::𝐣𝐥.Cdouble
-		AutoQPRecovery::Cbool
+		AutoQPRecovery::𝐣𝐥.Cbool
 		BettsFactor::𝐣𝐥.Cdouble
 		BettsPoint::𝐣𝐥.Cdouble
 		IncBettsTau::𝐣𝐥.Cdouble
 		IncBettsTauMore::𝐣𝐥.Cdouble
 		StartBettsTau::𝐣𝐥.Cdouble
 		LineSearchMethod::𝐣𝐥.Cint
-		LinMult::Cbool
+		LinMult::𝐣𝐥.Cbool
 		ArmijoBeta::𝐣𝐥.Cdouble
 		ArmijoBetaAres::𝐣𝐥.Cdouble
 		ArmijoMaxAlpha::𝐣𝐥.Cdouble
 		ArmijoMinAlpha::𝐣𝐥.Cdouble
 		ArmijoMinAlphaRec::𝐣𝐥.Cdouble
 		ArmijoSigma::𝐣𝐥.Cdouble
-		AlphaMinConst::Cbool
-		FilterBisecAlpha::Cbool
-		FilterIntersecAlpha::Cbool
-		IgnoreFilterCrit::Cbool
-		ReinitFilter::Cbool
-		MaxNorm::Cbool
-		FilterRestFeas::Cbool
-		RestUntilFeas::Cbool
+		AlphaMinConst::𝐣𝐥.Cbool
+		FilterBisecAlpha::𝐣𝐥.Cbool
+		FilterIntersecAlpha::𝐣𝐥.Cbool
+		IgnoreFilterCrit::𝐣𝐥.Cbool
+		ReinitFilter::𝐣𝐥.Cbool
+		MaxNorm::𝐣𝐥.Cbool
+		FilterRestFeas::𝐣𝐥.Cbool
+		RestUntilFeas::𝐣𝐥.Cbool
 		MaxLScounter::𝐣𝐥.Cint
 		RegStrategy::𝐣𝐥.Cint
 		FilterGammaCV::𝐣𝐥.Cdouble
@@ -5014,7 +5014,7 @@ using CBinding: 𝐣𝐥
 		SwitchingDelta::𝐣𝐥.Cdouble
 		SwitchingSF::𝐣𝐥.Cdouble
 		SwitchingSCV::𝐣𝐥.Cdouble
-		TakeQPSol::Cbool
+		TakeQPSol::𝐣𝐥.Cbool
 		MeritFunction::𝐣𝐥.Cint
 		PenUpdEpsKSequence::𝐣𝐥.Cint
 		PenUpdEpsBar::𝐣𝐥.Cdouble
@@ -5023,10 +5023,10 @@ using CBinding: 𝐣𝐥
 		PenUpdMaxFac::𝐣𝐥.Cdouble
 		PenUpdRBar::𝐣𝐥.Cdouble
 		MeritGradTol::𝐣𝐥.Cdouble
-		RefineOnlyOnAlpha::Cbool
-		RefineFeasMerit::Cbool
-		SteffensenOnRefine::Cbool
-		UpdateMu::Cbool
+		RefineOnlyOnAlpha::𝐣𝐥.Cbool
+		RefineFeasMerit::𝐣𝐥.Cbool
+		SteffensenOnRefine::𝐣𝐥.Cbool
+		UpdateMu::𝐣𝐥.Cbool
 		RefineFeasMaxIter::𝐣𝐥.Cint
 		RefineFeasibility::𝐣𝐥.Cint
 		RefineFeasTermination::𝐣𝐥.Cint
@@ -5036,39 +5036,39 @@ using CBinding: 𝐣𝐥
 		RefineMaxRelax::𝐣𝐥.Cdouble
 		RefineMaxHMReg::𝐣𝐥.Cdouble
 		PostQPSensRegVal::𝐣𝐥.Cint
-		PostQPSensRelaxPen::Cbool
+		PostQPSensRelaxPen::𝐣𝐥.Cbool
 		PostQPSensitivity::𝐣𝐥.Cint
 		PostQPSensRelaxFrac::𝐣𝐥.Cdouble
 		PostQPSensRegValFrac::𝐣𝐥.Cdouble
 		PostQPSensRegValObjDev::𝐣𝐥.Cdouble
-		RelaxCon::Cbool
-		RelaxOnlyNonlinear::Cbool
-		AdaptiveConstrRelax::Cbool
-		MoreRelax::Cbool
-		RelaxPenOnlyOne::Cbool
+		RelaxCon::𝐣𝐥.Cbool
+		RelaxOnlyNonlinear::𝐣𝐥.Cbool
+		AdaptiveConstrRelax::𝐣𝐥.Cbool
+		MoreRelax::𝐣𝐥.Cbool
+		RelaxPenOnlyOne::𝐣𝐥.Cbool
 		RelaxMaxDelta::𝐣𝐥.Cdouble
 		RelaxMaxPen::𝐣𝐥.Cdouble
 		RelaxRho::𝐣𝐥.Cdouble
 		RelaxStart::𝐣𝐥.Cdouble
-		ScaleConIter::Cbool
-		ScaledObj::Cbool
-		ScaledQP::Cbool
+		ScaleConIter::𝐣𝐥.Cbool
+		ScaledObj::𝐣𝐥.Cbool
+		ScaledQP::𝐣𝐥.Cbool
 		ScaleFacObj::𝐣𝐥.Cdouble
 		ScaleFacQP::𝐣𝐥.Cdouble
-		InitialLMest::Cbool
+		InitialLMest::𝐣𝐥.Cbool
 		LMestQPipComTol::𝐣𝐥.Cdouble
 		LMestQPipResTol::𝐣𝐥.Cdouble
-		FeasibleDual::Cbool
-		FeasibleInit::Cbool
-		FeasibleOnly::Cbool
-		FocusOnFeas::Cbool
+		FeasibleDual::𝐣𝐥.Cbool
+		FeasibleInit::𝐣𝐥.Cbool
+		FeasibleOnly::𝐣𝐥.Cbool
+		FocusOnFeas::𝐣𝐥.Cbool
 		FeasibleInitTol::𝐣𝐥.Cdouble
 		FocusOnFeasFactor::𝐣𝐥.Cdouble
 		MaxForce::𝐣𝐥.Cint
 		Ares::𝐣𝐥.Cint[7]
-		IP_NlpRelaxBounds::Cbool
-		IP_NlpRelaxBoundsIter::Cbool
-		IP_NlpStressBounds::Cbool
+		IP_NlpRelaxBounds::𝐣𝐥.Cbool
+		IP_NlpRelaxBoundsIter::𝐣𝐥.Cbool
+		IP_NlpStressBounds::𝐣𝐥.Cbool
 		IP_NlpObjLow::𝐣𝐥.Cdouble
 		IP_NlpObjUp::𝐣𝐥.Cdouble
 		IP_BarrierType::𝐣𝐥.Cint
@@ -5104,13 +5104,13 @@ using CBinding: 𝐣𝐥
 		IP_PenaltyAdaptImprFeas::𝐣𝐥.Cdouble
 		IP_PenaltyAdaptImprQuad::𝐣𝐥.Cdouble
 		IP_PenaltyAdaptAugTol::𝐣𝐥.Cdouble
-		IP_PenaltyAllowReduce::Cbool
+		IP_PenaltyAllowReduce::𝐣𝐥.Cbool
 		IP_AdaptCheckMethod::𝐣𝐥.Cint
 		IP_AdaptFilterNonmon::𝐣𝐥.Cint
 		IP_InitMethodDual::𝐣𝐥.Cint
 		IP_InitMethodDualBox::𝐣𝐥.Cint
-		IP_InitDualEstimation::Cbool
-		IP_InitDualAdjustment::Cbool
+		IP_InitDualEstimation::𝐣𝐥.Cbool
+		IP_InitDualAdjustment::𝐣𝐥.Cbool
 		IP_InitCenteringSteps::𝐣𝐥.Cint
 		IP_InitDual::𝐣𝐥.Cdouble
 		IP_InitDualBox::𝐣𝐥.Cdouble
@@ -5119,12 +5119,12 @@ using CBinding: 𝐣𝐥
 		IP_InitBoundDistSAbs::𝐣𝐥.Cdouble
 		IP_InitBoundDistSRel::𝐣𝐥.Cdouble
 		IP_InitBoundDistDual::𝐣𝐥.Cdouble
-		IP_WarmStore::Cbool
-		IP_WarmSensUpdate::Cbool
+		IP_WarmStore::𝐣𝐥.Cbool
+		IP_WarmSensUpdate::𝐣𝐥.Cbool
 		IP_WarmMethodDual::𝐣𝐥.Cint
 		IP_WarmMethodDualBox::𝐣𝐥.Cint
-		IP_WarmDualEstimation::Cbool
-		IP_WarmDualAdjustment::Cbool
+		IP_WarmDualEstimation::𝐣𝐥.Cbool
+		IP_WarmDualAdjustment::𝐣𝐥.Cbool
 		IP_WarmCenteringSteps::𝐣𝐥.Cint
 		IP_WarmDual::𝐣𝐥.Cdouble
 		IP_WarmDualBox::𝐣𝐥.Cdouble
@@ -5133,9 +5133,9 @@ using CBinding: 𝐣𝐥
 		IP_WarmBoundDistSAbs::𝐣𝐥.Cdouble
 		IP_WarmBoundDistSRel::𝐣𝐥.Cdouble
 		IP_WarmBoundDistDual::𝐣𝐥.Cdouble
-		IP_RegCheckInertia::Cbool
+		IP_RegCheckInertia::𝐣𝐥.Cbool
 		IP_RegMethodDual::𝐣𝐥.Cint
-		IP_RegFailUseIdentity::Cbool
+		IP_RegFailUseIdentity::𝐣𝐥.Cbool
 		IP_RegMinDescent::𝐣𝐥.Cdouble
 		IP_RegHessStart::𝐣𝐥.Cdouble
 		IP_RegHessOldFrac::𝐣𝐥.Cdouble
@@ -5143,17 +5143,17 @@ using CBinding: 𝐣𝐥
 		IP_RegHessIncrStd::𝐣𝐥.Cdouble
 		IP_RegHessMax::𝐣𝐥.Cdouble
 		IP_RegJac::𝐣𝐥.Cdouble
-		IP_LeqIncQuality::Cbool
+		IP_LeqIncQuality::𝐣𝐥.Cbool
 		IP_LeqReduce::𝐣𝐥.Cint
 		IP_LeqItRefRedMaxIter::𝐣𝐥.Cint
 		IP_LeqItRefMinIter::𝐣𝐥.Cint
 		IP_LeqItRefMaxIter::𝐣𝐥.Cint
 		IP_LeqItRefTol::𝐣𝐥.Cdouble
 		IP_LeqItRefImprFac::𝐣𝐥.Cdouble
-		IP_LeqCheck::Cbool
+		IP_LeqCheck::𝐣𝐥.Cbool
 		IP_LeqCheckTolAbs::𝐣𝐥.Cdouble
 		IP_LeqCheckTolRel::𝐣𝐥.Cdouble
-		IP_LeqMa97Auto::Cbool
+		IP_LeqMa97Auto::𝐣𝐥.Cbool
 		IP_RefineStep::𝐣𝐥.Cint
 		IP_RefineStepMaxIter::𝐣𝐥.Cint
 		IP_LineMethod::𝐣𝐥.Cint
@@ -5169,10 +5169,10 @@ using CBinding: 𝐣𝐥
 		IP_LineAlphaMin::𝐣𝐥.Cdouble
 		IP_LinePenaltyFeasPen::𝐣𝐥.Cdouble
 		IP_LinePenaltyComplBarr::𝐣𝐥.Cdouble
-		IP_LineInterp::Cbool
+		IP_LineInterp::𝐣𝐥.Cbool
 		IP_LineInterpMin::𝐣𝐥.Cdouble
 		IP_LineInterpMax::𝐣𝐥.Cdouble
-		IP_LineSlackReset::Cbool
+		IP_LineSlackReset::𝐣𝐥.Cbool
 		IP_LineFracToBound::𝐣𝐥.Cdouble
 		IP_LineFracToBoundThres::𝐣𝐥.Cdouble
 		IP_LineTrustDual::𝐣𝐥.Cdouble
@@ -5182,26 +5182,26 @@ using CBinding: 𝐣𝐥
 		IP_CheckNanInf::𝐣𝐥.Cint
 		IP_CheckMaxPrimal::𝐣𝐥.Cdouble
 		IP_CheckMaxDual::𝐣𝐥.Cdouble
-		IP_CheckLowPassBarr::Cbool
-		IP_CheckLowPassPen::Cbool
+		IP_CheckLowPassBarr::𝐣𝐥.Cbool
+		IP_CheckLowPassPen::𝐣𝐥.Cbool
 		IP_CheckLowPassTol::𝐣𝐥.Cdouble
-		IP_CheckOrigCont::Cbool
-		IP_CheckOrigContUnscale::Cbool
+		IP_CheckOrigCont::𝐣𝐥.Cbool
+		IP_CheckOrigContUnscale::𝐣𝐥.Cbool
 		IP_CheckOrigContMaxIter::𝐣𝐥.Cint
-		IP_ScaleF::Cbool
-		IP_ScaleG::Cbool
+		IP_ScaleF::𝐣𝐥.Cbool
+		IP_ScaleG::𝐣𝐥.Cbool
 		IP_ScaleMaxGrad::𝐣𝐥.Cdouble
 		IP_ScaleMin::𝐣𝐥.Cdouble
-		UseZen::Cbool
-		UserZenDGp::Cbool
-		UserZenDLxp::Cbool
-		UserZenDLp::Cbool
-		UserZenDLpp::Cbool
-		ZenCheckMaxPert::Cbool
-		ZenRenewLU::Cbool
+		UseZen::𝐣𝐥.Cbool
+		UserZenDGp::𝐣𝐥.Cbool
+		UserZenDLxp::𝐣𝐥.Cbool
+		UserZenDLp::𝐣𝐥.Cbool
+		UserZenDLpp::𝐣𝐥.Cbool
+		ZenCheckMaxPert::𝐣𝐥.Cbool
+		ZenRenewLU::𝐣𝐥.Cbool
 		ZenStore::𝐣𝐥.Cint
-		MA97blas3::Cbool
-		MA97mf::Cbool
+		MA97blas3::𝐣𝐥.Cbool
+		MA97mf::𝐣𝐥.Cbool
 		MA97ordering::𝐣𝐥.Cint
 		MA97scaling::𝐣𝐥.Cint
 		MA97print::𝐣𝐥.Cint
@@ -5214,16 +5214,16 @@ using CBinding: 𝐣𝐥
 		IncreaseIWS::𝐣𝐥.Cdouble
 		IncreaseRWS::𝐣𝐥.Cdouble
 		internalParChanged::𝐣𝐥.Cint
-		MatrixCC::Cbool
+		MatrixCC::𝐣𝐥.Cbool
 		QPscaleParam::𝐣𝐥.Cdouble
 		PrecisionF::𝐣𝐥.Cdouble
 		PrecisionG::𝐣𝐥.Cdouble
 		TolWeakActive::𝐣𝐥.Cdouble
-		WeakActiveSet::Cbool
+		WeakActiveSet::𝐣𝐥.Cbool
 		qp::QPParams
 		licenseFileContent::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 		DebugMarker06::𝐣𝐥.Cint
-		initialised::Cbool
+		initialised::𝐣𝐥.Cbool
 	}
 
 	𝐣𝐥.@doc """
@@ -5241,21 +5241,21 @@ using CBinding: 𝐣𝐥
 		Date::DateType
 		Timer::TimerType
 		Stage::𝐣𝐥.Cint[10]
-		UserAction::Cbool[14]
+		UserAction::𝐣𝐥.Cbool[14]
 		status::𝐣𝐥.Cint
 		int_status::𝐣𝐥.Cint
 		pre_zen_status::𝐣𝐥.Cint
 		currentStage::𝐣𝐥.Cint
-		Warmstarted::Cbool
+		Warmstarted::𝐣𝐥.Cbool
 		ZenRCcounter1::counter
 		ZenRCcounter2::counter
-		ZenInit::Cbool
-		initialised::Cbool
+		ZenInit::𝐣𝐥.Cbool
+		initialised::𝐣𝐥.Cbool
 	}
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::Cbool
+	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -5263,7 +5263,7 @@ using CBinding: 𝐣𝐥
 	[C_Worhp_Data.h:4935](/usr/include/worhp/C_Worhp_Data.h:4935:17)
 	""" GetUserAction
 	export GetUserAction
-	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::Cbool
+	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
@@ -5456,7 +5456,7 @@ using CBinding: 𝐣𝐥
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{Cbool})::Cbool
+	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cbool})::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -5464,11 +5464,11 @@ using CBinding: 𝐣𝐥
 	[C_Worhp_Members.h:69](/usr/include/worhp/C_Worhp_Members.h:69:17)
 	""" WorhpGetBoolParam
 	export WorhpGetBoolParam
-	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{Cbool})::Cbool
+	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cbool})::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::Cbool
+	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -5476,11 +5476,11 @@ using CBinding: 𝐣𝐥
 	[C_Worhp_Members.h:70](/usr/include/worhp/C_Worhp_Members.h:70:17)
 	""" WorhpGetIntParam
 	export WorhpGetIntParam
-	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::Cbool
+	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::Cbool
+	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -5488,11 +5488,11 @@ using CBinding: 𝐣𝐥
 	[C_Worhp_Members.h:71](/usr/include/worhp/C_Worhp_Members.h:71:17)
 	""" WorhpGetDoubleParam
 	export WorhpGetDoubleParam
-	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::Cbool
+	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::Cbool)::Cbool
+	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cbool)::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -5500,11 +5500,11 @@ using CBinding: 𝐣𝐥
 	[C_Worhp_Members.h:75](/usr/include/worhp/C_Worhp_Members.h:75:17)
 	""" WorhpSetBoolParam
 	export WorhpSetBoolParam
-	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::Cbool)::Cbool
+	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cbool)::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::Cbool
+	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -5512,11 +5512,11 @@ using CBinding: 𝐣𝐥
 	[C_Worhp_Members.h:76](/usr/include/worhp/C_Worhp_Members.h:76:17)
 	""" WorhpSetIntParam
 	export WorhpSetIntParam
-	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::Cbool
+	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::Cbool
+	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -5524,7 +5524,7 @@ using CBinding: 𝐣𝐥
 	[C_Worhp_Members.h:77](/usr/include/worhp/C_Worhp_Members.h:77:17)
 	""" WorhpSetDoubleParam
 	export WorhpSetDoubleParam
-	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::Cbool
+	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	## Reference
@@ -5858,12 +5858,12 @@ using CBinding: 𝐣𝐥
 	export MajorIterNotice, MajorIterNoticeStruct
 	𝐣𝐥.@ctypedef MajorIterNotice 𝐣𝐥.@cstruct MajorIterNoticeStruct {
 		F::𝐣𝐥.Cdouble
-		AcceptFeasible::Cbool
-		AcceptOptimal::Cbool
-		Feasible::Cbool
-		FeasRest::Cbool
-		Optimal::Cbool
-		UseId::Cbool
+		AcceptFeasible::𝐣𝐥.Cbool
+		AcceptOptimal::𝐣𝐥.Cbool
+		Feasible::𝐣𝐥.Cbool
+		FeasRest::𝐣𝐥.Cbool
+		Optimal::𝐣𝐥.Cbool
+		UseId::𝐣𝐥.Cbool
 		aresId::𝐣𝐥.Cint
 		CurrentFeasMode::𝐣𝐥.Cint
 		Line_AcceptMethod::𝐣𝐥.Cint
@@ -5890,11 +5890,11 @@ using CBinding: 𝐣𝐥
 		penMaxVal::𝐣𝐥.Cdouble
 		relaxMaxVal::𝐣𝐥.Cdouble
 		ScaleObj::𝐣𝐥.Cdouble
-		FidifHM::Cbool
-		RelaxCon::Cbool
-		ScaledKKT::Cbool
-		ScaledObj::Cbool
-		UserHM::Cbool
+		FidifHM::𝐣𝐥.Cbool
+		RelaxCon::𝐣𝐥.Cbool
+		ScaledKKT::𝐣𝐥.Cbool
+		ScaledObj::𝐣𝐥.Cbool
+		UserHM::𝐣𝐥.Cbool
 		Algorithm::𝐣𝐥.Cint
 		LineSearchMethod::𝐣𝐥.Cint
 		MaxIter::𝐣𝐥.Cint
@@ -6227,7 +6227,7 @@ using CBinding: 𝐣𝐥
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
+	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -6235,11 +6235,11 @@ using CBinding: 𝐣𝐥
 	[worhp.h:159](/usr/include/worhp/worhp.h:159:6)
 	""" ZenIsVar
 	export ZenIsVar
-	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
+	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
+	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
 	```
 
 	## Reference
@@ -6247,7 +6247,7 @@ using CBinding: 𝐣𝐥
 	[worhp.h:160](/usr/include/worhp/worhp.h:160:6)
 	""" ZenIsPert
 	export ZenIsPert
-	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
+	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
 
 	𝐣𝐥.@doc """
 	```
