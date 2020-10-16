@@ -4,90 +4,90 @@ using CBinding: 𝐣𝐥
 𝐣𝐥.@cbindings "/usr/lib64/libworhp.so" begin
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:32](/usr/include/worhp/C_std.h:32:13)
 	""" mat_int
 	export mat_int
 	𝐣𝐥.@ctypedef mat_int 𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:33](/usr/include/worhp/C_std.h:33:13)
 	""" rwmt_index
 	export rwmt_index
 	𝐣𝐥.@ctypedef rwmt_index 𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:34](/usr/include/worhp/C_std.h:34:13)
 	""" iwmt_index
 	export iwmt_index
 	𝐣𝐥.@ctypedef iwmt_index 𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:35](/usr/include/worhp/C_std.h:35:13)
 	""" counter
 	export counter
 	𝐣𝐥.@ctypedef counter 𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	See also: [`std::notImplemented`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:40](/usr/include/worhp/C_std.h:40:3)
 	""" notImplemented
 	𝐣𝐥.@doc """
 	See also: [`std::OK`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:39](/usr/include/worhp/C_std.h:39:3)
 	""" OK
 	𝐣𝐥.@doc """
 	See also: [`std::requestRWS`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:45](/usr/include/worhp/C_std.h:45:3)
 	""" requestRWS
 	𝐣𝐥.@doc """
 	See also: [`std::requestIWS`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:46](/usr/include/worhp/C_std.h:46:3)
 	""" requestIWS
 	𝐣𝐥.@doc """
 	See also: [`std::missingOptArg`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:43](/usr/include/worhp/C_std.h:43:3)
 	""" missingOptArg
 	𝐣𝐥.@doc """
 	See also: [`std::wrongDimension`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:44](/usr/include/worhp/C_std.h:44:3)
 	""" wrongDimension
 	𝐣𝐥.@doc """
 	See also: [`std::notEnoughRWS`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:41](/usr/include/worhp/C_std.h:41:3)
 	""" notEnoughRWS
 	𝐣𝐥.@doc """
 	See also: [`std::notEnoughIWS`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:42](/usr/include/worhp/C_std.h:42:3)
 	""" notEnoughIWS
 	export OK, missingOptArg, notEnoughIWS, notEnoughRWS, notImplemented, requestIWS, requestRWS, wrongDimension
@@ -101,244 +101,244 @@ using CBinding: 𝐣𝐥
 		requestRWS = 𝐣𝐥.Cint(9001)
 		requestIWS = 𝐣𝐥.Cint(9002)
 	}
-	
+
 	𝐣𝐥.@doc """
 	 Stuff for WORHP's memory management. WORHP uses wMalloc, wCalloc, wRealloc and wFree to manage all user-visible non-temporary memory. Be default WORHP uses the <stdlib.h> functions.
-	
+
 	## Details
-	
+
 	 typedefs provide prototypes (these should mimic <stdlib.h>, with the possible exception of system-specific __whatever decorations).
-	
+
 	 SetWorhp_X_Function allow setting user-defined memory functions.
-	
+
 	 The actual w_X_ functions are used by WORHP and are user-visible so users can interact with WORHP's memory; doing so may cause Strange Things to happen, so you'll want to be really careful.
-	
+
 	## Reference
-	
+
 	[C_std.h:64](/usr/include/worhp/C_std.h:64:17)
 	""" worhpMallocFunction
 	export worhpMallocFunction
 	𝐣𝐥.@ctypedef worhpMallocFunction 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, 𝐣𝐥.Tuple{size_t}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:65](/usr/include/worhp/C_std.h:65:17)
 	""" worhpCallocFunction
 	export worhpCallocFunction
 	𝐣𝐥.@ctypedef worhpCallocFunction 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, 𝐣𝐥.Tuple{size_t, size_t}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:66](/usr/include/worhp/C_std.h:66:17)
 	""" worhpReallocFunction
 	export worhpReallocFunction
 	𝐣𝐥.@ctypedef worhpReallocFunction 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, size_t}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:67](/usr/include/worhp/C_std.h:67:17)
 	""" worhpMemcpyFunction
 	export worhpMemcpyFunction
 	𝐣𝐥.@ctypedef worhpMemcpyFunction 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, 𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cvoid)}, size_t}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:68](/usr/include/worhp/C_std.h:68:17)
 	""" worhpFreeFunction
 	export worhpFreeFunction
 	𝐣𝐥.@ctypedef worhpFreeFunction 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Ptr{𝐣𝐥.Cvoid}}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern SetWorhpMallocFunction(f::worhpMallocFunction)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:70](/usr/include/worhp/C_std.h:70:17)
 	""" SetWorhpMallocFunction
 	export SetWorhpMallocFunction
 	𝐣𝐥.@cextern SetWorhpMallocFunction(f::worhpMallocFunction)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern SetWorhpCallocFunction(f::worhpCallocFunction)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:71](/usr/include/worhp/C_std.h:71:17)
 	""" SetWorhpCallocFunction
 	export SetWorhpCallocFunction
 	𝐣𝐥.@cextern SetWorhpCallocFunction(f::worhpCallocFunction)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern SetWorhpReallocFunction(f::worhpReallocFunction)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:72](/usr/include/worhp/C_std.h:72:17)
 	""" SetWorhpReallocFunction
 	export SetWorhpReallocFunction
 	𝐣𝐥.@cextern SetWorhpReallocFunction(f::worhpReallocFunction)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern SetWorhpFreeFunction(f::worhpFreeFunction)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:73](/usr/include/worhp/C_std.h:73:17)
 	""" SetWorhpFreeFunction
 	export SetWorhpFreeFunction
 	𝐣𝐥.@cextern SetWorhpFreeFunction(f::worhpFreeFunction)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern wMalloc(size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:75](/usr/include/worhp/C_std.h:75:18)
 	""" wMalloc
 	export wMalloc
 	𝐣𝐥.@cextern wMalloc(size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern wCalloc(num::size_t, size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:76](/usr/include/worhp/C_std.h:76:18)
 	""" wCalloc
 	export wCalloc
 	𝐣𝐥.@cextern wCalloc(num::size_t, size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern wRealloc(ptr::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:77](/usr/include/worhp/C_std.h:77:18)
 	""" wRealloc
 	export wRealloc
 	𝐣𝐥.@cextern wRealloc(ptr::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern wMemcpy(dest::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, src::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:78](/usr/include/worhp/C_std.h:78:18)
 	""" wMemcpy
 	export wMemcpy
 	𝐣𝐥.@cextern wMemcpy(dest::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, src::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}, size::size_t)::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern wFree(ptr::𝐣𝐥.Ptr{𝐣𝐥.Cvoid})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_std.h:79](/usr/include/worhp/C_std.h:79:18)
 	""" wFree
 	export wFree
 	𝐣𝐥.@cextern wFree(ptr::𝐣𝐥.Ptr{𝐣𝐥.Cvoid})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern FORTRAN_TRUE::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern FORTRAN_TRUE::Cbool
 	```
-	
-	 Runtime \"constant\" to be assigned the TRUE value used by the current compiler. This \"constant\" is used to communicate logical values with Fortran. Initialised with a standard value that *should* be recognised as .TRUE. by any decent compiler. 
-	
+
+	 Runtime \"constant\" to be assigned the TRUE value used by the current compiler. This \"constant\" is used to communicate logical values with Fortran. Initialised with a standard value that *should* be recognised as .TRUE. by any decent compiler.
+
 	## Details
-	
+
 	See also: [`C_InitBool`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:88](/usr/include/worhp/C_std.h:88:24)
 	""" FORTRAN_TRUE
 	export FORTRAN_TRUE
-	𝐣𝐥.@cextern FORTRAN_TRUE::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern FORTRAN_TRUE::Cbool
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern FORTRAN_FALSE::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern FORTRAN_FALSE::Cbool
 	```
-	
-	 Runtime \"constant\" to be assigned the FALSE value used by the current compiler. This \"constant\" is used to communicate logical values with Fortran. Initialised with a standard value that *should* be recognised as .FALSE. by any decent compiler. 
-	
+
+	 Runtime \"constant\" to be assigned the FALSE value used by the current compiler. This \"constant\" is used to communicate logical values with Fortran. Initialised with a standard value that *should* be recognised as .FALSE. by any decent compiler.
+
 	## Details
-	
+
 	See also: [`C_InitBool`](@ref)
-	
+
 	## Reference
-	
+
 	[C_std.h:98](/usr/include/worhp/C_std.h:98:24)
 	""" FORTRAN_FALSE
 	export FORTRAN_FALSE
-	𝐣𝐥.@cextern FORTRAN_FALSE::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern FORTRAN_FALSE::Cbool
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:15](/usr/include/worhp/C_cs.h:15:3)
 	""" Matrix_Kind_LowTri
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:17](/usr/include/worhp/C_cs.h:17:3)
 	""" Matrix_Kind_Identity
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:20](/usr/include/worhp/C_cs.h:20:3)
 	""" WorhpMatrix_Kind
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:14](/usr/include/worhp/C_cs.h:14:3)
 	""" Matrix_Kind_ComCol
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:18](/usr/include/worhp/C_cs.h:18:3)
 	""" Matrix_Kind_Vector
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:13](/usr/include/worhp/C_cs.h:13:3)
 	""" Matrix_Kind_General
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:12](/usr/include/worhp/C_cs.h:12:3)
 	""" Matrix_Kind_Undefined
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:16](/usr/include/worhp/C_cs.h:16:3)
 	""" Matrix_Kind_Diagonal
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:19](/usr/include/worhp/C_cs.h:19:3)
 	""" Matrix_Kind_Struct
 	export Matrix_Kind_ComCol, Matrix_Kind_Diagonal, Matrix_Kind_General, Matrix_Kind_Identity, Matrix_Kind_LowTri, Matrix_Kind_Struct, Matrix_Kind_Undefined, Matrix_Kind_Vector, WorhpMatrix_Kind
@@ -352,30 +352,30 @@ using CBinding: 𝐣𝐥
 		Matrix_Kind_Vector = 𝐣𝐥.Cuint(5)
 		Matrix_Kind_Struct = 𝐣𝐥.Cuint(6)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:23](/usr/include/worhp/C_cs.h:23:3)
 	""" WorhpMatrix_OK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:25](/usr/include/worhp/C_cs.h:25:3)
 	""" WorhpMatrix_Kind_Error
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:27](/usr/include/worhp/C_cs.h:27:3)
 	""" WorhpMatrix_Status
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:24](/usr/include/worhp/C_cs.h:24:3)
 	""" WorhpMatrix_Dim_Error
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:26](/usr/include/worhp/C_cs.h:26:3)
 	""" WorhpMatrix_Init_Error
 	export WorhpMatrix_Dim_Error, WorhpMatrix_Init_Error, WorhpMatrix_Kind_Error, WorhpMatrix_OK, WorhpMatrix_Status
@@ -385,20 +385,20 @@ using CBinding: 𝐣𝐥
 		WorhpMatrix_Kind_Error = 𝐣𝐥.Cint(-2)
 		WorhpMatrix_Init_Error = 𝐣𝐥.Cint(-3)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:32](/usr/include/worhp/C_cs.h:32:3)
 	""" WorhpMatrix_Init_Flags
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:30](/usr/include/worhp/C_cs.h:30:3)
 	""" WorhpMatrix_Dont_Allocate
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:31](/usr/include/worhp/C_cs.h:31:3)
 	""" WorhpMatrix_Init_Dense
 	export WorhpMatrix_Dont_Allocate, WorhpMatrix_Init_Dense, WorhpMatrix_Init_Flags
@@ -406,22 +406,22 @@ using CBinding: 𝐣𝐥
 		WorhpMatrix_Dont_Allocate = 𝐣𝐥.Cint(-1)
 		WorhpMatrix_Init_Dense = 𝐣𝐥.Cint(-2)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_cs.h:35](/usr/include/worhp/C_cs.h:35:3)
 	""" WorhpMatrix_Name_Length
 	export WorhpMatrix_Name_Length
 	𝐣𝐥.@cenum {
 		WorhpMatrix_Name_Length = 𝐣𝐥.Cuint(10)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## References
-	
+
 	[C_cs.h:41](/usr/include/worhp/C_cs.h:41:16)
-	
+
 	[C_cs.h:95](/usr/include/worhp/C_cs.h:95:3)
 	""" WorhpMatrix
 	export WorhpMatrix
@@ -459,90 +459,90 @@ using CBinding: 𝐣𝐥
 		nGrp::mat_int
 		kind::𝐣𝐥.Cint
 		name::𝐣𝐥.Cchar[10]
-		NeedStructure::𝐣𝐥.Cbool
-		Dense::𝐣𝐥.Cbool
+		NeedStructure::Cbool
+		Dense::Cbool
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern PrintWorhpMatrix(WM::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpMatrix)}))::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_cs.h:97](/usr/include/worhp/C_cs.h:97:17)
 	""" PrintWorhpMatrix
 	export PrintWorhpMatrix
 	𝐣𝐥.@cextern PrintWorhpMatrix(WM::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpMatrix)}))::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::𝐣𝐥.Cbool, CCwithCol::𝐣𝐥.Cbool)::𝐣𝐥.Cint
+	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::Cbool, CCwithCol::Cbool)::𝐣𝐥.Cint
 	```
-	
+
 	## Reference
-	
+
 	[C_cs.h:98](/usr/include/worhp/C_cs.h:98:16)
 	""" InitWorhpMatrix
 	export InitWorhpMatrix
-	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::𝐣𝐥.Cbool, CCwithCol::𝐣𝐥.Cbool)::𝐣𝐥.Cint
-	
+	𝐣𝐥.@cextern InitWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, extend::𝐣𝐥.Cint, CCwithRow::Cbool, CCwithCol::Cbool)::𝐣𝐥.Cint
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern FreeWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_cs.h:100](/usr/include/worhp/C_cs.h:100:17)
 	""" FreeWorhpMatrix
 	export FreeWorhpMatrix
 	𝐣𝐥.@cextern FreeWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZeroWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_cs.h:101](/usr/include/worhp/C_cs.h:101:17)
 	""" ZeroWorhpMatrix
 	export ZeroWorhpMatrix
 	𝐣𝐥.@cextern ZeroWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern CopyWorhpMatrix(to::𝐣𝐥.Cconst(𝐣𝐥.Ptr{WorhpMatrix}), from::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpMatrix)}))::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_cs.h:102](/usr/include/worhp/C_cs.h:102:17)
 	""" CopyWorhpMatrix
 	export CopyWorhpMatrix
 	𝐣𝐥.@cextern CopyWorhpMatrix(to::𝐣𝐥.Cconst(𝐣𝐥.Ptr{WorhpMatrix}), from::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpMatrix)}))::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern SortWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_cs.h:104](/usr/include/worhp/C_cs.h:104:17)
 	""" SortWorhpMatrix
 	export SortWorhpMatrix
 	𝐣𝐥.@cextern SortWorhpMatrix(WM::𝐣𝐥.Ptr{WorhpMatrix})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_timer.h:12](/usr/include/worhp/C_timer.h:12:3)
 	""" TIMER_STARTED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_timer.h:11](/usr/include/worhp/C_timer.h:11:3)
 	""" TIMER_STOPPED
 	export TIMER_STARTED, TIMER_STOPPED
@@ -550,10 +550,10 @@ using CBinding: 𝐣𝐥
 		TIMER_STOPPED = 𝐣𝐥.Cuint(0)
 		TIMER_STARTED = 𝐣𝐥.Cuint(1)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_timer.h:20](/usr/include/worhp/C_timer.h:20:3)
 	""" TimerType
 	export TimerType
@@ -563,10 +563,10 @@ using CBinding: 𝐣𝐥
 		status::𝐣𝐥.Cint
 		_shim::𝐣𝐥.Cint
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_timer.h:29](/usr/include/worhp/C_timer.h:29:3)
 	""" DateType
 	export DateType
@@ -578,91 +578,91 @@ using CBinding: 𝐣𝐥
 		minute::𝐣𝐥.Cint
 		second::𝐣𝐥.Cint
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern StartTimer(T::𝐣𝐥.Ptr{TimerType})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_timer.h:31](/usr/include/worhp/C_timer.h:31:17)
 	""" StartTimer
 	export StartTimer
 	𝐣𝐥.@cextern StartTimer(T::𝐣𝐥.Ptr{TimerType})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ResetTimer(T::𝐣𝐥.Ptr{TimerType})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_timer.h:32](/usr/include/worhp/C_timer.h:32:17)
 	""" ResetTimer
 	export ResetTimer
 	𝐣𝐥.@cextern ResetTimer(T::𝐣𝐥.Ptr{TimerType})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern StopTimer(T::𝐣𝐥.Ptr{TimerType})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_timer.h:33](/usr/include/worhp/C_timer.h:33:18)
 	""" StopTimer
 	export StopTimer
 	𝐣𝐥.@cextern StopTimer(T::𝐣𝐥.Ptr{TimerType})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern GetTimer(T::𝐣𝐥.Ptr{𝐣𝐥.Cconst(TimerType)})::𝐣𝐥.Cdouble
 	```
-	
+
 	## Reference
-	
+
 	[C_timer.h:34](/usr/include/worhp/C_timer.h:34:19)
 	""" GetTimer
 	export GetTimer
 	𝐣𝐥.@cextern GetTimer(T::𝐣𝐥.Ptr{𝐣𝐥.Cconst(TimerType)})::𝐣𝐥.Cdouble
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern GetTimerCont(T::𝐣𝐥.Ptr{𝐣𝐥.Cconst(TimerType)})::𝐣𝐥.Cdouble
 	```
-	
+
 	## Reference
-	
+
 	[C_timer.h:35](/usr/include/worhp/C_timer.h:35:19)
 	""" GetTimerCont
 	export GetTimerCont
 	𝐣𝐥.@cextern GetTimerCont(T::𝐣𝐥.Ptr{𝐣𝐥.Cconst(TimerType)})::𝐣𝐥.Cdouble
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern GetDate(D::𝐣𝐥.Ptr{DateType})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_timer.h:37](/usr/include/worhp/C_timer.h:37:6)
 	""" GetDate
 	export GetDate
 	𝐣𝐥.@cextern GetDate(D::𝐣𝐥.Ptr{DateType})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	  This struct needs to precisely mirror the  LeqsolWorkspace type in leqsol_data.F90.  To make manual and semi-automatic handling easier  + Keep it sorted    1. By type, descending size (double > [type]* > int > Bool)    2. Inside each type, alphabetically by name.  + Exactly one member declaration per line.
-	
+
 	## Reference
-	
+
 	[C_leqsol_data.h:73](/usr/include/worhp/C_leqsol_data.h:73:3)
 	""" LeqsolWorkspace
 	𝐣𝐥.@doc """
 	  This struct needs to precisely mirror the  LeqsolWorkspace type in leqsol_data.F90.  To make manual and semi-automatic handling easier  + Keep it sorted    1. By type, descending size (double > [type]* > int > Bool)    2. Inside each type, alphabetically by name.  + Exactly one member declaration per line.
-	
+
 	## Reference
-	
+
 	[C_leqsol_data.h:20](/usr/include/worhp/C_leqsol_data.h:20:16)
 	""" LeqsolWorkspaceStruct
 	export LeqsolWorkspace, LeqsolWorkspaceStruct
@@ -691,15 +691,15 @@ using CBinding: 𝐣𝐥
 		nemin::𝐣𝐥.Cint
 		scaling::𝐣𝐥.Cint
 		factor_min::𝐣𝐥.Cint
-		ITSOL_PERFORMPRECOND::𝐣𝐥.Cbool
-		ITSOL_PSYMMETRIC::𝐣𝐥.Cbool
-		SCAL::𝐣𝐥.Cbool
-		TRYSIMPLE::𝐣𝐥.Cbool
-		solve_blas3::𝐣𝐥.Cbool
-		solve_mf::𝐣𝐥.Cbool
-		action::𝐣𝐥.Cbool
-		initsymb::𝐣𝐥.Cbool
-		initlu::𝐣𝐥.Cbool
+		ITSOL_PERFORMPRECOND::Cbool
+		ITSOL_PSYMMETRIC::Cbool
+		SCAL::Cbool
+		TRYSIMPLE::Cbool
+		solve_blas3::Cbool
+		solve_mf::Cbool
+		action::Cbool
+		initsymb::Cbool
+		initlu::Cbool
 		valsave::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		diag::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		perm::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
@@ -710,35 +710,35 @@ using CBinding: 𝐣𝐥
 		control::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
 		info::𝐣𝐥.Ptr{𝐣𝐥.Cvoid}
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:14](/usr/include/worhp/C_qp_data.h:14:4)
 	""" QPActionSolveWithWarmstart
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:15](/usr/include/worhp/C_qp_data.h:15:4)
 	""" QPActionInit
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:18](/usr/include/worhp/C_qp_data.h:18:4)
 	""" QPActionCleanup
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:16](/usr/include/worhp/C_qp_data.h:16:4)
 	""" QPActionInitWithWarmstart
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:13](/usr/include/worhp/C_qp_data.h:13:4)
 	""" QPActionSolve
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:17](/usr/include/worhp/C_qp_data.h:17:4)
 	""" QPActionContinue
 	export QPActionCleanup, QPActionContinue, QPActionInit, QPActionInitWithWarmstart, QPActionSolve, QPActionSolveWithWarmstart
@@ -750,85 +750,85 @@ using CBinding: 𝐣𝐥
 		QPActionContinue = 𝐣𝐥.Cuint(5)
 		QPActionCleanup = 𝐣𝐥.Cuint(6)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:34](/usr/include/worhp/C_qp_data.h:34:7)
 	""" QPStatusTimeout
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:36](/usr/include/worhp/C_qp_data.h:36:7)
 	""" QPCgnrStatusMaxiter
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:26](/usr/include/worhp/C_qp_data.h:26:7)
 	""" QPIpStatusSlowProgressRes
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:24](/usr/include/worhp/C_qp_data.h:24:7)
 	""" QPStatusMethodNotImplemented
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:29](/usr/include/worhp/C_qp_data.h:29:7)
 	""" QPIpStatusMaxIter
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:23](/usr/include/worhp/C_qp_data.h:23:7)
 	""" QPStatusNotFinished
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:32](/usr/include/worhp/C_qp_data.h:32:7)
 	""" QPNsnStatusMaxIter
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:28](/usr/include/worhp/C_qp_data.h:28:7)
 	""" QPIpStatusMinStepSize
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:33](/usr/include/worhp/C_qp_data.h:33:7)
 	""" QPNsnStatusNaN
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:25](/usr/include/worhp/C_qp_data.h:25:7)
 	""" QPIpStatusInfeasible
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:35](/usr/include/worhp/C_qp_data.h:35:7)
 	""" QPLgsSolverErrorCodeStart
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:27](/usr/include/worhp/C_qp_data.h:27:7)
 	""" QPIpStatusSlowProgressPhi
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:31](/usr/include/worhp/C_qp_data.h:31:7)
 	""" QPNsnStatusMinStepSize
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:30](/usr/include/worhp/C_qp_data.h:30:7)
 	""" QPNsnStatusNoProgress
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:22](/usr/include/worhp/C_qp_data.h:22:7)
 	""" QPStatusSuccess
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:37](/usr/include/worhp/C_qp_data.h:37:7)
 	""" QPCgnrStatusDivisionByZero
 	export QPCgnrStatusDivisionByZero, QPCgnrStatusMaxiter, QPIpStatusInfeasible, QPIpStatusMaxIter, QPIpStatusMinStepSize, QPIpStatusSlowProgressPhi, QPIpStatusSlowProgressRes, QPLgsSolverErrorCodeStart, QPNsnStatusMaxIter, QPNsnStatusMinStepSize, QPNsnStatusNaN, QPNsnStatusNoProgress, QPStatusMethodNotImplemented, QPStatusNotFinished, QPStatusSuccess, QPStatusTimeout
@@ -850,29 +850,29 @@ using CBinding: 𝐣𝐥
 		QPCgnrStatusMaxiter = 𝐣𝐥.Cint(-101)
 		QPCgnrStatusDivisionByZero = 𝐣𝐥.Cint(-102)
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberQPWorkspace::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	  This struct needs to precisely mirror the  QPWorkspace type in qp_data.F90.  To make manual and semi-automatic handling easier  + Keep it sorted    1. By type, descending size (double > [type]* > int > Bool)    2. Inside each type, alphabetically by name.  + Exactly one member declaration per line.
-	
+
 	## Reference
-	
+
 	[C_qp_data.h:49](/usr/include/worhp/C_qp_data.h:49:18)
 	""" nMemberQPWorkspace
 	export nMemberQPWorkspace
 	𝐣𝐥.@cextern nMemberQPWorkspace::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:50](/usr/include/worhp/C_qp_data.h:50:16)
 	""" QPWorkspaceStruct
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:258](/usr/include/worhp/C_qp_data.h:258:3)
 	""" QPWorkspace
 	export QPWorkspace, QPWorkspaceStruct
@@ -1071,37 +1071,37 @@ using CBinding: 𝐣𝐥
 		STATUS::𝐣𝐥.Cint
 		UDIM::𝐣𝐥.Cint
 		ZEROEV::𝐣𝐥.Cint
-		CALCWARM::𝐣𝐥.Cbool
-		CHECKZ::𝐣𝐥.Cbool
-		INITS::𝐣𝐥.Cbool
-		ipRelax::𝐣𝐥.Cbool
-		strict::𝐣𝐥.Cbool
-		SCALEDQP::𝐣𝐥.Cbool
-		WarmstartInitDone::𝐣𝐥.Cbool
+		CALCWARM::Cbool
+		CHECKZ::Cbool
+		INITS::Cbool
+		ipRelax::Cbool
+		strict::Cbool
+		SCALEDQP::Cbool
+		WarmstartInitDone::Cbool
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberQPParams::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	  This struct needs to precisely mirror the  QPParams type in qp_data.F90.  To make manual and semi-automatic handling easier  + Keep it sorted    1. By type, descending size (double > [type]* > int > Bool)    2. Inside each type, alphabetically by name.  + Exactly one member declaration per line.
-	
+
 	## Reference
-	
+
 	[C_qp_data.h:269](/usr/include/worhp/C_qp_data.h:269:18)
 	""" nMemberQPParams
 	export nMemberQPParams
 	𝐣𝐥.@cextern nMemberQPParams::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:302](/usr/include/worhp/C_qp_data.h:302:3)
 	""" QPParams
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_qp_data.h:270](/usr/include/worhp/C_qp_data.h:270:16)
 	""" QPParamsStruct
 	export QPParams, QPParamsStruct
@@ -1129,58 +1129,58 @@ using CBinding: 𝐣𝐥
 		method::𝐣𝐥.Cint
 		nsnLsMethod::𝐣𝐥.Cint
 		printLevel::𝐣𝐥.Cint
-		ipTryRelax::𝐣𝐥.Cbool
-		lsScale::𝐣𝐥.Cbool
-		lsTrySimple::𝐣𝐥.Cbool
-		nsnGradStep::𝐣𝐥.Cbool
-		scaleIntern::𝐣𝐥.Cbool
-		strict::𝐣𝐥.Cbool
+		ipTryRelax::Cbool
+		lsScale::Cbool
+		lsTrySimple::Cbool
+		nsnGradStep::Cbool
+		scaleIntern::Cbool
+		strict::Cbool
 	}
-	
+
 	𝐣𝐥.@doc """
 	  This struct needs to precisely mirror the  FilterNode type in filter_data.F90.  To make manual and semi-automatic handling easier  + Keep it sorted    1. By type, descending size (double > [type]* > int > Bool)    2. Inside each type, alphabetically by name.  + Exactly one member declaration per line.
-	
+
 	## Reference
-	
+
 	[C_filter_data.h:19](/usr/include/worhp/C_filter_data.h:19:8)
 	""" FltNode
 	export FltNode
 	𝐣𝐥.@cstruct FltNode {
 		CV::𝐣𝐥.Cdouble
 		F::𝐣𝐥.Cdouble
-		initialised::𝐣𝐥.Cbool
+		initialised::Cbool
 		next::𝐣𝐥.Ptr{𝐣𝐥.@cstruct FltNode}
 		prev::𝐣𝐥.Ptr{𝐣𝐥.@cstruct FltNode}
 	}
-	
+
 	𝐣𝐥.@doc """
 	  This struct needs to precisely mirror the  FilterNode type in filter_data.F90.  To make manual and semi-automatic handling easier  + Keep it sorted    1. By type, descending size (double > [type]* > int > Bool)    2. Inside each type, alphabetically by name.  + Exactly one member declaration per line.
-	
+
 	## Reference
-	
+
 	[C_filter_data.h:28](/usr/include/worhp/C_filter_data.h:28:24)
 	""" FilterNode
 	export FilterNode
 	𝐣𝐥.@ctypedef FilterNode 𝐣𝐥.@cstruct FltNode
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_queue.h:11](/usr/include/worhp/C_worhp_queue.h:11:3)
 	""" QueueSize
 	export QueueSize
 	𝐣𝐥.@cenum {
 		QueueSize = 𝐣𝐥.Cuint(10)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_queue.h:14](/usr/include/worhp/C_worhp_queue.h:14:16)
 	""" WorhpQueueStruct
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_queue.h:18](/usr/include/worhp/C_worhp_queue.h:18:3)
 	""" WorhpQueue
 	export WorhpQueue, WorhpQueueStruct
@@ -1189,2030 +1189,2030 @@ using CBinding: 𝐣𝐥
 		idx::𝐣𝐥.Cint
 		size::𝐣𝐥.Cint
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern InitWorhpQueue(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{WorhpQueue}))::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_queue.h:20](/usr/include/worhp/C_worhp_queue.h:20:20)
 	""" InitWorhpQueue
 	export InitWorhpQueue
 	𝐣𝐥.@cextern InitWorhpQueue(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{WorhpQueue}))::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern Push(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{WorhpQueue}), val::𝐣𝐥.Cdouble)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_queue.h:21](/usr/include/worhp/C_worhp_queue.h:21:20)
 	""" Push
 	export Push
 	𝐣𝐥.@cextern Push(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{WorhpQueue}), val::𝐣𝐥.Cdouble)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern Peek(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpQueue)}))::𝐣𝐥.Cdouble
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_queue.h:22](/usr/include/worhp/C_worhp_queue.h:22:20)
 	""" Peek
 	export Peek
 	𝐣𝐥.@cextern Peek(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpQueue)}))::𝐣𝐥.Cdouble
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern Get(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpQueue)}), idx::𝐣𝐥.Cint)::𝐣𝐥.Cdouble
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_queue.h:23](/usr/include/worhp/C_worhp_queue.h:23:20)
 	""" Get
 	export Get
 	𝐣𝐥.@cextern Get(Q::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(WorhpQueue)}), idx::𝐣𝐥.Cint)::𝐣𝐥.Cdouble
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern worhp_major::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:27](/usr/include/worhp/C_Worhp_Data.h:27:18)
 	""" worhp_major
 	export worhp_major
 	𝐣𝐥.@cextern worhp_major::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern worhp_minor::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:28](/usr/include/worhp/C_Worhp_Data.h:28:18)
 	""" worhp_minor
 	export worhp_minor
 	𝐣𝐥.@cextern worhp_minor::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern worhp_patch::𝐣𝐥.Cconst(𝐣𝐥.Cchar)[8]
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:29](/usr/include/worhp/C_Worhp_Data.h:29:19)
 	""" worhp_patch
 	export worhp_patch
 	𝐣𝐥.@cextern worhp_patch::𝐣𝐥.Cconst(𝐣𝐥.Cchar)[8]
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberOptVar::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:31](/usr/include/worhp/C_Worhp_Data.h:31:18)
 	""" nMemberOptVar
 	export nMemberOptVar
 	𝐣𝐥.@cextern nMemberOptVar::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberHideOptVar::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:32](/usr/include/worhp/C_Worhp_Data.h:32:18)
 	""" nMemberHideOptVar
 	export nMemberHideOptVar
 	𝐣𝐥.@cextern nMemberHideOptVar::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberWorkspace::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:33](/usr/include/worhp/C_Worhp_Data.h:33:18)
 	""" nMemberWorkspace
 	export nMemberWorkspace
 	𝐣𝐥.@cextern nMemberWorkspace::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberHideWorkspace::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:34](/usr/include/worhp/C_Worhp_Data.h:34:18)
 	""" nMemberHideWorkspace
 	export nMemberHideWorkspace
 	𝐣𝐥.@cextern nMemberHideWorkspace::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberParams::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:35](/usr/include/worhp/C_Worhp_Data.h:35:18)
 	""" nMemberParams
 	export nMemberParams
 	𝐣𝐥.@cextern nMemberParams::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberHideParams::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:36](/usr/include/worhp/C_Worhp_Data.h:36:18)
 	""" nMemberHideParams
 	export nMemberHideParams
 	𝐣𝐥.@cextern nMemberHideParams::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberControl::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:37](/usr/include/worhp/C_Worhp_Data.h:37:18)
 	""" nMemberControl
 	export nMemberControl
 	𝐣𝐥.@cextern nMemberControl::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern nMemberHideControl::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:38](/usr/include/worhp/C_Worhp_Data.h:38:18)
 	""" nMemberHideControl
 	export nMemberHideControl
 	𝐣𝐥.@cextern nMemberHideControl::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern minM::𝐣𝐥.Cconst(𝐣𝐥.Cint)
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:41](/usr/include/worhp/C_Worhp_Data.h:41:18)
 	""" minM
 	export minM
 	𝐣𝐥.@cextern minM::𝐣𝐥.Cconst(𝐣𝐥.Cint)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:622](/usr/include/worhp/C_Worhp_Data.h:622:3)
 	""" WORHP_STAGE_IP_CHECK_PENALTY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:304](/usr/include/worhp/C_Worhp_Data.h:304:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSBAR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:688](/usr/include/worhp/C_Worhp_Data.h:688:3)
 	""" DivergingPrimal
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:253](/usr/include/worhp/C_Worhp_Data.h:253:3)
 	""" WORHP_IP_CHECKINFEAS_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:570](/usr/include/worhp/C_Worhp_Data.h:570:3)
 	""" fidif_hm_userdfdg_negside
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:594](/usr/include/worhp/C_Worhp_Data.h:594:3)
 	""" Pre_KKT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:500](/usr/include/worhp/C_Worhp_Data.h:500:3)
 	""" WORHP_BARRIEROPTIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:356](/usr/include/worhp/C_Worhp_Data.h:356:3)
 	""" WORHP_LINE_PHASE_LOCAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:526](/usr/include/worhp/C_Worhp_Data.h:526:3)
 	""" WORHP_INFEASIBLEOPTIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:84](/usr/include/worhp/C_Worhp_Data.h:84:3)
 	""" WORHP_IP_NLPMODTYPE_SLACK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:272](/usr/include/worhp/C_Worhp_Data.h:272:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:465](/usr/include/worhp/C_Worhp_Data.h:465:3)
 	""" FirstCall
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:290](/usr/include/worhp/C_Worhp_Data.h:290:3)
 	""" WORHP_IP_LEQSOLVEMODE_ESTITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:453](/usr/include/worhp/C_Worhp_Data.h:453:3)
 	""" evalZenDLp
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:191](/usr/include/worhp/C_Worhp_Data.h:191:3)
 	""" WORHP_IP_CHECKNANINF_REPLACE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:682](/usr/include/worhp/C_Worhp_Data.h:682:3)
 	""" Timeout
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:544](/usr/include/worhp/C_Worhp_Data.h:544:3)
 	""" fidif_HM_RC_pert_fij
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:639](/usr/include/worhp/C_Worhp_Data.h:639:3)
 	""" WORHP_STAGE_IP_LINE_UPDATEDUAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:692](/usr/include/worhp/C_Worhp_Data.h:692:3)
-	""" InitError
+	""" InitErr
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:609](/usr/include/worhp/C_Worhp_Data.h:609:3)
 	""" Post_QP_Sens
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:268](/usr/include/worhp/C_Worhp_Data.h:268:3)
 	""" WORHP_IP_LEQTYPE_STD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:508](/usr/include/worhp/C_Worhp_Data.h:508:3)
 	""" WORHP_TOOBIG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:696](/usr/include/worhp/C_Worhp_Data.h:696:3)
 	""" QPerror
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:167](/usr/include/worhp/C_Worhp_Data.h:167:3)
 	""" WORHP_IP_ADAPTCHECKMETHOD_MERIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:685](/usr/include/worhp/C_Worhp_Data.h:685:3)
 	""" GlobalInfeas
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:650](/usr/include/worhp/C_Worhp_Data.h:650:3)
 	""" WORHP_STAGE_TERMINATE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:408](/usr/include/worhp/C_Worhp_Data.h:408:3)
 	""" WORHP_ZEN_STORE_SPARSE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:441](/usr/include/worhp/C_Worhp_Data.h:441:3)
 	""" WORHP_NONLINEAR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:306](/usr/include/worhp/C_Worhp_Data.h:306:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSBARITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:701](/usr/include/worhp/C_Worhp_Data.h:701:3)
 	""" LicenseWarnExpiryDays
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:668](/usr/include/worhp/C_Worhp_Data.h:668:3)
 	""" AcceptableSolution
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:219](/usr/include/worhp/C_Worhp_Data.h:219:3)
 	""" WORHP_IP_REFINESTEP_AFFINE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:564](/usr/include/worhp/C_Worhp_Data.h:564:3)
 	""" fidif_hm_in_x0
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:211](/usr/include/worhp/C_Worhp_Data.h:211:3)
 	""" WORHP_IP_REGMETHODDUAL_ALL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:663](/usr/include/worhp/C_Worhp_Data.h:663:3)
 	""" NotDiffable
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:445](/usr/include/worhp/C_Worhp_Data.h:445:3)
 	""" callWorhp
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:215](/usr/include/worhp/C_Worhp_Data.h:215:3)
 	""" WORHP_IP_REGMETHODDUAL_DEPENDREMOVE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:512](/usr/include/worhp/C_Worhp_Data.h:512:3)
 	""" WORHP_DIVERGENCE_PRIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:596](/usr/include/worhp/C_Worhp_Data.h:596:3)
 	""" Create_QP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:79](/usr/include/worhp/C_Worhp_Data.h:79:3)
 	""" WORHP_NLP_IDXTYPE_HM_OBJSLACK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:579](/usr/include/worhp/C_Worhp_Data.h:579:3)
 	""" AresNonMon
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:227](/usr/include/worhp/C_Worhp_Data.h:227:3)
 	""" WORHP_IP_BARRIERSHIFTUPDATE_FORCE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:239](/usr/include/worhp/C_Worhp_Data.h:239:3)
 	""" WORHP_IP_PENALTYINITAUG_ZERO
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:492](/usr/include/worhp/C_Worhp_Data.h:492:3)
 	""" WORHP_OPTIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:534](/usr/include/worhp/C_Worhp_Data.h:534:3)
 	""" WORHP_UPDATED_PENALTY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:171](/usr/include/worhp/C_Worhp_Data.h:171:3)
 	""" WORHP_IP_LINEMETHOD_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:147](/usr/include/worhp/C_Worhp_Data.h:147:3)
 	""" WORHP_IP_PENALTYTYPE_L2
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:276](/usr/include/worhp/C_Worhp_Data.h:276:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSTD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:662](/usr/include/worhp/C_Worhp_Data.h:662:3)
 	""" FritzJohn
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:137](/usr/include/worhp/C_Worhp_Data.h:137:3)
 	""" WORHP_IP_BARRIERUPDATE_MONO
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:636](/usr/include/worhp/C_Worhp_Data.h:636:3)
 	""" WORHP_STAGE_IP_LINE_BACKUP_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:237](/usr/include/worhp/C_Worhp_Data.h:237:3)
 	""" WORHP_IP_BARRIERINITAUG_LAMBDA
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:467](/usr/include/worhp/C_Worhp_Data.h:467:3)
 	""" Iterating
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:610](/usr/include/worhp/C_Worhp_Data.h:610:3)
 	""" WORHP_STAGE_IP_INIT_RESTART
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:157](/usr/include/worhp/C_Worhp_Data.h:157:3)
 	""" WORHP_IP_PENALTYPOSITION_FEAS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:597](/usr/include/worhp/C_Worhp_Data.h:597:3)
 	""" Hessian_Regularisation
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:105](/usr/include/worhp/C_Worhp_Data.h:105:3)
 	""" WORHP_IP_STEP_SENSPENFEAS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:55](/usr/include/worhp/C_Worhp_Data.h:55:3)
 	""" WORHP_NLP_CHECKNANINF_STOP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:288](/usr/include/worhp/C_Worhp_Data.h:288:3)
 	""" WORHP_IP_LEQSOLVEMODE_EST
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:394](/usr/include/worhp/C_Worhp_Data.h:394:3)
 	""" WORHP_ZEN_RC_INIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:116](/usr/include/worhp/C_Worhp_Data.h:116:3)
 	""" WORHP_IP_AUGMUTRIAL_RESET
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:475](/usr/include/worhp/C_Worhp_Data.h:475:3)
 	""" ArmijoEvaluate
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:183](/usr/include/worhp/C_Worhp_Data.h:183:3)
 	""" WORHP_IP_LINEFILTERENVELOPE_FEAS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:131](/usr/include/worhp/C_Worhp_Data.h:131:3)
 	""" WORHP_IP_BARRIERTYPE_LOGLIN
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:274](/usr/include/worhp/C_Worhp_Data.h:274:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:143](/usr/include/worhp/C_Worhp_Data.h:143:3)
 	""" WORHP_IP_BARRIERUPDATE_QUALITY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:298](/usr/include/worhp/C_Worhp_Data.h:298:3)
 	""" WORHP_IP_LEQSOLVEMODE_SENSWARMITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:380](/usr/include/worhp/C_Worhp_Data.h:380:3)
 	""" WORHP_LINE_NOTACCEPTED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:49](/usr/include/worhp/C_Worhp_Data.h:49:3)
 	""" WORHP_NLP_MODTYPEOBJ_STD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:372](/usr/include/worhp/C_Worhp_Data.h:372:3)
 	""" WORHP_LINE_OK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:506](/usr/include/worhp/C_Worhp_Data.h:506:3)
 	""" WORHP_STEPSMALL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:591](/usr/include/worhp/C_Worhp_Data.h:591:3)
 	""" WORHP_STAGE_NLP_INIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:673](/usr/include/worhp/C_Worhp_Data.h:673:3)
 	""" AcceptableSolutionSKKT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:585](/usr/include/worhp/C_Worhp_Data.h:585:3)
 	""" AresGiveUp
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:477](/usr/include/worhp/C_Worhp_Data.h:477:3)
 	""" SolverSLP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:374](/usr/include/worhp/C_Worhp_Data.h:374:3)
 	""" WORHP_LINE_ACCEPTED_FULLSTEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:179](/usr/include/worhp/C_Worhp_Data.h:179:3)
 	""" WORHP_IP_LINEMETHOD_FILTERMERIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:316](/usr/include/worhp/C_Worhp_Data.h:316:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSPENFEAS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:59](/usr/include/worhp/C_Worhp_Data.h:59:3)
 	""" WORHP_NLP_IDXTYPE_X_ORIGX
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:540](/usr/include/worhp/C_Worhp_Data.h:540:3)
 	""" fidif_HM_RC_start
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:229](/usr/include/worhp/C_Worhp_Data.h:229:3)
 	""" WORHP_IP_BARRIERSHIFTUPDATE_FRACTOBOUNDMAX
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:223](/usr/include/worhp/C_Worhp_Data.h:223:3)
 	""" WORHP_IP_BARRIERSHIFTUPDATE_MAX
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:456](/usr/include/worhp/C_Worhp_Data.h:456:3)
 	""" fidif_DF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:592](/usr/include/worhp/C_Worhp_Data.h:592:3)
 	""" WORHP_STAGE_RESTART
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:426](/usr/include/worhp/C_Worhp_Data.h:426:3)
 	""" FEAS_MODE_DUAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:221](/usr/include/worhp/C_Worhp_Data.h:221:3)
 	""" WORHP_IP_REFINESTEP_PRIMALDUAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:129](/usr/include/worhp/C_Worhp_Data.h:129:3)
 	""" WORHP_IP_BARRIERTYPE_LOG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:438](/usr/include/worhp/C_Worhp_Data.h:438:3)
 	""" WORHP_CONSTANT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:320](/usr/include/worhp/C_Worhp_Data.h:320:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSAUGMU
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:161](/usr/include/worhp/C_Worhp_Data.h:161:3)
 	""" WORHP_IP_PENALTYPOSITION_BOTH
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:634](/usr/include/worhp/C_Worhp_Data.h:634:3)
 	""" WORHP_STAGE_IP_STEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:451](/usr/include/worhp/C_Worhp_Data.h:451:3)
 	""" evalZenDGp
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:631](/usr/include/worhp/C_Worhp_Data.h:631:3)
 	""" WORHP_STAGE_IP_ADAPT_BARRIER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:473](/usr/include/worhp/C_Worhp_Data.h:473:3)
 	""" ArmijoUpdate
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:479](/usr/include/worhp/C_Worhp_Data.h:479:3)
 	""" ZenSetup
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:95](/usr/include/worhp/C_Worhp_Data.h:95:3)
 	""" WORHP_IP_STEP_CORRECT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:397](/usr/include/worhp/C_Worhp_Data.h:397:3)
 	""" WORHP_ZEN_RC_DLP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:648](/usr/include/worhp/C_Worhp_Data.h:648:3)
 	""" WORHP_STAGE_IP_CORRECT_ABORT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:572](/usr/include/worhp/C_Worhp_Data.h:572:3)
 	""" fidif_end
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:667](/usr/include/worhp/C_Worhp_Data.h:667:3)
 	""" SearchDirectionSmall
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:284](/usr/include/worhp/C_Worhp_Data.h:284:3)
 	""" WORHP_IP_LEQSOLVEMODE_CORRECT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:241](/usr/include/worhp/C_Worhp_Data.h:241:3)
 	""" WORHP_IP_PENALTYINITAUG_MU
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:124](/usr/include/worhp/C_Worhp_Data.h:124:3)
 	""" WORHP_IP_AUGLAMBDATRIAL_SINGLE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:209](/usr/include/worhp/C_Worhp_Data.h:209:3)
 	""" WORHP_IP_REGMETHODDUAL_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:302](/usr/include/worhp/C_Worhp_Data.h:302:3)
 	""" WORHP_IP_LEQSOLVEMODE_REFINEITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:53](/usr/include/worhp/C_Worhp_Data.h:53:3)
 	""" WORHP_NLP_CHECKNANINF_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:593](/usr/include/worhp/C_Worhp_Data.h:593:3)
 	""" WORHP_STAGE_CROSSOVER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:404](/usr/include/worhp/C_Worhp_Data.h:404:3)
 	""" WORHP_ZEN_STORE_TMP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:619](/usr/include/worhp/C_Worhp_Data.h:619:3)
 	""" WORHP_STAGE_IP_CHECK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:322](/usr/include/worhp/C_Worhp_Data.h:322:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSAUGMUITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:47](/usr/include/worhp/C_Worhp_Data.h:47:3)
 	""" WORHP_NLP_MODTYPESLACKS_IEQ
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:502](/usr/include/worhp/C_Worhp_Data.h:502:3)
 	""" WORHP_PENALTYOPTIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:101](/usr/include/worhp/C_Worhp_Data.h:101:3)
 	""" WORHP_IP_STEP_SENSBARSHIFT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:422](/usr/include/worhp/C_Worhp_Data.h:422:3)
 	""" FEAS_MODE_INITIAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:490](/usr/include/worhp/C_Worhp_Data.h:490:3)
 	""" WORHP_ELSE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:641](/usr/include/worhp/C_Worhp_Data.h:641:3)
 	""" WORHP_STAGE_IP_LINE_REDUCEDUAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:486](/usr/include/worhp/C_Worhp_Data.h:486:3)
 	""" WORHP_OK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:623](/usr/include/worhp/C_Worhp_Data.h:623:3)
 	""" WORHP_STAGE_IP_UPDATE_BARRIER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:538](/usr/include/worhp/C_Worhp_Data.h:538:3)
 	""" WORHP_UPDATED_AUGDUALS_PENALTY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:658](/usr/include/worhp/C_Worhp_Data.h:658:3)
 	""" TerminateSuccess
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:231](/usr/include/worhp/C_Worhp_Data.h:231:3)
 	""" WORHP_IP_BARRIERSHIFTUPDATE_FRACTOBOUNDFORCE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:376](/usr/include/worhp/C_Worhp_Data.h:376:3)
 	""" WORHP_LINE_ACCEPTED_MAXSTEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:669](/usr/include/worhp/C_Worhp_Data.h:669:3)
 	""" AcceptablePrevious
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:615](/usr/include/worhp/C_Worhp_Data.h:615:3)
 	""" WORHP_STAGE_IP_INIT_CENTERING
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:699](/usr/include/worhp/C_Worhp_Data.h:699:3)
 	""" LicenseError
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:406](/usr/include/worhp/C_Worhp_Data.h:406:3)
 	""" WORHP_ZEN_STORE_DENSE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:510](/usr/include/worhp/C_Worhp_Data.h:510:3)
 	""" WORHP_UNBOUNDED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:51](/usr/include/worhp/C_Worhp_Data.h:51:3)
 	""" WORHP_NLP_MODTYPEOBJ_CON
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:255](/usr/include/worhp/C_Worhp_Data.h:255:3)
 	""" WORHP_IP_CHECKINFEAS_EXIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:114](/usr/include/worhp/C_Worhp_Data.h:114:3)
 	""" WORHP_IP_AUGMUTRIAL_UPDATE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:308](/usr/include/worhp/C_Worhp_Data.h:308:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSBARSHIFT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:77](/usr/include/worhp/C_Worhp_Data.h:77:3)
 	""" WORHP_NLP_IDXTYPE_DG_OBJCONORIGDF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:645](/usr/include/worhp/C_Worhp_Data.h:645:3)
 	""" WORHP_STAGE_IP_REFINE_ABORT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:294](/usr/include/worhp/C_Worhp_Data.h:294:3)
 	""" WORHP_IP_LEQSOLVEMODE_CENTERITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:361](/usr/include/worhp/C_Worhp_Data.h:361:3)
 	""" WORHP_LINE_MODE_STD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:312](/usr/include/worhp/C_Worhp_Data.h:312:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSPENOBJ
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:417](/usr/include/worhp/C_Worhp_Data.h:417:3)
 	""" NStageHistory
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:583](/usr/include/worhp/C_Worhp_Data.h:583:3)
 	""" AresFeas
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:496](/usr/include/worhp/C_Worhp_Data.h:496:3)
 	""" WORHP_CROSSOVEROPTIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:318](/usr/include/worhp/C_Worhp_Data.h:318:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSPENFEASITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:433](/usr/include/worhp/C_Worhp_Data.h:433:3)
 	""" WORHP_HESSIAN_FIDIF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:621](/usr/include/worhp/C_Worhp_Data.h:621:3)
 	""" WORHP_STAGE_IP_CHECK_BARRIER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:450](/usr/include/worhp/C_Worhp_Data.h:450:3)
 	""" evalHM
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:120](/usr/include/worhp/C_Worhp_Data.h:120:3)
 	""" WORHP_IP_AUGLAMBDATRIAL_UPDATE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:189](/usr/include/worhp/C_Worhp_Data.h:189:3)
 	""" WORHP_IP_CHECKNANINF_STOP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:75](/usr/include/worhp/C_Worhp_Data.h:75:3)
 	""" WORHP_NLP_IDXTYPE_DG_OBJCONOBJSLACK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:536](/usr/include/worhp/C_Worhp_Data.h:536:3)
 	""" WORHP_UPDATED_AUGDUALS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:602](/usr/include/worhp/C_Worhp_Data.h:602:3)
 	""" Recovery_Strategies
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:412](/usr/include/worhp/C_Worhp_Data.h:412:3)
 	""" WMTslices
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:460](/usr/include/worhp/C_Worhp_Data.h:460:3)
 	""" fidif
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:314](/usr/include/worhp/C_Worhp_Data.h:314:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSPENOBJITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:633](/usr/include/worhp/C_Worhp_Data.h:633:3)
 	""" WORHP_STAGE_IP_ADAPT_SELECT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:296](/usr/include/worhp/C_Worhp_Data.h:296:3)
 	""" WORHP_IP_LEQSOLVEMODE_SENSWARM
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:439](/usr/include/worhp/C_Worhp_Data.h:439:3)
 	""" WORHP_LINEAR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:649](/usr/include/worhp/C_Worhp_Data.h:649:3)
 	""" WORHP_STAGE_IP_FINALIZE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:430](/usr/include/worhp/C_Worhp_Data.h:430:3)
 	""" ALGORITHM_SQP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:207](/usr/include/worhp/C_Worhp_Data.h:207:3)
 	""" WORHP_IP_INITMETHODDUAL_DUALBOX
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:257](/usr/include/worhp/C_Worhp_Data.h:257:3)
 	""" WORHP_IP_CHECKINFEAS_EXITFAIL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:647](/usr/include/worhp/C_Worhp_Data.h:647:3)
 	""" WORHP_STAGE_IP_CORRECT_STEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:689](/usr/include/worhp/C_Worhp_Data.h:689:3)
 	""" DivergingDual
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:270](/usr/include/worhp/C_Worhp_Data.h:270:3)
 	""" WORHP_IP_LEQTYPE_EST
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:691](/usr/include/worhp/C_Worhp_Data.h:691:3)
 	""" RegularizationFailed
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:247](/usr/include/worhp/C_Worhp_Data.h:247:3)
 	""" WORHP_IP_BARRIERUPDATEAUG_COMBINED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:165](/usr/include/worhp/C_Worhp_Data.h:165:3)
 	""" WORHP_IP_AUGUPDATE_ADAPT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:332](/usr/include/worhp/C_Worhp_Data.h:332:3)
 	""" WORHP_IP_LEQCURRRHS_SENSR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:637](/usr/include/worhp/C_Worhp_Data.h:637:3)
 	""" WORHP_STAGE_IP_LINE_CHECK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:532](/usr/include/worhp/C_Worhp_Data.h:532:3)
 	""" WORHP_UPDATED_BARRIER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:666](/usr/include/worhp/C_Worhp_Data.h:666:3)
 	""" SearchDirectionZero
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:396](/usr/include/worhp/C_Worhp_Data.h:396:3)
 	""" WORHP_ZEN_RC_DGP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:63](/usr/include/worhp/C_Worhp_Data.h:63:3)
 	""" WORHP_NLP_IDXTYPE_DF_ORIGDF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:644](/usr/include/worhp/C_Worhp_Data.h:644:3)
 	""" WORHP_STAGE_IP_REFINE_STEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:249](/usr/include/worhp/C_Worhp_Data.h:249:3)
 	""" WORHP_IP_BARRIERUPDATEAUG_COMPL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:700](/usr/include/worhp/C_Worhp_Data.h:700:3)
 	""" Debug
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:449](/usr/include/worhp/C_Worhp_Data.h:449:3)
 	""" evalDG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:89](/usr/include/worhp/C_Worhp_Data.h:89:3)
 	""" WORHP_IP_STEP_UNDEF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:122](/usr/include/worhp/C_Worhp_Data.h:122:3)
 	""" WORHP_IP_AUGLAMBDATRIAL_RESET
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:448](/usr/include/worhp/C_Worhp_Data.h:448:3)
 	""" evalDF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:421](/usr/include/worhp/C_Worhp_Data.h:421:3)
 	""" FEAS_MODE_OFF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:201](/usr/include/worhp/C_Worhp_Data.h:201:3)
 	""" WORHP_IP_INITMETHODDUALBOX_COMPL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:603](/usr/include/worhp/C_Worhp_Data.h:603:3)
 	""" Finalise
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:286](/usr/include/worhp/C_Worhp_Data.h:286:3)
 	""" WORHP_IP_LEQSOLVEMODE_CORRECTITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:310](/usr/include/worhp/C_Worhp_Data.h:310:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSENSBARSHIFTITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:652](/usr/include/worhp/C_Worhp_Data.h:652:3)
 	""" Check_Deriv_Values
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:638](/usr/include/worhp/C_Worhp_Data.h:638:3)
 	""" WORHP_STAGE_IP_LINE_UPDATEPRIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:363](/usr/include/worhp/C_Worhp_Data.h:363:3)
 	""" WORHP_LINE_MODE_CORRECT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:259](/usr/include/worhp/C_Worhp_Data.h:259:3)
 	""" WORHP_IP_CHECKFRITZJOHN_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:675](/usr/include/worhp/C_Worhp_Data.h:675:3)
 	""" AcceptablePreviousScaled
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:454](/usr/include/worhp/C_Worhp_Data.h:454:3)
 	""" evalZenDLpp
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:173](/usr/include/worhp/C_Worhp_Data.h:173:3)
 	""" WORHP_IP_LINEMETHOD_FULL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:659](/usr/include/worhp/C_Worhp_Data.h:659:3)
 	""" OptimalSolution
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:193](/usr/include/worhp/C_Worhp_Data.h:193:3)
 	""" WORHP_IP_LEQREDUCE_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:103](/usr/include/worhp/C_Worhp_Data.h:103:3)
 	""" WORHP_IP_STEP_SENSPENOBJ
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:447](/usr/include/worhp/C_Worhp_Data.h:447:3)
 	""" evalG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:514](/usr/include/worhp/C_Worhp_Data.h:514:3)
 	""" WORHP_DIVERGENCE_DUAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:251](/usr/include/worhp/C_Worhp_Data.h:251:3)
 	""" WORHP_IP_BARRIERUPDATEAUG_COMPLCOMBINED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:97](/usr/include/worhp/C_Worhp_Data.h:97:3)
 	""" WORHP_IP_STEP_REFINE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:382](/usr/include/worhp/C_Worhp_Data.h:382:3)
 	""" WORHP_LINE_NOTACCEPTED_FULLSTEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:611](/usr/include/worhp/C_Worhp_Data.h:611:3)
 	""" WORHP_STAGE_IP_INIT_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:73](/usr/include/worhp/C_Worhp_Data.h:73:3)
 	""" WORHP_NLP_IDXTYPE_DF_OBJSLACK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:684](/usr/include/worhp/C_Worhp_Data.h:684:3)
 	""" LocalInfeas
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:600](/usr/include/worhp/C_Worhp_Data.h:600:3)
 	""" Find_Stepsize
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:620](/usr/include/worhp/C_Worhp_Data.h:620:3)
 	""" WORHP_STAGE_IP_CHECK_INFEAS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:686](/usr/include/worhp/C_Worhp_Data.h:686:3)
 	""" TooBig
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:181](/usr/include/worhp/C_Worhp_Data.h:181:3)
 	""" WORHP_IP_LINEMETHOD_MERITKKT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:683](/usr/include/worhp/C_Worhp_Data.h:683:3)
 	""" LocalInfeasOptimal
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:71](/usr/include/worhp/C_Worhp_Data.h:71:3)
 	""" WORHP_NLP_IDXTYPE_G_OBJCON
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:398](/usr/include/worhp/C_Worhp_Data.h:398:3)
 	""" WORHP_ZEN_RC_DLXP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:646](/usr/include/worhp/C_Worhp_Data.h:646:3)
 	""" WORHP_STAGE_IP_CORRECT_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:153](/usr/include/worhp/C_Worhp_Data.h:153:3)
 	""" WORHP_IP_PENALTYUPDATE_ADAPT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:635](/usr/include/worhp/C_Worhp_Data.h:635:3)
 	""" WORHP_STAGE_IP_LINE_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:235](/usr/include/worhp/C_Worhp_Data.h:235:3)
 	""" WORHP_IP_BARRIERINITAUG_ONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:660](/usr/include/worhp/C_Worhp_Data.h:660:3)
 	""" LowPassFilterOptimal
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:522](/usr/include/worhp/C_Worhp_Data.h:522:3)
 	""" WORHP_SINGULAR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:388](/usr/include/worhp/C_Worhp_Data.h:388:3)
 	""" WORHP_LINE_ABORTED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:386](/usr/include/worhp/C_Worhp_Data.h:386:3)
 	""" WORHP_LINE_MINSTEPSIZE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:452](/usr/include/worhp/C_Worhp_Data.h:452:3)
 	""" evalZenDLxp
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:616](/usr/include/worhp/C_Worhp_Data.h:616:3)
 	""" WORHP_STAGE_IP_INIT_FINALIZE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:345](/usr/include/worhp/C_Worhp_Data.h:345:3)
 	""" WORHP_LINE_METHOD_FILTER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:612](/usr/include/worhp/C_Worhp_Data.h:612:3)
 	""" WORHP_STAGE_IP_INIT_MODIFY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:135](/usr/include/worhp/C_Worhp_Data.h:135:3)
 	""" WORHP_IP_BARRIERTYPE_LOGAUG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:349](/usr/include/worhp/C_Worhp_Data.h:349:3)
 	""" WORHP_LINE_METHOD_MERITKKT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:642](/usr/include/worhp/C_Worhp_Data.h:642:3)
 	""" WORHP_STAGE_IP_UNBLOCK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:205](/usr/include/worhp/C_Worhp_Data.h:205:3)
 	""" WORHP_IP_INITMETHODDUAL_FIXED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:671](/usr/include/worhp/C_Worhp_Data.h:671:3)
 	""" AcceptableSolutionConstantF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:133](/usr/include/worhp/C_Worhp_Data.h:133:3)
 	""" WORHP_IP_BARRIERTYPE_LOGSHIFT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:416](/usr/include/worhp/C_Worhp_Data.h:416:3)
 	""" NUserAction
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:630](/usr/include/worhp/C_Worhp_Data.h:630:3)
 	""" WORHP_STAGE_IP_ADAPT_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:118](/usr/include/worhp/C_Worhp_Data.h:118:3)
 	""" WORHP_IP_AUGLAMBDATRIAL_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:457](/usr/include/worhp/C_Worhp_Data.h:457:3)
 	""" fidif_DG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:336](/usr/include/worhp/C_Worhp_Data.h:336:3)
 	""" WORHP_IP_LEQCURRRHS_SENSB
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:384](/usr/include/worhp/C_Worhp_Data.h:384:3)
 	""" WORHP_LINE_NAN
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:151](/usr/include/worhp/C_Worhp_Data.h:151:3)
 	""" WORHP_IP_PENALTYUPDATE_CONSERV
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:516](/usr/include/worhp/C_Worhp_Data.h:516:3)
 	""" WORHP_DIVERGENCE_PENALTY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:243](/usr/include/worhp/C_Worhp_Data.h:243:3)
 	""" WORHP_IP_PENALTYINITAUG_CON
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:589](/usr/include/worhp/C_Worhp_Data.h:589:3)
 	""" No_Stage
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:613](/usr/include/worhp/C_Worhp_Data.h:613:3)
 	""" WORHP_STAGE_IP_INIT_PARAMETER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:690](/usr/include/worhp/C_Worhp_Data.h:690:3)
 	""" MinimumStepsize
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:65](/usr/include/worhp/C_Worhp_Data.h:65:3)
 	""" WORHP_NLP_IDXTYPE_DG_ORIGDG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:590](/usr/include/worhp/C_Worhp_Data.h:590:3)
 	""" Init_Data
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:484](/usr/include/worhp/C_Worhp_Data.h:484:3)
 	""" WORHP_UNDEFINED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:581](/usr/include/worhp/C_Worhp_Data.h:581:3)
 	""" AresForce
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:432](/usr/include/worhp/C_Worhp_Data.h:432:3)
 	""" WORHP_HESSIAN_USER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:504](/usr/include/worhp/C_Worhp_Data.h:504:3)
 	""" WORHP_STEPZERO
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:367](/usr/include/worhp/C_Worhp_Data.h:367:3)
 	""" WORHP_LINE_MODE_BACKUP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:341](/usr/include/worhp/C_Worhp_Data.h:341:3)
 	""" WORHP_LINE_METHOD_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:577](/usr/include/worhp/C_Worhp_Data.h:577:3)
 	""" AresSLP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:554](/usr/include/worhp/C_Worhp_Data.h:554:3)
 	""" fidif_HM_RC_pert_gij
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:187](/usr/include/worhp/C_Worhp_Data.h:187:3)
 	""" WORHP_IP_CHECKNANINF_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:625](/usr/include/worhp/C_Worhp_Data.h:625:3)
 	""" WORHP_STAGE_IP_LEQ_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:91](/usr/include/worhp/C_Worhp_Data.h:91:3)
 	""" WORHP_IP_STEP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:693](/usr/include/worhp/C_Worhp_Data.h:693:3)
 	""" DataError
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:629](/usr/include/worhp/C_Worhp_Data.h:629:3)
 	""" WORHP_STAGE_IP_LEQ_CHECK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:233](/usr/include/worhp/C_Worhp_Data.h:233:3)
 	""" WORHP_IP_BARRIERSHIFTUPDATE_BOUNDARYFORCE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:330](/usr/include/worhp/C_Worhp_Data.h:330:3)
 	""" WORHP_IP_LEQCURRRHS_SENSP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:45](/usr/include/worhp/C_Worhp_Data.h:45:3)
 	""" WORHP_NLP_MODTYPESLACKS_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:263](/usr/include/worhp/C_Worhp_Data.h:263:3)
 	""" WORHP_IP_CHECKFRITZJOHN_EXITFAIL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:434](/usr/include/worhp/C_Worhp_Data.h:434:3)
 	""" WORHP_HESSIAN_BFGS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:674](/usr/include/worhp/C_Worhp_Data.h:674:3)
 	""" AcceptableSolutionScaled
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:424](/usr/include/worhp/C_Worhp_Data.h:424:3)
 	""" FEAS_MODE_NOOBJ
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:334](/usr/include/worhp/C_Worhp_Data.h:334:3)
 	""" WORHP_IP_LEQCURRRHS_SENSQ
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:550](/usr/include/worhp/C_Worhp_Data.h:550:3)
 	""" fidif_HM_RC_pert_hgr
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:326](/usr/include/worhp/C_Worhp_Data.h:326:3)
 	""" WORHP_IP_LEQCURRRHS_STEPSTD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:643](/usr/include/worhp/C_Worhp_Data.h:643:3)
 	""" WORHP_STAGE_IP_REFINE_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:695](/usr/include/worhp/C_Worhp_Data.h:695:3)
 	""" FileOpenError
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:471](/usr/include/worhp/C_Worhp_Data.h:471:3)
 	""" ArmijoFirstCall
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:670](/usr/include/worhp/C_Worhp_Data.h:670:3)
 	""" LowPassFilterAcceptable
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:654](/usr/include/worhp/C_Worhp_Data.h:654:3)
 	""" Worhp_Fidif
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:395](/usr/include/worhp/C_Worhp_Data.h:395:3)
 	""" WORHP_ZEN_RC_RENEW_LU
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:414](/usr/include/worhp/C_Worhp_Data.h:414:3)
 	""" WMTnames
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:155](/usr/include/worhp/C_Worhp_Data.h:155:3)
 	""" WORHP_IP_PENALTYUPDATE_CONSERVADAPT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:431](/usr/include/worhp/C_Worhp_Data.h:431:3)
 	""" ALGORITHM_IP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:469](/usr/include/worhp/C_Worhp_Data.h:469:3)
 	""" IteratingAres
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:163](/usr/include/worhp/C_Worhp_Data.h:163:3)
 	""" WORHP_IP_AUGUPDATE_CONSERV
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:568](/usr/include/worhp/C_Worhp_Data.h:568:3)
 	""" fidif_hm_userdfdg_posside
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:225](/usr/include/worhp/C_Worhp_Data.h:225:3)
 	""" WORHP_IP_BARRIERSHIFTUPDATE_BALANCED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:546](/usr/include/worhp/C_Worhp_Data.h:546:3)
 	""" fidif_HM_RC_pert_fdiag
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:598](/usr/include/worhp/C_Worhp_Data.h:598:3)
 	""" Solve_QP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:203](/usr/include/worhp/C_Worhp_Data.h:203:3)
 	""" WORHP_IP_INITMETHODDUAL_USER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:562](/usr/include/worhp/C_Worhp_Data.h:562:3)
 	""" fidif_negside
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:354](/usr/include/worhp/C_Worhp_Data.h:354:3)
 	""" WORHP_LINE_PHASE_GLOBAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:159](/usr/include/worhp/C_Worhp_Data.h:159:3)
 	""" WORHP_IP_PENALTYPOSITION_OBJ
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:528](/usr/include/worhp/C_Worhp_Data.h:528:3)
 	""" WORHP_INFEASIBLE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:560](/usr/include/worhp/C_Worhp_Data.h:560:3)
 	""" fidif_posside
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:608](/usr/include/worhp/C_Worhp_Data.h:608:3)
 	""" BStep
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:681](/usr/include/worhp/C_Worhp_Data.h:681:3)
 	""" MaxIter
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:530](/usr/include/worhp/C_Worhp_Data.h:530:3)
 	""" WORHP_FRITZJOHN
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:661](/usr/include/worhp/C_Worhp_Data.h:661:3)
 	""" OptimalSolutionConstantF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:626](/usr/include/worhp/C_Worhp_Data.h:626:3)
 	""" WORHP_STAGE_IP_LEQ_CREATE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:552](/usr/include/worhp/C_Worhp_Data.h:552:3)
 	""" fidif_HM_RC_pert_hgrsgr
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:278](/usr/include/worhp/C_Worhp_Data.h:278:3)
 	""" WORHP_IP_LEQSOLVEMODE_STEPSTDITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:446](/usr/include/worhp/C_Worhp_Data.h:446:3)
 	""" evalF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:399](/usr/include/worhp/C_Worhp_Data.h:399:3)
 	""" WORHP_ZEN_RC_DLPP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:343](/usr/include/worhp/C_Worhp_Data.h:343:3)
 	""" WORHP_LINE_METHOD_FULL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:145](/usr/include/worhp/C_Worhp_Data.h:145:3)
 	""" WORHP_IP_PENALTYTYPE_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:347](/usr/include/worhp/C_Worhp_Data.h:347:3)
 	""" WORHP_LINE_METHOD_MERIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:169](/usr/include/worhp/C_Worhp_Data.h:169:3)
 	""" WORHP_IP_ADAPTCHECKMETHOD_FILTER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:694](/usr/include/worhp/C_Worhp_Data.h:694:3)
 	""" RestartError
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:175](/usr/include/worhp/C_Worhp_Data.h:175:3)
 	""" WORHP_IP_LINEMETHOD_FILTER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:292](/usr/include/worhp/C_Worhp_Data.h:292:3)
 	""" WORHP_IP_LEQSOLVEMODE_CENTER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:488](/usr/include/worhp/C_Worhp_Data.h:488:3)
 	""" WORHP_FAIL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:498](/usr/include/worhp/C_Worhp_Data.h:498:3)
 	""" WORHP_LOWPASSOPTIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:300](/usr/include/worhp/C_Worhp_Data.h:300:3)
 	""" WORHP_IP_LEQSOLVEMODE_REFINE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:697](/usr/include/worhp/C_Worhp_Data.h:697:3)
 	""" LinearSolverFailed
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:328](/usr/include/worhp/C_Worhp_Data.h:328:3)
 	""" WORHP_IP_LEQCURRRHS_EST
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:524](/usr/include/worhp/C_Worhp_Data.h:524:3)
 	""" WORHP_SINGULAR_DUAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:558](/usr/include/worhp/C_Worhp_Data.h:558:3)
 	""" fidif_start
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:199](/usr/include/worhp/C_Worhp_Data.h:199:3)
 	""" WORHP_IP_INITMETHODDUALBOX_FIXED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:680](/usr/include/worhp/C_Worhp_Data.h:680:3)
 	""" MaxCalls
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:556](/usr/include/worhp/C_Worhp_Data.h:556:3)
 	""" fidif_HM_RC_pert_gdiag
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:606](/usr/include/worhp/C_Worhp_Data.h:606:3)
 	""" Post_Optimum
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:627](/usr/include/worhp/C_Worhp_Data.h:627:3)
 	""" WORHP_STAGE_IP_LEQ_REGULARIZE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:67](/usr/include/worhp/C_Worhp_Data.h:67:3)
 	""" WORHP_NLP_IDXTYPE_HM_ORIGHM
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:149](/usr/include/worhp/C_Worhp_Data.h:149:3)
 	""" WORHP_IP_PENALTYTYPE_AUGLAGR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:112](/usr/include/worhp/C_Worhp_Data.h:112:3)
 	""" WORHP_IP_AUGMUTRIAL_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:672](/usr/include/worhp/C_Worhp_Data.h:672:3)
 	""" AcceptablePreviousConstantF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:604](/usr/include/worhp/C_Worhp_Data.h:604:3)
 	""" SLP_step
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:607](/usr/include/worhp/C_Worhp_Data.h:607:3)
 	""" Pre_BStep
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:141](/usr/include/worhp/C_Worhp_Data.h:141:3)
 	""" WORHP_IP_BARRIERUPDATE_MEHROTRA
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:282](/usr/include/worhp/C_Worhp_Data.h:282:3)
 	""" WORHP_IP_LEQSOLVEMODE_SENSITREF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:665](/usr/include/worhp/C_Worhp_Data.h:665:3)
 	""" FeasibleSolution
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:640](/usr/include/worhp/C_Worhp_Data.h:640:3)
 	""" WORHP_STAGE_IP_LINE_REDUCEPRIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:415](/usr/include/worhp/C_Worhp_Data.h:415:3)
 	""" NAres
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:107](/usr/include/worhp/C_Worhp_Data.h:107:3)
 	""" WORHP_IP_STEP_SENSAUGMU
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:195](/usr/include/worhp/C_Worhp_Data.h:195:3)
 	""" WORHP_IP_LEQREDUCE_DUAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:139](/usr/include/worhp/C_Worhp_Data.h:139:3)
 	""" WORHP_IP_BARRIERUPDATE_LOQO
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:99](/usr/include/worhp/C_Worhp_Data.h:99:3)
 	""" WORHP_IP_STEP_SENSBAR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:605](/usr/include/worhp/C_Worhp_Data.h:605:3)
 	""" Solve_Feasibility_QP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:624](/usr/include/worhp/C_Worhp_Data.h:624:3)
 	""" WORHP_STAGE_IP_UPDATE_PENALTY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:679](/usr/include/worhp/C_Worhp_Data.h:679:3)
 	""" TerminateError
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:455](/usr/include/worhp/C_Worhp_Data.h:455:3)
 	""" iterOutput
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:57](/usr/include/worhp/C_Worhp_Data.h:57:3)
 	""" WORHP_NLP_CHECKNANINF_REPLACE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:458](/usr/include/worhp/C_Worhp_Data.h:458:3)
 	""" fidif_HM
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:618](/usr/include/worhp/C_Worhp_Data.h:618:3)
 	""" WORHP_STAGE_IP_CHECK_ADAPT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:687](/usr/include/worhp/C_Worhp_Data.h:687:3)
 	""" evalsNaN
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:440](/usr/include/worhp/C_Worhp_Data.h:440:3)
 	""" WORHP_QUADRATIC
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:518](/usr/include/worhp/C_Worhp_Data.h:518:3)
 	""" WORHP_NAN
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:197](/usr/include/worhp/C_Worhp_Data.h:197:3)
 	""" WORHP_IP_INITMETHODDUALBOX_USER
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:595](/usr/include/worhp/C_Worhp_Data.h:595:3)
 	""" Check_KKT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:664](/usr/include/worhp/C_Worhp_Data.h:664:3)
 	""" Unbounded
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:628](/usr/include/worhp/C_Worhp_Data.h:628:3)
 	""" WORHP_STAGE_IP_LEQ_IMPROVE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:566](/usr/include/worhp/C_Worhp_Data.h:566:3)
 	""" fidif_hm_2components
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:390](/usr/include/worhp/C_Worhp_Data.h:390:3)
 	""" WORHP_LINE_ELSE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:698](/usr/include/worhp/C_Worhp_Data.h:698:3)
 	""" TerminatedByCheckFD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:261](/usr/include/worhp/C_Worhp_Data.h:261:3)
 	""" WORHP_IP_CHECKFRITZJOHN_EXIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:520](/usr/include/worhp/C_Worhp_Data.h:520:3)
 	""" WORHP_NOTPOSDEF
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:69](/usr/include/worhp/C_Worhp_Data.h:69:3)
 	""" WORHP_NLP_IDXTYPE_X_OBJSLACK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:378](/usr/include/worhp/C_Worhp_Data.h:378:3)
 	""" WORHP_LINE_ACCEPTED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:548](/usr/include/worhp/C_Worhp_Data.h:548:3)
 	""" fidif_HM_RC_pert_gi
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:185](/usr/include/worhp/C_Worhp_Data.h:185:3)
 	""" WORHP_IP_LINEFILTERENVELOPE_KKT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:542](/usr/include/worhp/C_Worhp_Data.h:542:3)
 	""" fidif_HM_RC_pert_fi
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:177](/usr/include/worhp/C_Worhp_Data.h:177:3)
 	""" WORHP_IP_LINEMETHOD_MERIT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:413](/usr/include/worhp/C_Worhp_Data.h:413:3)
 	""" WMTrows
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:280](/usr/include/worhp/C_Worhp_Data.h:280:3)
 	""" WORHP_IP_LEQSOLVEMODE_SENS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:61](/usr/include/worhp/C_Worhp_Data.h:61:3)
 	""" WORHP_NLP_IDXTYPE_G_ORIGG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:614](/usr/include/worhp/C_Worhp_Data.h:614:3)
 	""" WORHP_STAGE_IP_INIT_ESTIMATE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:601](/usr/include/worhp/C_Worhp_Data.h:601:3)
 	""" Update_Point
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:617](/usr/include/worhp/C_Worhp_Data.h:617:3)
 	""" WORHP_STAGE_IP_CHECK_PREPARE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:93](/usr/include/worhp/C_Worhp_Data.h:93:3)
 	""" WORHP_IP_STEP_STD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:213](/usr/include/worhp/C_Worhp_Data.h:213:3)
 	""" WORHP_IP_REGMETHODDUAL_DEPENDBIG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:599](/usr/include/worhp/C_Worhp_Data.h:599:3)
 	""" Post_QP
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:217](/usr/include/worhp/C_Worhp_Data.h:217:3)
 	""" WORHP_IP_REFINESTEP_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:494](/usr/include/worhp/C_Worhp_Data.h:494:3)
 	""" WORHP_MODOPTIMAL
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:632](/usr/include/worhp/C_Worhp_Data.h:632:3)
 	""" WORHP_STAGE_IP_ADAPT_PENALTY
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:245](/usr/include/worhp/C_Worhp_Data.h:245:3)
 	""" WORHP_IP_BARRIERUPDATEAUG_JUSTAUG
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:324](/usr/include/worhp/C_Worhp_Data.h:324:3)
 	""" WORHP_IP_LEQCURRRHS_NONE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:365](/usr/include/worhp/C_Worhp_Data.h:365:3)
 	""" WORHP_LINE_MODE_REFINE
-	export ALGORITHM_IP, ALGORITHM_SQP, AcceptablePrevious, AcceptablePreviousConstantF, AcceptablePreviousScaled, AcceptableSolution, AcceptableSolutionConstantF, AcceptableSolutionSKKT, AcceptableSolutionScaled, AresFeas, AresForce, AresGiveUp, AresNonMon, AresSLP, ArmijoEvaluate, ArmijoFirstCall, ArmijoUpdate, BStep, Check_Deriv_Values, Check_KKT, Create_QP, DataError, Debug, DivergingDual, DivergingPrimal, FEAS_MODE_DUAL, FEAS_MODE_INITIAL, FEAS_MODE_NOOBJ, FEAS_MODE_OFF, FeasibleSolution, FileOpenError, Finalise, Find_Stepsize, FirstCall, FritzJohn, GlobalInfeas, Hessian_Regularisation, InitError, Init_Data, Iterating, IteratingAres, LicenseError, LicenseWarnExpiryDays, LinearSolverFailed, LocalInfeas, LocalInfeasOptimal, LowPassFilterAcceptable, LowPassFilterOptimal, MaxCalls, MaxIter, MinimumStepsize, NAres, NStageHistory, NUserAction, No_Stage, NotDiffable, OptimalSolution, OptimalSolutionConstantF, Post_Optimum, Post_QP, Post_QP_Sens, Pre_BStep, Pre_KKT, QPerror, Recovery_Strategies, RegularizationFailed, RestartError, SLP_step, SearchDirectionSmall, SearchDirectionZero, Solve_Feasibility_QP, Solve_QP, SolverSLP, TerminateError, TerminateSuccess, TerminatedByCheckFD, Timeout, TooBig, Unbounded, Update_Point, WMTnames, WMTrows, WMTslices, WORHP_BARRIEROPTIMAL, WORHP_CONSTANT, WORHP_CROSSOVEROPTIMAL, WORHP_DIVERGENCE_DUAL, WORHP_DIVERGENCE_PENALTY, WORHP_DIVERGENCE_PRIMAL, WORHP_ELSE, WORHP_FAIL, WORHP_FRITZJOHN, WORHP_HESSIAN_BFGS, WORHP_HESSIAN_FIDIF, WORHP_HESSIAN_USER, WORHP_INFEASIBLE, WORHP_INFEASIBLEOPTIMAL, WORHP_IP_ADAPTCHECKMETHOD_FILTER, WORHP_IP_ADAPTCHECKMETHOD_MERIT, WORHP_IP_AUGLAMBDATRIAL_NONE, WORHP_IP_AUGLAMBDATRIAL_RESET, WORHP_IP_AUGLAMBDATRIAL_SINGLE, WORHP_IP_AUGLAMBDATRIAL_UPDATE, WORHP_IP_AUGMUTRIAL_NONE, WORHP_IP_AUGMUTRIAL_RESET, WORHP_IP_AUGMUTRIAL_UPDATE, WORHP_IP_AUGUPDATE_ADAPT, WORHP_IP_AUGUPDATE_CONSERV, WORHP_IP_BARRIERINITAUG_LAMBDA, WORHP_IP_BARRIERINITAUG_ONE, WORHP_IP_BARRIERSHIFTUPDATE_BALANCED, WORHP_IP_BARRIERSHIFTUPDATE_BOUNDARYFORCE, WORHP_IP_BARRIERSHIFTUPDATE_FORCE, WORHP_IP_BARRIERSHIFTUPDATE_FRACTOBOUNDFORCE, WORHP_IP_BARRIERSHIFTUPDATE_FRACTOBOUNDMAX, WORHP_IP_BARRIERSHIFTUPDATE_MAX, WORHP_IP_BARRIERTYPE_LOG, WORHP_IP_BARRIERTYPE_LOGAUG, WORHP_IP_BARRIERTYPE_LOGLIN, WORHP_IP_BARRIERTYPE_LOGSHIFT, WORHP_IP_BARRIERUPDATEAUG_COMBINED, WORHP_IP_BARRIERUPDATEAUG_COMPL, WORHP_IP_BARRIERUPDATEAUG_COMPLCOMBINED, WORHP_IP_BARRIERUPDATEAUG_JUSTAUG, WORHP_IP_BARRIERUPDATE_LOQO, WORHP_IP_BARRIERUPDATE_MEHROTRA, WORHP_IP_BARRIERUPDATE_MONO, WORHP_IP_BARRIERUPDATE_QUALITY, WORHP_IP_CHECKFRITZJOHN_EXIT, WORHP_IP_CHECKFRITZJOHN_EXITFAIL, WORHP_IP_CHECKFRITZJOHN_NONE, WORHP_IP_CHECKINFEAS_EXIT, WORHP_IP_CHECKINFEAS_EXITFAIL, WORHP_IP_CHECKINFEAS_NONE, WORHP_IP_CHECKNANINF_NONE, WORHP_IP_CHECKNANINF_REPLACE, WORHP_IP_CHECKNANINF_STOP, WORHP_IP_INITMETHODDUALBOX_COMPL, WORHP_IP_INITMETHODDUALBOX_FIXED, WORHP_IP_INITMETHODDUALBOX_USER, WORHP_IP_INITMETHODDUAL_DUALBOX, WORHP_IP_INITMETHODDUAL_FIXED, WORHP_IP_INITMETHODDUAL_USER, WORHP_IP_LEQCURRRHS_EST, WORHP_IP_LEQCURRRHS_NONE, WORHP_IP_LEQCURRRHS_SENSB, WORHP_IP_LEQCURRRHS_SENSP, WORHP_IP_LEQCURRRHS_SENSQ, WORHP_IP_LEQCURRRHS_SENSR, WORHP_IP_LEQCURRRHS_STEPSTD, WORHP_IP_LEQREDUCE_DUAL, WORHP_IP_LEQREDUCE_NONE, WORHP_IP_LEQSOLVEMODE_CENTER, WORHP_IP_LEQSOLVEMODE_CENTERITREF, WORHP_IP_LEQSOLVEMODE_CORRECT, WORHP_IP_LEQSOLVEMODE_CORRECTITREF, WORHP_IP_LEQSOLVEMODE_EST, WORHP_IP_LEQSOLVEMODE_ESTITREF, WORHP_IP_LEQSOLVEMODE_REFINE, WORHP_IP_LEQSOLVEMODE_REFINEITREF, WORHP_IP_LEQSOLVEMODE_SENS, WORHP_IP_LEQSOLVEMODE_SENSITREF, WORHP_IP_LEQSOLVEMODE_SENSWARM, WORHP_IP_LEQSOLVEMODE_SENSWARMITREF, WORHP_IP_LEQSOLVEMODE_STEP, WORHP_IP_LEQSOLVEMODE_STEPITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSAUGMU, WORHP_IP_LEQSOLVEMODE_STEPSENSAUGMUITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSBAR, WORHP_IP_LEQSOLVEMODE_STEPSENSBARITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSBARSHIFT, WORHP_IP_LEQSOLVEMODE_STEPSENSBARSHIFTITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSPENFEAS, WORHP_IP_LEQSOLVEMODE_STEPSENSPENFEASITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSPENOBJ, WORHP_IP_LEQSOLVEMODE_STEPSENSPENOBJITREF, WORHP_IP_LEQSOLVEMODE_STEPSTD, WORHP_IP_LEQSOLVEMODE_STEPSTDITREF, WORHP_IP_LEQTYPE_EST, WORHP_IP_LEQTYPE_STD, WORHP_IP_LINEFILTERENVELOPE_FEAS, WORHP_IP_LINEFILTERENVELOPE_KKT, WORHP_IP_LINEMETHOD_FILTER, WORHP_IP_LINEMETHOD_FILTERMERIT, WORHP_IP_LINEMETHOD_FULL, WORHP_IP_LINEMETHOD_MERIT, WORHP_IP_LINEMETHOD_MERITKKT, WORHP_IP_LINEMETHOD_NONE, WORHP_IP_NLPMODTYPE_SLACK, WORHP_IP_PENALTYINITAUG_CON, WORHP_IP_PENALTYINITAUG_MU, WORHP_IP_PENALTYINITAUG_ZERO, WORHP_IP_PENALTYPOSITION_BOTH, WORHP_IP_PENALTYPOSITION_FEAS, WORHP_IP_PENALTYPOSITION_OBJ, WORHP_IP_PENALTYTYPE_AUGLAGR, WORHP_IP_PENALTYTYPE_L2, WORHP_IP_PENALTYTYPE_NONE, WORHP_IP_PENALTYUPDATE_ADAPT, WORHP_IP_PENALTYUPDATE_CONSERV, WORHP_IP_PENALTYUPDATE_CONSERVADAPT, WORHP_IP_REFINESTEP_AFFINE, WORHP_IP_REFINESTEP_NONE, WORHP_IP_REFINESTEP_PRIMALDUAL, WORHP_IP_REGMETHODDUAL_ALL, WORHP_IP_REGMETHODDUAL_DEPENDBIG, WORHP_IP_REGMETHODDUAL_DEPENDREMOVE, WORHP_IP_REGMETHODDUAL_NONE, WORHP_IP_STEP, WORHP_IP_STEP_CORRECT, WORHP_IP_STEP_REFINE, WORHP_IP_STEP_SENSAUGMU, WORHP_IP_STEP_SENSBAR, WORHP_IP_STEP_SENSBARSHIFT, WORHP_IP_STEP_SENSPENFEAS, WORHP_IP_STEP_SENSPENOBJ, WORHP_IP_STEP_STD, WORHP_IP_STEP_UNDEF, WORHP_LINEAR, WORHP_LINE_ABORTED, WORHP_LINE_ACCEPTED, WORHP_LINE_ACCEPTED_FULLSTEP, WORHP_LINE_ACCEPTED_MAXSTEP, WORHP_LINE_ELSE, WORHP_LINE_METHOD_FILTER, WORHP_LINE_METHOD_FULL, WORHP_LINE_METHOD_MERIT, WORHP_LINE_METHOD_MERITKKT, WORHP_LINE_METHOD_NONE, WORHP_LINE_MINSTEPSIZE, WORHP_LINE_MODE_BACKUP, WORHP_LINE_MODE_CORRECT, WORHP_LINE_MODE_REFINE, WORHP_LINE_MODE_STD, WORHP_LINE_NAN, WORHP_LINE_NOTACCEPTED, WORHP_LINE_NOTACCEPTED_FULLSTEP, WORHP_LINE_OK, WORHP_LINE_PHASE_GLOBAL, WORHP_LINE_PHASE_LOCAL, WORHP_LOWPASSOPTIMAL, WORHP_MODOPTIMAL, WORHP_NAN, WORHP_NLP_CHECKNANINF_NONE, WORHP_NLP_CHECKNANINF_REPLACE, WORHP_NLP_CHECKNANINF_STOP, WORHP_NLP_IDXTYPE_DF_OBJSLACK, WORHP_NLP_IDXTYPE_DF_ORIGDF, WORHP_NLP_IDXTYPE_DG_OBJCONOBJSLACK, WORHP_NLP_IDXTYPE_DG_OBJCONORIGDF, WORHP_NLP_IDXTYPE_DG_ORIGDG, WORHP_NLP_IDXTYPE_G_OBJCON, WORHP_NLP_IDXTYPE_G_ORIGG, WORHP_NLP_IDXTYPE_HM_OBJSLACK, WORHP_NLP_IDXTYPE_HM_ORIGHM, WORHP_NLP_IDXTYPE_X_OBJSLACK, WORHP_NLP_IDXTYPE_X_ORIGX, WORHP_NLP_MODTYPEOBJ_CON, WORHP_NLP_MODTYPEOBJ_STD, WORHP_NLP_MODTYPESLACKS_IEQ, WORHP_NLP_MODTYPESLACKS_NONE, WORHP_NONLINEAR, WORHP_NOTPOSDEF, WORHP_OK, WORHP_OPTIMAL, WORHP_PENALTYOPTIMAL, WORHP_QUADRATIC, WORHP_SINGULAR, WORHP_SINGULAR_DUAL, WORHP_STAGE_CROSSOVER, WORHP_STAGE_IP_ADAPT_BARRIER, WORHP_STAGE_IP_ADAPT_PENALTY, WORHP_STAGE_IP_ADAPT_PREPARE, WORHP_STAGE_IP_ADAPT_SELECT, WORHP_STAGE_IP_CHECK, WORHP_STAGE_IP_CHECK_ADAPT, WORHP_STAGE_IP_CHECK_BARRIER, WORHP_STAGE_IP_CHECK_INFEAS, WORHP_STAGE_IP_CHECK_PENALTY, WORHP_STAGE_IP_CHECK_PREPARE, WORHP_STAGE_IP_CORRECT_ABORT, WORHP_STAGE_IP_CORRECT_PREPARE, WORHP_STAGE_IP_CORRECT_STEP, WORHP_STAGE_IP_FINALIZE, WORHP_STAGE_IP_INIT_CENTERING, WORHP_STAGE_IP_INIT_ESTIMATE, WORHP_STAGE_IP_INIT_FINALIZE, WORHP_STAGE_IP_INIT_MODIFY, WORHP_STAGE_IP_INIT_PARAMETER, WORHP_STAGE_IP_INIT_PREPARE, WORHP_STAGE_IP_INIT_RESTART, WORHP_STAGE_IP_LEQ_CHECK, WORHP_STAGE_IP_LEQ_CREATE, WORHP_STAGE_IP_LEQ_IMPROVE, WORHP_STAGE_IP_LEQ_PREPARE, WORHP_STAGE_IP_LEQ_REGULARIZE, WORHP_STAGE_IP_LINE_BACKUP_PREPARE, WORHP_STAGE_IP_LINE_CHECK, WORHP_STAGE_IP_LINE_PREPARE, WORHP_STAGE_IP_LINE_REDUCEDUAL, WORHP_STAGE_IP_LINE_REDUCEPRIMAL, WORHP_STAGE_IP_LINE_UPDATEDUAL, WORHP_STAGE_IP_LINE_UPDATEPRIMAL, WORHP_STAGE_IP_REFINE_ABORT, WORHP_STAGE_IP_REFINE_PREPARE, WORHP_STAGE_IP_REFINE_STEP, WORHP_STAGE_IP_STEP, WORHP_STAGE_IP_UNBLOCK, WORHP_STAGE_IP_UPDATE_BARRIER, WORHP_STAGE_IP_UPDATE_PENALTY, WORHP_STAGE_NLP_INIT, WORHP_STAGE_RESTART, WORHP_STAGE_TERMINATE, WORHP_STEPSMALL, WORHP_STEPZERO, WORHP_TOOBIG, WORHP_UNBOUNDED, WORHP_UNDEFINED, WORHP_UPDATED_AUGDUALS, WORHP_UPDATED_AUGDUALS_PENALTY, WORHP_UPDATED_BARRIER, WORHP_UPDATED_PENALTY, WORHP_ZEN_RC_DGP, WORHP_ZEN_RC_DLP, WORHP_ZEN_RC_DLPP, WORHP_ZEN_RC_DLXP, WORHP_ZEN_RC_INIT, WORHP_ZEN_RC_RENEW_LU, WORHP_ZEN_STORE_DENSE, WORHP_ZEN_STORE_SPARSE, WORHP_ZEN_STORE_TMP, Worhp_Fidif, ZenSetup, callWorhp, evalDF, evalDG, evalF, evalG, evalHM, evalZenDGp, evalZenDLp, evalZenDLpp, evalZenDLxp, evalsNaN, fidif, fidif_DF, fidif_DG, fidif_HM, fidif_HM_RC_pert_fdiag, fidif_HM_RC_pert_fi, fidif_HM_RC_pert_fij, fidif_HM_RC_pert_gdiag, fidif_HM_RC_pert_gi, fidif_HM_RC_pert_gij, fidif_HM_RC_pert_hgr, fidif_HM_RC_pert_hgrsgr, fidif_HM_RC_start, fidif_end, fidif_hm_2components, fidif_hm_in_x0, fidif_hm_userdfdg_negside, fidif_hm_userdfdg_posside, fidif_negside, fidif_posside, fidif_start, iterOutput
+	export ALGORITHM_IP, ALGORITHM_SQP, AcceptablePrevious, AcceptablePreviousConstantF, AcceptablePreviousScaled, AcceptableSolution, AcceptableSolutionConstantF, AcceptableSolutionSKKT, AcceptableSolutionScaled, AresFeas, AresForce, AresGiveUp, AresNonMon, AresSLP, ArmijoEvaluate, ArmijoFirstCall, ArmijoUpdate, BStep, Check_Deriv_Values, Check_KKT, Create_QP, DataError, Debug, DivergingDual, DivergingPrimal, FEAS_MODE_DUAL, FEAS_MODE_INITIAL, FEAS_MODE_NOOBJ, FEAS_MODE_OFF, FeasibleSolution, FileOpenError, Finalise, Find_Stepsize, FirstCall, FritzJohn, GlobalInfeas, Hessian_Regularisation, InitErr, Init_Data, Iterating, IteratingAres, LicenseError, LicenseWarnExpiryDays, LinearSolverFailed, LocalInfeas, LocalInfeasOptimal, LowPassFilterAcceptable, LowPassFilterOptimal, MaxCalls, MaxIter, MinimumStepsize, NAres, NStageHistory, NUserAction, No_Stage, NotDiffable, OptimalSolution, OptimalSolutionConstantF, Post_Optimum, Post_QP, Post_QP_Sens, Pre_BStep, Pre_KKT, QPerror, Recovery_Strategies, RegularizationFailed, RestartError, SLP_step, SearchDirectionSmall, SearchDirectionZero, Solve_Feasibility_QP, Solve_QP, SolverSLP, TerminateError, TerminateSuccess, TerminatedByCheckFD, Timeout, TooBig, Unbounded, Update_Point, WMTnames, WMTrows, WMTslices, WORHP_BARRIEROPTIMAL, WORHP_CONSTANT, WORHP_CROSSOVEROPTIMAL, WORHP_DIVERGENCE_DUAL, WORHP_DIVERGENCE_PENALTY, WORHP_DIVERGENCE_PRIMAL, WORHP_ELSE, WORHP_FAIL, WORHP_FRITZJOHN, WORHP_HESSIAN_BFGS, WORHP_HESSIAN_FIDIF, WORHP_HESSIAN_USER, WORHP_INFEASIBLE, WORHP_INFEASIBLEOPTIMAL, WORHP_IP_ADAPTCHECKMETHOD_FILTER, WORHP_IP_ADAPTCHECKMETHOD_MERIT, WORHP_IP_AUGLAMBDATRIAL_NONE, WORHP_IP_AUGLAMBDATRIAL_RESET, WORHP_IP_AUGLAMBDATRIAL_SINGLE, WORHP_IP_AUGLAMBDATRIAL_UPDATE, WORHP_IP_AUGMUTRIAL_NONE, WORHP_IP_AUGMUTRIAL_RESET, WORHP_IP_AUGMUTRIAL_UPDATE, WORHP_IP_AUGUPDATE_ADAPT, WORHP_IP_AUGUPDATE_CONSERV, WORHP_IP_BARRIERINITAUG_LAMBDA, WORHP_IP_BARRIERINITAUG_ONE, WORHP_IP_BARRIERSHIFTUPDATE_BALANCED, WORHP_IP_BARRIERSHIFTUPDATE_BOUNDARYFORCE, WORHP_IP_BARRIERSHIFTUPDATE_FORCE, WORHP_IP_BARRIERSHIFTUPDATE_FRACTOBOUNDFORCE, WORHP_IP_BARRIERSHIFTUPDATE_FRACTOBOUNDMAX, WORHP_IP_BARRIERSHIFTUPDATE_MAX, WORHP_IP_BARRIERTYPE_LOG, WORHP_IP_BARRIERTYPE_LOGAUG, WORHP_IP_BARRIERTYPE_LOGLIN, WORHP_IP_BARRIERTYPE_LOGSHIFT, WORHP_IP_BARRIERUPDATEAUG_COMBINED, WORHP_IP_BARRIERUPDATEAUG_COMPL, WORHP_IP_BARRIERUPDATEAUG_COMPLCOMBINED, WORHP_IP_BARRIERUPDATEAUG_JUSTAUG, WORHP_IP_BARRIERUPDATE_LOQO, WORHP_IP_BARRIERUPDATE_MEHROTRA, WORHP_IP_BARRIERUPDATE_MONO, WORHP_IP_BARRIERUPDATE_QUALITY, WORHP_IP_CHECKFRITZJOHN_EXIT, WORHP_IP_CHECKFRITZJOHN_EXITFAIL, WORHP_IP_CHECKFRITZJOHN_NONE, WORHP_IP_CHECKINFEAS_EXIT, WORHP_IP_CHECKINFEAS_EXITFAIL, WORHP_IP_CHECKINFEAS_NONE, WORHP_IP_CHECKNANINF_NONE, WORHP_IP_CHECKNANINF_REPLACE, WORHP_IP_CHECKNANINF_STOP, WORHP_IP_INITMETHODDUALBOX_COMPL, WORHP_IP_INITMETHODDUALBOX_FIXED, WORHP_IP_INITMETHODDUALBOX_USER, WORHP_IP_INITMETHODDUAL_DUALBOX, WORHP_IP_INITMETHODDUAL_FIXED, WORHP_IP_INITMETHODDUAL_USER, WORHP_IP_LEQCURRRHS_EST, WORHP_IP_LEQCURRRHS_NONE, WORHP_IP_LEQCURRRHS_SENSB, WORHP_IP_LEQCURRRHS_SENSP, WORHP_IP_LEQCURRRHS_SENSQ, WORHP_IP_LEQCURRRHS_SENSR, WORHP_IP_LEQCURRRHS_STEPSTD, WORHP_IP_LEQREDUCE_DUAL, WORHP_IP_LEQREDUCE_NONE, WORHP_IP_LEQSOLVEMODE_CENTER, WORHP_IP_LEQSOLVEMODE_CENTERITREF, WORHP_IP_LEQSOLVEMODE_CORRECT, WORHP_IP_LEQSOLVEMODE_CORRECTITREF, WORHP_IP_LEQSOLVEMODE_EST, WORHP_IP_LEQSOLVEMODE_ESTITREF, WORHP_IP_LEQSOLVEMODE_REFINE, WORHP_IP_LEQSOLVEMODE_REFINEITREF, WORHP_IP_LEQSOLVEMODE_SENS, WORHP_IP_LEQSOLVEMODE_SENSITREF, WORHP_IP_LEQSOLVEMODE_SENSWARM, WORHP_IP_LEQSOLVEMODE_SENSWARMITREF, WORHP_IP_LEQSOLVEMODE_STEP, WORHP_IP_LEQSOLVEMODE_STEPITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSAUGMU, WORHP_IP_LEQSOLVEMODE_STEPSENSAUGMUITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSBAR, WORHP_IP_LEQSOLVEMODE_STEPSENSBARITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSBARSHIFT, WORHP_IP_LEQSOLVEMODE_STEPSENSBARSHIFTITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSPENFEAS, WORHP_IP_LEQSOLVEMODE_STEPSENSPENFEASITREF, WORHP_IP_LEQSOLVEMODE_STEPSENSPENOBJ, WORHP_IP_LEQSOLVEMODE_STEPSENSPENOBJITREF, WORHP_IP_LEQSOLVEMODE_STEPSTD, WORHP_IP_LEQSOLVEMODE_STEPSTDITREF, WORHP_IP_LEQTYPE_EST, WORHP_IP_LEQTYPE_STD, WORHP_IP_LINEFILTERENVELOPE_FEAS, WORHP_IP_LINEFILTERENVELOPE_KKT, WORHP_IP_LINEMETHOD_FILTER, WORHP_IP_LINEMETHOD_FILTERMERIT, WORHP_IP_LINEMETHOD_FULL, WORHP_IP_LINEMETHOD_MERIT, WORHP_IP_LINEMETHOD_MERITKKT, WORHP_IP_LINEMETHOD_NONE, WORHP_IP_NLPMODTYPE_SLACK, WORHP_IP_PENALTYINITAUG_CON, WORHP_IP_PENALTYINITAUG_MU, WORHP_IP_PENALTYINITAUG_ZERO, WORHP_IP_PENALTYPOSITION_BOTH, WORHP_IP_PENALTYPOSITION_FEAS, WORHP_IP_PENALTYPOSITION_OBJ, WORHP_IP_PENALTYTYPE_AUGLAGR, WORHP_IP_PENALTYTYPE_L2, WORHP_IP_PENALTYTYPE_NONE, WORHP_IP_PENALTYUPDATE_ADAPT, WORHP_IP_PENALTYUPDATE_CONSERV, WORHP_IP_PENALTYUPDATE_CONSERVADAPT, WORHP_IP_REFINESTEP_AFFINE, WORHP_IP_REFINESTEP_NONE, WORHP_IP_REFINESTEP_PRIMALDUAL, WORHP_IP_REGMETHODDUAL_ALL, WORHP_IP_REGMETHODDUAL_DEPENDBIG, WORHP_IP_REGMETHODDUAL_DEPENDREMOVE, WORHP_IP_REGMETHODDUAL_NONE, WORHP_IP_STEP, WORHP_IP_STEP_CORRECT, WORHP_IP_STEP_REFINE, WORHP_IP_STEP_SENSAUGMU, WORHP_IP_STEP_SENSBAR, WORHP_IP_STEP_SENSBARSHIFT, WORHP_IP_STEP_SENSPENFEAS, WORHP_IP_STEP_SENSPENOBJ, WORHP_IP_STEP_STD, WORHP_IP_STEP_UNDEF, WORHP_LINEAR, WORHP_LINE_ABORTED, WORHP_LINE_ACCEPTED, WORHP_LINE_ACCEPTED_FULLSTEP, WORHP_LINE_ACCEPTED_MAXSTEP, WORHP_LINE_ELSE, WORHP_LINE_METHOD_FILTER, WORHP_LINE_METHOD_FULL, WORHP_LINE_METHOD_MERIT, WORHP_LINE_METHOD_MERITKKT, WORHP_LINE_METHOD_NONE, WORHP_LINE_MINSTEPSIZE, WORHP_LINE_MODE_BACKUP, WORHP_LINE_MODE_CORRECT, WORHP_LINE_MODE_REFINE, WORHP_LINE_MODE_STD, WORHP_LINE_NAN, WORHP_LINE_NOTACCEPTED, WORHP_LINE_NOTACCEPTED_FULLSTEP, WORHP_LINE_OK, WORHP_LINE_PHASE_GLOBAL, WORHP_LINE_PHASE_LOCAL, WORHP_LOWPASSOPTIMAL, WORHP_MODOPTIMAL, WORHP_NAN, WORHP_NLP_CHECKNANINF_NONE, WORHP_NLP_CHECKNANINF_REPLACE, WORHP_NLP_CHECKNANINF_STOP, WORHP_NLP_IDXTYPE_DF_OBJSLACK, WORHP_NLP_IDXTYPE_DF_ORIGDF, WORHP_NLP_IDXTYPE_DG_OBJCONOBJSLACK, WORHP_NLP_IDXTYPE_DG_OBJCONORIGDF, WORHP_NLP_IDXTYPE_DG_ORIGDG, WORHP_NLP_IDXTYPE_G_OBJCON, WORHP_NLP_IDXTYPE_G_ORIGG, WORHP_NLP_IDXTYPE_HM_OBJSLACK, WORHP_NLP_IDXTYPE_HM_ORIGHM, WORHP_NLP_IDXTYPE_X_OBJSLACK, WORHP_NLP_IDXTYPE_X_ORIGX, WORHP_NLP_MODTYPEOBJ_CON, WORHP_NLP_MODTYPEOBJ_STD, WORHP_NLP_MODTYPESLACKS_IEQ, WORHP_NLP_MODTYPESLACKS_NONE, WORHP_NONLINEAR, WORHP_NOTPOSDEF, WORHP_OK, WORHP_OPTIMAL, WORHP_PENALTYOPTIMAL, WORHP_QUADRATIC, WORHP_SINGULAR, WORHP_SINGULAR_DUAL, WORHP_STAGE_CROSSOVER, WORHP_STAGE_IP_ADAPT_BARRIER, WORHP_STAGE_IP_ADAPT_PENALTY, WORHP_STAGE_IP_ADAPT_PREPARE, WORHP_STAGE_IP_ADAPT_SELECT, WORHP_STAGE_IP_CHECK, WORHP_STAGE_IP_CHECK_ADAPT, WORHP_STAGE_IP_CHECK_BARRIER, WORHP_STAGE_IP_CHECK_INFEAS, WORHP_STAGE_IP_CHECK_PENALTY, WORHP_STAGE_IP_CHECK_PREPARE, WORHP_STAGE_IP_CORRECT_ABORT, WORHP_STAGE_IP_CORRECT_PREPARE, WORHP_STAGE_IP_CORRECT_STEP, WORHP_STAGE_IP_FINALIZE, WORHP_STAGE_IP_INIT_CENTERING, WORHP_STAGE_IP_INIT_ESTIMATE, WORHP_STAGE_IP_INIT_FINALIZE, WORHP_STAGE_IP_INIT_MODIFY, WORHP_STAGE_IP_INIT_PARAMETER, WORHP_STAGE_IP_INIT_PREPARE, WORHP_STAGE_IP_INIT_RESTART, WORHP_STAGE_IP_LEQ_CHECK, WORHP_STAGE_IP_LEQ_CREATE, WORHP_STAGE_IP_LEQ_IMPROVE, WORHP_STAGE_IP_LEQ_PREPARE, WORHP_STAGE_IP_LEQ_REGULARIZE, WORHP_STAGE_IP_LINE_BACKUP_PREPARE, WORHP_STAGE_IP_LINE_CHECK, WORHP_STAGE_IP_LINE_PREPARE, WORHP_STAGE_IP_LINE_REDUCEDUAL, WORHP_STAGE_IP_LINE_REDUCEPRIMAL, WORHP_STAGE_IP_LINE_UPDATEDUAL, WORHP_STAGE_IP_LINE_UPDATEPRIMAL, WORHP_STAGE_IP_REFINE_ABORT, WORHP_STAGE_IP_REFINE_PREPARE, WORHP_STAGE_IP_REFINE_STEP, WORHP_STAGE_IP_STEP, WORHP_STAGE_IP_UNBLOCK, WORHP_STAGE_IP_UPDATE_BARRIER, WORHP_STAGE_IP_UPDATE_PENALTY, WORHP_STAGE_NLP_INIT, WORHP_STAGE_RESTART, WORHP_STAGE_TERMINATE, WORHP_STEPSMALL, WORHP_STEPZERO, WORHP_TOOBIG, WORHP_UNBOUNDED, WORHP_UNDEFINED, WORHP_UPDATED_AUGDUALS, WORHP_UPDATED_AUGDUALS_PENALTY, WORHP_UPDATED_BARRIER, WORHP_UPDATED_PENALTY, WORHP_ZEN_RC_DGP, WORHP_ZEN_RC_DLP, WORHP_ZEN_RC_DLPP, WORHP_ZEN_RC_DLXP, WORHP_ZEN_RC_INIT, WORHP_ZEN_RC_RENEW_LU, WORHP_ZEN_STORE_DENSE, WORHP_ZEN_STORE_SPARSE, WORHP_ZEN_STORE_TMP, Worhp_Fidif, ZenSetup, callWorhp, evalDF, evalDG, evalF, evalG, evalHM, evalZenDGp, evalZenDLp, evalZenDLpp, evalZenDLxp, evalsNaN, fidif, fidif_DF, fidif_DG, fidif_HM, fidif_HM_RC_pert_fdiag, fidif_HM_RC_pert_fi, fidif_HM_RC_pert_fij, fidif_HM_RC_pert_gdiag, fidif_HM_RC_pert_gi, fidif_HM_RC_pert_gij, fidif_HM_RC_pert_hgr, fidif_HM_RC_pert_hgrsgr, fidif_HM_RC_start, fidif_end, fidif_hm_2components, fidif_hm_in_x0, fidif_hm_userdfdg_negside, fidif_hm_userdfdg_posside, fidif_negside, fidif_posside, fidif_start, iterOutput
 	𝐣𝐥.@cenum {
 		WORHP_NLP_MODTYPESLACKS_NONE = 𝐣𝐥.Cint(0)
 		WORHP_NLP_MODTYPESLACKS_IEQ = 𝐣𝐥.Cint(1)
@@ -3570,7 +3570,7 @@ using CBinding: 𝐣𝐥
 		DivergingDual = 𝐣𝐥.Cint(-1024)
 		MinimumStepsize = 𝐣𝐥.Cint(-1031)
 		RegularizationFailed = 𝐣𝐥.Cint(-1032)
-		InitError = 𝐣𝐥.Cint(-1041)
+		InitErr = 𝐣𝐥.Cint(-1041)
 		DataError = 𝐣𝐥.Cint(-1042)
 		RestartError = 𝐣𝐥.Cint(-1043)
 		FileOpenError = 𝐣𝐥.Cint(-1044)
@@ -3581,15 +3581,15 @@ using CBinding: 𝐣𝐥
 		Debug = 𝐣𝐥.Cint(-1206)
 		LicenseWarnExpiryDays = 𝐣𝐥.Cint(31)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:730](/usr/include/worhp/C_Worhp_Data.h:730:3)
 	""" OptVar
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:705](/usr/include/worhp/C_Worhp_Data.h:705:16)
 	""" OptVarStruct
 	export OptVar, OptVarStruct
@@ -3612,35 +3612,35 @@ using CBinding: 𝐣𝐥
 		Mu::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		GPart::𝐣𝐥.Ptr{𝐣𝐥.Cint}
 		P::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		newX::𝐣𝐥.Cbool
-		initialised::𝐣𝐥.Cbool
+		newX::Cbool
+		initialised::Cbool
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:732](/usr/include/worhp/C_Worhp_Data.h:732:16)
 	""" WorkspaceStruct
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:3948](/usr/include/worhp/C_Worhp_Data.h:3948:3)
 	""" Workspace
 	export Workspace, WorkspaceStruct
 	𝐣𝐥.@ctypedef Workspace 𝐣𝐥.@cstruct WorkspaceStruct {
 		NLP_ParModTypeSlacks::𝐣𝐥.Cint
 		NLP_ParModTypeObj::𝐣𝐥.Cint
-		NLP_ParUseDLFeas::𝐣𝐥.Cbool
-		NLP_ParUseDGG::𝐣𝐥.Cbool
-		NLP_ParSortMatrix::𝐣𝐥.Cbool
+		NLP_ParUseDLFeas::Cbool
+		NLP_ParUseDGG::Cbool
+		NLP_ParSortMatrix::Cbool
 		NLP_ParScaleMaxGrad::𝐣𝐥.Cdouble
 		NLP_ParScaleMin::𝐣𝐥.Cdouble
 		NLP_ParCheckNanInf::𝐣𝐥.Cint
-		NLP_ParStoreWarmstart::𝐣𝐥.Cbool
-		NLP_ParStoreBounds::𝐣𝐥.Cbool
+		NLP_ParStoreWarmstart::Cbool
+		NLP_ParStoreBounds::Cbool
 		NLP_ParObjLow::𝐣𝐥.Cdouble
 		NLP_ParObjUp::𝐣𝐥.Cdouble
-		NLP_IdxTypeStore::𝐣𝐥.Cbool
+		NLP_IdxTypeStore::Cbool
 		NLP_n::𝐣𝐥.Cint
 		NLP_nIeq::𝐣𝐥.Cint
 		NLP_nIeqLow::𝐣𝐥.Cint
@@ -3652,13 +3652,13 @@ using CBinding: 𝐣𝐥
 		NLP_mIeqLow::𝐣𝐥.Cint
 		NLP_mIeqUp::𝐣𝐥.Cint
 		NLP_mIeqLowUp::𝐣𝐥.Cint
-		NLP_ConstantF::𝐣𝐥.Cbool
-		NLP_ConstantDF::𝐣𝐥.Cbool
-		NLP_ConstantDG::𝐣𝐥.Cbool
-		NLP_ConstantHM::𝐣𝐥.Cbool
-		NLP_FeasibilityOnly::𝐣𝐥.Cbool
-		NLP_UpdatedBoundsValue::𝐣𝐥.Cbool
-		NLP_UpdatedBoundsType::𝐣𝐥.Cbool
+		NLP_ConstantF::Cbool
+		NLP_ConstantDF::Cbool
+		NLP_ConstantDG::Cbool
+		NLP_ConstantHM::Cbool
+		NLP_FeasibilityOnly::Cbool
+		NLP_UpdatedBoundsValue::Cbool
+		NLP_UpdatedBoundsType::Cbool
 		dim_NLP_X::size_t
 		dim_NLP_S::size_t
 		dim_NLP_Mu::size_t
@@ -3729,12 +3729,12 @@ using CBinding: 𝐣𝐥
 		dim_NLP_ActiveSetSU::size_t
 		dim_NLP_ActiveSetGL::size_t
 		dim_NLP_ActiveSetGU::size_t
-		NLP_ActiveSetXL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		NLP_ActiveSetXU::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		NLP_ActiveSetSL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		NLP_ActiveSetSU::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		NLP_ActiveSetGL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		NLP_ActiveSetGU::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		NLP_ActiveSetXL::𝐣𝐥.Ptr{Cbool}
+		NLP_ActiveSetXU::𝐣𝐥.Ptr{Cbool}
+		NLP_ActiveSetSL::𝐣𝐥.Ptr{Cbool}
+		NLP_ActiveSetSU::𝐣𝐥.Ptr{Cbool}
+		NLP_ActiveSetGL::𝐣𝐥.Ptr{Cbool}
+		NLP_ActiveSetGU::𝐣𝐥.Ptr{Cbool}
 		dim_NLP_DLx::size_t
 		dim_NLP_DLs::size_t
 		dim_NLP_DLxFeas::size_t
@@ -3768,14 +3768,14 @@ using CBinding: 𝐣𝐥
 		NLP_AcceptFeasMax::𝐣𝐥.Cdouble
 		NLP_AcceptComplMax::𝐣𝐥.Cdouble
 		NLP_AcceptMajorIter::𝐣𝐥.Cint
-		NLP_AcceptSolFound::𝐣𝐥.Cbool
+		NLP_AcceptSolFound::Cbool
 		dim_NLP_WarmX::size_t
 		dim_NLP_WarmMu::size_t
 		dim_NLP_WarmLambda::size_t
 		NLP_WarmX::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		NLP_WarmMu::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		NLP_WarmLambda::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		NLP_WarmStored::𝐣𝐥.Cbool
+		NLP_WarmStored::Cbool
 		dim_NLP_idxX::size_t
 		dim_NLP_idxG::size_t
 		dim_NLP_idxDF::size_t
@@ -3821,26 +3821,26 @@ using CBinding: 𝐣𝐥
 		NLP_nnzHMdiag::𝐣𝐥.Cint
 		NLP_idxObjSlack::𝐣𝐥.Cint
 		NLP_idxObjCon::𝐣𝐥.Cint
-		NLP_EvalOrigF::𝐣𝐥.Cbool
-		NLP_EvalOrigG::𝐣𝐥.Cbool
-		NLP_EvalOrigDF::𝐣𝐥.Cbool
-		NLP_EvalOrigDG::𝐣𝐥.Cbool
-		NLP_EvalOrigHM::𝐣𝐥.Cbool
-		NLP_EvalOrigDL::𝐣𝐥.Cbool
-		NLP_EvalOptiOrig::𝐣𝐥.Cbool
-		NLP_EvalFeasOrig::𝐣𝐥.Cbool
-		NLP_EvalComplOrig::𝐣𝐥.Cbool
-		NLP_EvalF::𝐣𝐥.Cbool
-		NLP_EvalG::𝐣𝐥.Cbool
-		NLP_EvalDF::𝐣𝐥.Cbool
-		NLP_EvalDG::𝐣𝐥.Cbool
-		NLP_EvalHM::𝐣𝐥.Cbool
-		NLP_EvalDL::𝐣𝐥.Cbool
-		NLP_EvalDLFeas::𝐣𝐥.Cbool
-		NLP_EvalDGG::𝐣𝐥.Cbool
-		NLP_EvalOpti::𝐣𝐥.Cbool
-		NLP_EvalFeas::𝐣𝐥.Cbool
-		NLP_EvalCompl::𝐣𝐥.Cbool
+		NLP_EvalOrigF::Cbool
+		NLP_EvalOrigG::Cbool
+		NLP_EvalOrigDF::Cbool
+		NLP_EvalOrigDG::Cbool
+		NLP_EvalOrigHM::Cbool
+		NLP_EvalOrigDL::Cbool
+		NLP_EvalOptiOrig::Cbool
+		NLP_EvalFeasOrig::Cbool
+		NLP_EvalComplOrig::Cbool
+		NLP_EvalF::Cbool
+		NLP_EvalG::Cbool
+		NLP_EvalDF::Cbool
+		NLP_EvalDG::Cbool
+		NLP_EvalHM::Cbool
+		NLP_EvalDL::Cbool
+		NLP_EvalDLFeas::Cbool
+		NLP_EvalDGG::Cbool
+		NLP_EvalOpti::Cbool
+		NLP_EvalFeas::Cbool
+		NLP_EvalCompl::Cbool
 		NLP_FidifF0::𝐣𝐥.Cdouble
 		dim_NLP_FidifDF0::size_t
 		NLP_FidifDF0::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
@@ -3906,12 +3906,12 @@ using CBinding: 𝐣𝐥
 		IP_PenaltyFeas0::𝐣𝐥.Cdouble
 		IP_PenaltySwitch::𝐣𝐥.Cdouble
 		IP_AugMuTrial::𝐣𝐥.Cint
-		IP_BarrierShiftPushedVarX::𝐣𝐥.Cbool
-		IP_BarrierShiftPushedVarS::𝐣𝐥.Cbool
-		IP_PenaltyUpdateIncrObj::𝐣𝐥.Cbool
-		IP_PenaltyUpdateDecrObj::𝐣𝐥.Cbool
-		IP_AugMuUpdated::𝐣𝐥.Cbool
-		IP_AugLambdaUpdated::𝐣𝐥.Cbool
+		IP_BarrierShiftPushedVarX::Cbool
+		IP_BarrierShiftPushedVarS::Cbool
+		IP_PenaltyUpdateIncrObj::Cbool
+		IP_PenaltyUpdateDecrObj::Cbool
+		IP_AugMuUpdated::Cbool
+		IP_AugLambdaUpdated::Cbool
 		dim_IP_ShiftXL::size_t
 		dim_IP_ShiftXU::size_t
 		dim_IP_ShiftSL::size_t
@@ -3945,7 +3945,7 @@ using CBinding: 𝐣𝐥
 		dim_IP_LeqX::size_t
 		dim_IP_LeqLinDependCon::size_t
 		IP_LeqX::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		IP_LeqLinDependCon::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		IP_LeqLinDependCon::𝐣𝐥.Ptr{Cbool}
 		IP_Leq01::𝐣𝐥.Cint
 		IP_Leq02::𝐣𝐥.Cint
 		IP_Leq03::𝐣𝐥.Cint
@@ -3984,26 +3984,26 @@ using CBinding: 𝐣𝐥
 		IP_LeqType::𝐣𝐥.Cint
 		IP_LeqBarrierType::𝐣𝐥.Cint
 		IP_LeqPenaltyType::𝐣𝐥.Cint
-		IP_LeqDoneMatrix::𝐣𝐥.Cbool
-		IP_LeqDoneFactorization::𝐣𝐥.Cbool
+		IP_LeqDoneMatrix::Cbool
+		IP_LeqDoneFactorization::Cbool
 		IP_LeqInertia::𝐣𝐥.Cint
 		IP_LeqItRefMinIter::𝐣𝐥.Cint
 		IP_LeqItRefMaxIter::𝐣𝐥.Cint
 		IP_LeqItRefRatio::𝐣𝐥.Cdouble
 		IP_LeqItRefIter::𝐣𝐥.Cint
-		IP_LeqIncQuality::𝐣𝐥.Cbool
-		IP_LeqUseIdentity::𝐣𝐥.Cbool
+		IP_LeqIncQuality::Cbool
+		IP_LeqUseIdentity::Cbool
 		IP_LeqSolveMode::𝐣𝐥.Cint
 		IP_LeqCurrRhs::𝐣𝐥.Cint
-		IP_LeqRegPrimal::𝐣𝐥.Cbool
-		IP_LeqRegDual::𝐣𝐥.Cbool
+		IP_LeqRegPrimal::Cbool
+		IP_LeqRegDual::Cbool
 		dim_IP_LeqGerschgorin::size_t
 		IP_LeqGerschgorin::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_LeqCheckVar::𝐣𝐥.Cint
 		IP_LeqCheckDim::𝐣𝐥.Cint
 		IP_LeqCheckEps::𝐣𝐥.Cdouble
-		IP_LeqCheckFail::𝐣𝐥.Cbool
-		IP_LeqCheckEvalHM::𝐣𝐥.Cbool
+		IP_LeqCheckFail::Cbool
+		IP_LeqCheckEvalHM::Cbool
 		dim_IP_DStdX::size_t
 		dim_IP_DStdS::size_t
 		dim_IP_DStdMu::size_t
@@ -4262,47 +4262,47 @@ using CBinding: 𝐣𝐥
 		IP_AugLambdaTrialXU::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_AugLambdaTrialSL::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_AugLambdaTrialSU::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		IP_EvalOpti::𝐣𝐥.Cbool
-		IP_EvalOptiFeasApprox::𝐣𝐥.Cbool
-		IP_EvalOptiFeas::𝐣𝐥.Cbool
-		IP_EvalOptiFritzJohn::𝐣𝐥.Cbool
-		IP_EvalOptiAugMu::𝐣𝐥.Cbool
-		IP_EvalComplFeas::𝐣𝐥.Cbool
-		IP_EvalComplFritzJohn::𝐣𝐥.Cbool
-		IP_EvalObjBarr::𝐣𝐥.Cbool
-		IP_EvalObjBarrPen::𝐣𝐥.Cbool
-		IP_EvalFeas::𝐣𝐥.Cbool
-		IP_EvalFeasBox::𝐣𝐥.Cbool
-		IP_EvalFeasBarrPen::𝐣𝐥.Cbool
-		IP_EvalCompl::𝐣𝐥.Cbool
-		IP_EvalComplBarr::𝐣𝐥.Cbool
-		IP_EvalComplBarrInv::𝐣𝐥.Cbool
-		IP_EvalGradLagrFeas::𝐣𝐥.Cbool
-		IP_EvalGradLagrFull::𝐣𝐥.Cbool
-		IP_EvalDescD::𝐣𝐥.Cbool
-		IP_EvalDescBarrD::𝐣𝐥.Cbool
-		IP_EvalDescBarrPenD::𝐣𝐥.Cbool
-		IP_EvalDescFeasD::𝐣𝐥.Cbool
-		IP_EvalDescLeqD::𝐣𝐥.Cbool
-		IP_EvalDLFeas::𝐣𝐥.Cbool
-		IP_EvalDLAugMu::𝐣𝐥.Cbool
-		IP_EvalD::𝐣𝐥.Cbool
-		IP_EvalDStd::𝐣𝐥.Cbool
-		IP_EvalDSensBar::𝐣𝐥.Cbool
-		IP_EvalDSensBarShift::𝐣𝐥.Cbool
-		IP_EvalDSensPenObj::𝐣𝐥.Cbool
-		IP_EvalDSensPenFeas::𝐣𝐥.Cbool
-		IP_EvalDSensAugMu::𝐣𝐥.Cbool
-		IP_EvalDualTrustRegionMu::𝐣𝐥.Cbool
-		IP_EvalDualTrustRegionLambda::𝐣𝐥.Cbool
-		IP_EvalMeritFeasPen::𝐣𝐥.Cbool
-		IP_EvalMeritComplBarr::𝐣𝐥.Cbool
+		IP_EvalOpti::Cbool
+		IP_EvalOptiFeasApprox::Cbool
+		IP_EvalOptiFeas::Cbool
+		IP_EvalOptiFritzJohn::Cbool
+		IP_EvalOptiAugMu::Cbool
+		IP_EvalComplFeas::Cbool
+		IP_EvalComplFritzJohn::Cbool
+		IP_EvalObjBarr::Cbool
+		IP_EvalObjBarrPen::Cbool
+		IP_EvalFeas::Cbool
+		IP_EvalFeasBox::Cbool
+		IP_EvalFeasBarrPen::Cbool
+		IP_EvalCompl::Cbool
+		IP_EvalComplBarr::Cbool
+		IP_EvalComplBarrInv::Cbool
+		IP_EvalGradLagrFeas::Cbool
+		IP_EvalGradLagrFull::Cbool
+		IP_EvalDescD::Cbool
+		IP_EvalDescBarrD::Cbool
+		IP_EvalDescBarrPenD::Cbool
+		IP_EvalDescFeasD::Cbool
+		IP_EvalDescLeqD::Cbool
+		IP_EvalDLFeas::Cbool
+		IP_EvalDLAugMu::Cbool
+		IP_EvalD::Cbool
+		IP_EvalDStd::Cbool
+		IP_EvalDSensBar::Cbool
+		IP_EvalDSensBarShift::Cbool
+		IP_EvalDSensPenObj::Cbool
+		IP_EvalDSensPenFeas::Cbool
+		IP_EvalDSensAugMu::Cbool
+		IP_EvalDualTrustRegionMu::Cbool
+		IP_EvalDualTrustRegionLambda::Cbool
+		IP_EvalMeritFeasPen::Cbool
+		IP_EvalMeritComplBarr::Cbool
 		IP_TolBarr::𝐣𝐥.Cdouble
 		IP_TolBarrPen::𝐣𝐥.Cdouble
 		IP_Lowpass::𝐣𝐥.Cdouble
 		IP_LowpassBarr::𝐣𝐥.Cdouble
 		IP_LowpassBarrPen::𝐣𝐥.Cdouble
-		IP_ModifiedOpt::𝐣𝐥.Cbool
+		IP_ModifiedOpt::Cbool
 		IP_UnmodifiedIter::counter
 		IP_IterFeasible::counter
 		IP_AdaptFilter::𝐣𝐥.Ptr{FilterNode}
@@ -4317,7 +4317,7 @@ using CBinding: 𝐣𝐥
 		IP_HistoryBarrPenOptKkt::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_HistoryAugLambdaUpdateBarrKkt::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		IP_HistoryAugLambdaUpdateKkt::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
-		IP_Initialized::𝐣𝐥.Cbool
+		IP_Initialized::Cbool
 		IP_IterCentering::counter
 		IP_Status::𝐣𝐥.Cint
 		IP_StatusInitRestart::𝐣𝐥.Cint
@@ -4373,7 +4373,7 @@ using CBinding: 𝐣𝐥
 		Line_AlphaMaxMu::𝐣𝐥.Cdouble
 		Line_AlphaMax::𝐣𝐥.Cdouble
 		Line_AlphaMin::𝐣𝐥.Cdouble
-		Line_AlphaMaxFull::𝐣𝐥.Cbool
+		Line_AlphaMaxFull::Cbool
 		Line_FilterGlobal::𝐣𝐥.Ptr{FilterNode}
 		Line_FilterLocal::𝐣𝐥.Ptr{FilterNode}
 		Line_FilterCVmin::𝐣𝐥.Cdouble
@@ -4410,10 +4410,10 @@ using CBinding: 𝐣𝐥
 		Line_Status::𝐣𝐥.Cint
 		Line_Phase::𝐣𝐥.Cint
 		Line_Mode::𝐣𝐥.Cint
-		Line_Nonmon::𝐣𝐥.Cbool
+		Line_Nonmon::Cbool
 		Line_AcceptMethod::𝐣𝐥.Cint
 		Line_AcceptPhase::𝐣𝐥.Cint
-		Line_Constrained::𝐣𝐥.Cbool
+		Line_Constrained::Cbool
 		Line_MethodNum::𝐣𝐥.Cint
 		dim_Line_MethodInitStep::size_t
 		dim_Line_MethodCheck::size_t
@@ -4426,13 +4426,13 @@ using CBinding: 𝐣𝐥
 		Line_MethodBackupCheck::𝐣𝐥.Ptr{𝐣𝐥.Cint}
 		Line_MethodReduce::𝐣𝐥.Cint
 		Line_MethodBackupReduce::𝐣𝐥.Cint
-		Line_UpdatePrimal::𝐣𝐥.Cbool
-		Line_UpdateDual::𝐣𝐥.Cbool
-		Line_NeedUserDeriv::𝐣𝐥.Cbool
+		Line_UpdatePrimal::Cbool
+		Line_UpdateDual::Cbool
+		Line_NeedUserDeriv::Cbool
 		Line_MeritNonmon::𝐣𝐥.Cint
 		Line_MeritKktNonmon::𝐣𝐥.Cint
 		Line_FilterNonmon::𝐣𝐥.Cint
-		Line_Interp::𝐣𝐥.Cbool
+		Line_Interp::Cbool
 		Line_InterpMin::𝐣𝐥.Cdouble
 		Line_InterpMax::𝐣𝐥.Cdouble
 		Line_ArmijoBeta::𝐣𝐥.Cdouble
@@ -4472,12 +4472,12 @@ using CBinding: 𝐣𝐥
 		ZenDF2::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		dim_ZenStatus::size_t
 		dim_ZenStatus2::size_t
-		ZenStatusDX::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		ZenStatusDM::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		ZenStatusDL::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		ZenStatusDF::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		ZenStatusDF2::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
-		ZenStatusDG::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		ZenStatusDX::𝐣𝐥.Ptr{Cbool}
+		ZenStatusDM::𝐣𝐥.Ptr{Cbool}
+		ZenStatusDL::𝐣𝐥.Ptr{Cbool}
+		ZenStatusDF::𝐣𝐥.Ptr{Cbool}
+		ZenStatusDF2::𝐣𝐥.Ptr{Cbool}
+		ZenStatusDG::𝐣𝐥.Ptr{Cbool}
 		FirstFilterNode::𝐣𝐥.Ptr{FilterNode}
 		qp::QPWorkspace
 		DebugMarker01::𝐣𝐥.Cint
@@ -4691,7 +4691,7 @@ using CBinding: 𝐣𝐥
 		fidif_saveDG::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		fidif_saveG0::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		fidif_last_indices::𝐣𝐥.Ptr{𝐣𝐥.Cint}
-		newEntriesX::𝐣𝐥.Ptr{𝐣𝐥.Cbool}
+		newEntriesX::𝐣𝐥.Ptr{Cbool}
 		saved_userDF::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		saved_userDG::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
 		BStepOldX::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}
@@ -4816,95 +4816,95 @@ using CBinding: 𝐣𝐥
 		TerminationMetSKKTiter::𝐣𝐥.Cint
 		CrossoverIter::𝐣𝐥.Cint
 		AresInLinesearch::𝐣𝐥.Cint
-		AcceptFeasible::𝐣𝐥.Cbool
-		AcceptOptimal::𝐣𝐥.Cbool
-		AcceptSolFound::𝐣𝐥.Cbool
-		AcceptTerminationByConstantF::𝐣𝐥.Cbool
-		AutoQPRecActive::𝐣𝐥.Cbool
-		BettsUpdate::𝐣𝐥.Cbool
-		Complementary::𝐣𝐥.Cbool
-		Constrained::𝐣𝐥.Cbool
-		BstepFeasFirstTimeBuildBox::𝐣𝐥.Cbool
-		BstepFeasMeritFail::𝐣𝐥.Cbool
-		BstepFeasActive::𝐣𝐥.Cbool
-		BstepFeasAbortFactor::𝐣𝐥.Cbool
-		BstepFeasFinished::𝐣𝐥.Cbool
-		BstepSuccessful::𝐣𝐥.Cbool
-		BstepFirstArmijoCall::𝐣𝐥.Cbool
-		CheckDerivFidifDone::𝐣𝐥.Cbool
-		CheckDerivUserDone::𝐣𝐥.Cbool
-		DGslcDone::𝐣𝐥.Cbool
-		DidLinesearchEvalF::𝐣𝐥.Cbool
-		DidLinesearchEvalG::𝐣𝐥.Cbool
-		DidLinesearchStartAres::𝐣𝐥.Cbool
-		Feasible::𝐣𝐥.Cbool
-		FeasibleDual::𝐣𝐥.Cbool
-		FeasibleInit::𝐣𝐥.Cbool
-		FeasibleInitFailed::𝐣𝐥.Cbool
-		FeasibleInitDone::𝐣𝐥.Cbool
-		FeasibleStep::𝐣𝐥.Cbool
-		fidif_first_evald::𝐣𝐥.Cbool
-		fidif_f_evald::𝐣𝐥.Cbool
-		fidif_g_evald::𝐣𝐥.Cbool
-		HMposdef::𝐣𝐥.Cbool
-		HMslcDone::𝐣𝐥.Cbool
-		InitialLMEst::𝐣𝐥.Cbool
-		WasInitialLMEst::𝐣𝐥.Cbool
-		KeepQPVectorsForBstep::𝐣𝐥.Cbool
-		KKTok::𝐣𝐥.Cbool
-		MajorIterFinished::𝐣𝐥.Cbool
-		oldUserDF::𝐣𝐥.Cbool
-		oldUserDG::𝐣𝐥.Cbool
-		oldUserHM::𝐣𝐥.Cbool
-		Optimal::𝐣𝐥.Cbool
-		PostQPSensActive::𝐣𝐥.Cbool
-		QPNotFinished::𝐣𝐥.Cbool
-		RelaxCon::𝐣𝐥.Cbool
-		adaptiveRelaxationChanged::𝐣𝐥.Cbool
-		regStrategyGotoFlag::𝐣𝐥.Cbool
-		saveFidifHM::𝐣𝐥.Cbool
-		scaledQP::𝐣𝐥.Cbool
-		setInactive::𝐣𝐥.Cbool
-		switchModeActive::𝐣𝐥.Cbool
-		switchModeFinished::𝐣𝐥.Cbool
-		TakeQPSolError::𝐣𝐥.Cbool
-		TerminationByConstantF::𝐣𝐥.Cbool
-		UseId::𝐣𝐥.Cbool
-		WasFeasMode::𝐣𝐥.Cbool
-		Acceptable::𝐣𝐥.Cbool
-		AresForce::𝐣𝐥.Cbool
-		AugmentFilter::𝐣𝐥.Cbool
-		CheckFullStepsize::𝐣𝐥.Cbool
-		FeasRest::𝐣𝐥.Cbool
-		FirstHessianReg::𝐣𝐥.Cbool
-		FullStepsize::𝐣𝐥.Cbool
-		FStepsize::𝐣𝐥.Cbool
-		qppsa_qpdx_failed::𝐣𝐥.Cbool
-		qppsa_qpdx_reg_available::𝐣𝐥.Cbool
-		qppsa_HMReg_available::𝐣𝐥.Cbool
-		qppsa_qpdx_relax_available::𝐣𝐥.Cbool
-		qppsa_relaxpen_available::𝐣𝐥.Cbool
-		qppsa_relaxpen_failed::𝐣𝐥.Cbool
-		qppsa_HMreg_failed::𝐣𝐥.Cbool
-		RejectedByFilter::𝐣𝐥.Cbool
-		SecondHessianReg::𝐣𝐥.Cbool
-		SLPstep::𝐣𝐥.Cbool
-		SmallerAlpha::𝐣𝐥.Cbool
-		SwitchingCond::𝐣𝐥.Cbool
-		UseRegSens::𝐣𝐥.Cbool
-		UseRelaxSens::𝐣𝐥.Cbool
+		AcceptFeasible::Cbool
+		AcceptOptimal::Cbool
+		AcceptSolFound::Cbool
+		AcceptTerminationByConstantF::Cbool
+		AutoQPRecActive::Cbool
+		BettsUpdate::Cbool
+		Complementary::Cbool
+		Constrained::Cbool
+		BstepFeasFirstTimeBuildBox::Cbool
+		BstepFeasMeritFail::Cbool
+		BstepFeasActive::Cbool
+		BstepFeasAbortFactor::Cbool
+		BstepFeasFinished::Cbool
+		BstepSuccessful::Cbool
+		BstepFirstArmijoCall::Cbool
+		CheckDerivFidifDone::Cbool
+		CheckDerivUserDone::Cbool
+		DGslcDone::Cbool
+		DidLinesearchEvalF::Cbool
+		DidLinesearchEvalG::Cbool
+		DidLinesearchStartAres::Cbool
+		Feasible::Cbool
+		FeasibleDual::Cbool
+		FeasibleInit::Cbool
+		FeasibleInitFailed::Cbool
+		FeasibleInitDone::Cbool
+		FeasibleStep::Cbool
+		fidif_first_evald::Cbool
+		fidif_f_evald::Cbool
+		fidif_g_evald::Cbool
+		HMposdef::Cbool
+		HMslcDone::Cbool
+		InitialLMEst::Cbool
+		WasInitialLMEst::Cbool
+		KeepQPVectorsForBstep::Cbool
+		KKTok::Cbool
+		MajorIterFinished::Cbool
+		oldUserDF::Cbool
+		oldUserDG::Cbool
+		oldUserHM::Cbool
+		Optimal::Cbool
+		PostQPSensActive::Cbool
+		QPNotFinished::Cbool
+		RelaxCon::Cbool
+		adaptiveRelaxationChanged::Cbool
+		regStrategyGotoFlag::Cbool
+		saveFidifHM::Cbool
+		scaledQP::Cbool
+		setInactive::Cbool
+		switchModeActive::Cbool
+		switchModeFinished::Cbool
+		TakeQPSolError::Cbool
+		TerminationByConstantF::Cbool
+		UseId::Cbool
+		WasFeasMode::Cbool
+		Acceptable::Cbool
+		AresForce::Cbool
+		AugmentFilter::Cbool
+		CheckFullStepsize::Cbool
+		FeasRest::Cbool
+		FirstHessianReg::Cbool
+		FullStepsize::Cbool
+		FStepsize::Cbool
+		qppsa_qpdx_failed::Cbool
+		qppsa_qpdx_reg_available::Cbool
+		qppsa_HMReg_available::Cbool
+		qppsa_qpdx_relax_available::Cbool
+		qppsa_relaxpen_available::Cbool
+		qppsa_relaxpen_failed::Cbool
+		qppsa_HMreg_failed::Cbool
+		RejectedByFilter::Cbool
+		SecondHessianReg::Cbool
+		SLPstep::Cbool
+		SmallerAlpha::Cbool
+		SwitchingCond::Cbool
+		UseRegSens::Cbool
+		UseRelaxSens::Cbool
 		DebugMarker04::𝐣𝐥.Cint
-		initialised::𝐣𝐥.Cbool
+		initialised::Cbool
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:3950](/usr/include/worhp/C_Worhp_Data.h:3950:16)
 	""" ParamsStruct
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:4896](/usr/include/worhp/C_Worhp_Data.h:4896:3)
 	""" Params
 	export Params, ParamsStruct
@@ -4916,9 +4916,9 @@ using CBinding: 𝐣𝐥
 		TolComp::𝐣𝐥.Cdouble
 		AcceptTolFeas::𝐣𝐥.Cdouble
 		AcceptTolOpti::𝐣𝐥.Cdouble
-		KeepAcceptableSol::𝐣𝐥.Cbool
-		LowPassFilter::𝐣𝐥.Cbool
-		TooBig::𝐣𝐥.Cbool
+		KeepAcceptableSol::Cbool
+		LowPassFilter::Cbool
+		TooBig::Cbool
 		MaxCalls::𝐣𝐥.Cint
 		MaxIter::𝐣𝐥.Cint
 		Timeout::𝐣𝐥.Cdouble
@@ -4930,32 +4930,32 @@ using CBinding: 𝐣𝐥
 		Crossover::𝐣𝐥.Cint
 		CrossoverIter::𝐣𝐥.Cint
 		CrossoverTol::𝐣𝐥.Cdouble
-		ShowMonitor::𝐣𝐥.Cbool
-		DetailedNewX::𝐣𝐥.Cbool
+		ShowMonitor::Cbool
+		DetailedNewX::Cbool
 		LogLevel::𝐣𝐥.Cint
 		LogResult::𝐣𝐥.Cint
 		NLPprint::𝐣𝐥.Cint
-		UserDF::𝐣𝐥.Cbool
-		UserDG::𝐣𝐥.Cbool
-		UserHM::𝐣𝐥.Cbool
-		FGtogether::𝐣𝐥.Cbool
+		UserDF::Cbool
+		UserDG::Cbool
+		UserHM::Cbool
+		FGtogether::Cbool
 		UserHMstructure::𝐣𝐥.Cint
-		FidifHM::𝐣𝐥.Cbool
-		FidifGroups::𝐣𝐥.Cbool
-		ScaledFD::𝐣𝐥.Cbool
-		CheckGroups::𝐣𝐥.Cbool
-		FirstDifCentral::𝐣𝐥.Cbool
-		SecondDifCentral::𝐣𝐥.Cbool
+		FidifHM::Cbool
+		FidifGroups::Cbool
+		ScaledFD::Cbool
+		CheckGroups::Cbool
+		FirstDifCentral::Cbool
+		SecondDifCentral::Cbool
 		GroupMethod::𝐣𝐥.Cint
 		MaxGPart::𝐣𝐥.Cint
 		PairMethod::𝐣𝐥.Cint
 		FidifEps::𝐣𝐥.Cdouble
-		CheckStructureDF::𝐣𝐥.Cbool
-		CheckStructureDG::𝐣𝐥.Cbool
-		CheckStructureHM::𝐣𝐥.Cbool
-		CheckValuesDF::𝐣𝐥.Cbool
-		CheckValuesDG::𝐣𝐥.Cbool
-		CheckValuesHM::𝐣𝐥.Cbool
+		CheckStructureDF::Cbool
+		CheckStructureDG::Cbool
+		CheckStructureHM::Cbool
+		CheckValuesDF::Cbool
+		CheckValuesDG::Cbool
+		CheckValuesHM::Cbool
 		CheckDerivIter::𝐣𝐥.Cint
 		CheckDerivTolAbs::𝐣𝐥.Cdouble
 		CheckDerivTolRel::𝐣𝐥.Cdouble
@@ -4976,34 +4976,34 @@ using CBinding: 𝐣𝐥
 		SwitchModeIpResTol::𝐣𝐥.Cdouble
 		SwitchModeLsTol::𝐣𝐥.Cdouble
 		SwitchModeTermTol::𝐣𝐥.Cdouble
-		FJandND::𝐣𝐥.Cbool
-		sKKTOnlyAcceptable::𝐣𝐥.Cbool
-		ScaledKKT::𝐣𝐥.Cbool
+		FJandND::Cbool
+		sKKTOnlyAcceptable::Cbool
+		ScaledKKT::Cbool
 		BoundTolFac::𝐣𝐥.Cdouble
 		CheckFJ::𝐣𝐥.Cdouble
 		LowPassAlphaMerit::𝐣𝐥.Cdouble
-		AutoQPRecovery::𝐣𝐥.Cbool
+		AutoQPRecovery::Cbool
 		BettsFactor::𝐣𝐥.Cdouble
 		BettsPoint::𝐣𝐥.Cdouble
 		IncBettsTau::𝐣𝐥.Cdouble
 		IncBettsTauMore::𝐣𝐥.Cdouble
 		StartBettsTau::𝐣𝐥.Cdouble
 		LineSearchMethod::𝐣𝐥.Cint
-		LinMult::𝐣𝐥.Cbool
+		LinMult::Cbool
 		ArmijoBeta::𝐣𝐥.Cdouble
 		ArmijoBetaAres::𝐣𝐥.Cdouble
 		ArmijoMaxAlpha::𝐣𝐥.Cdouble
 		ArmijoMinAlpha::𝐣𝐥.Cdouble
 		ArmijoMinAlphaRec::𝐣𝐥.Cdouble
 		ArmijoSigma::𝐣𝐥.Cdouble
-		AlphaMinConst::𝐣𝐥.Cbool
-		FilterBisecAlpha::𝐣𝐥.Cbool
-		FilterIntersecAlpha::𝐣𝐥.Cbool
-		IgnoreFilterCrit::𝐣𝐥.Cbool
-		ReinitFilter::𝐣𝐥.Cbool
-		MaxNorm::𝐣𝐥.Cbool
-		FilterRestFeas::𝐣𝐥.Cbool
-		RestUntilFeas::𝐣𝐥.Cbool
+		AlphaMinConst::Cbool
+		FilterBisecAlpha::Cbool
+		FilterIntersecAlpha::Cbool
+		IgnoreFilterCrit::Cbool
+		ReinitFilter::Cbool
+		MaxNorm::Cbool
+		FilterRestFeas::Cbool
+		RestUntilFeas::Cbool
 		MaxLScounter::𝐣𝐥.Cint
 		RegStrategy::𝐣𝐥.Cint
 		FilterGammaCV::𝐣𝐥.Cdouble
@@ -5014,7 +5014,7 @@ using CBinding: 𝐣𝐥
 		SwitchingDelta::𝐣𝐥.Cdouble
 		SwitchingSF::𝐣𝐥.Cdouble
 		SwitchingSCV::𝐣𝐥.Cdouble
-		TakeQPSol::𝐣𝐥.Cbool
+		TakeQPSol::Cbool
 		MeritFunction::𝐣𝐥.Cint
 		PenUpdEpsKSequence::𝐣𝐥.Cint
 		PenUpdEpsBar::𝐣𝐥.Cdouble
@@ -5023,10 +5023,10 @@ using CBinding: 𝐣𝐥
 		PenUpdMaxFac::𝐣𝐥.Cdouble
 		PenUpdRBar::𝐣𝐥.Cdouble
 		MeritGradTol::𝐣𝐥.Cdouble
-		RefineOnlyOnAlpha::𝐣𝐥.Cbool
-		RefineFeasMerit::𝐣𝐥.Cbool
-		SteffensenOnRefine::𝐣𝐥.Cbool
-		UpdateMu::𝐣𝐥.Cbool
+		RefineOnlyOnAlpha::Cbool
+		RefineFeasMerit::Cbool
+		SteffensenOnRefine::Cbool
+		UpdateMu::Cbool
 		RefineFeasMaxIter::𝐣𝐥.Cint
 		RefineFeasibility::𝐣𝐥.Cint
 		RefineFeasTermination::𝐣𝐥.Cint
@@ -5036,39 +5036,39 @@ using CBinding: 𝐣𝐥
 		RefineMaxRelax::𝐣𝐥.Cdouble
 		RefineMaxHMReg::𝐣𝐥.Cdouble
 		PostQPSensRegVal::𝐣𝐥.Cint
-		PostQPSensRelaxPen::𝐣𝐥.Cbool
+		PostQPSensRelaxPen::Cbool
 		PostQPSensitivity::𝐣𝐥.Cint
 		PostQPSensRelaxFrac::𝐣𝐥.Cdouble
 		PostQPSensRegValFrac::𝐣𝐥.Cdouble
 		PostQPSensRegValObjDev::𝐣𝐥.Cdouble
-		RelaxCon::𝐣𝐥.Cbool
-		RelaxOnlyNonlinear::𝐣𝐥.Cbool
-		AdaptiveConstrRelax::𝐣𝐥.Cbool
-		MoreRelax::𝐣𝐥.Cbool
-		RelaxPenOnlyOne::𝐣𝐥.Cbool
+		RelaxCon::Cbool
+		RelaxOnlyNonlinear::Cbool
+		AdaptiveConstrRelax::Cbool
+		MoreRelax::Cbool
+		RelaxPenOnlyOne::Cbool
 		RelaxMaxDelta::𝐣𝐥.Cdouble
 		RelaxMaxPen::𝐣𝐥.Cdouble
 		RelaxRho::𝐣𝐥.Cdouble
 		RelaxStart::𝐣𝐥.Cdouble
-		ScaleConIter::𝐣𝐥.Cbool
-		ScaledObj::𝐣𝐥.Cbool
-		ScaledQP::𝐣𝐥.Cbool
+		ScaleConIter::Cbool
+		ScaledObj::Cbool
+		ScaledQP::Cbool
 		ScaleFacObj::𝐣𝐥.Cdouble
 		ScaleFacQP::𝐣𝐥.Cdouble
-		InitialLMest::𝐣𝐥.Cbool
+		InitialLMest::Cbool
 		LMestQPipComTol::𝐣𝐥.Cdouble
 		LMestQPipResTol::𝐣𝐥.Cdouble
-		FeasibleDual::𝐣𝐥.Cbool
-		FeasibleInit::𝐣𝐥.Cbool
-		FeasibleOnly::𝐣𝐥.Cbool
-		FocusOnFeas::𝐣𝐥.Cbool
+		FeasibleDual::Cbool
+		FeasibleInit::Cbool
+		FeasibleOnly::Cbool
+		FocusOnFeas::Cbool
 		FeasibleInitTol::𝐣𝐥.Cdouble
 		FocusOnFeasFactor::𝐣𝐥.Cdouble
 		MaxForce::𝐣𝐥.Cint
 		Ares::𝐣𝐥.Cint[7]
-		IP_NlpRelaxBounds::𝐣𝐥.Cbool
-		IP_NlpRelaxBoundsIter::𝐣𝐥.Cbool
-		IP_NlpStressBounds::𝐣𝐥.Cbool
+		IP_NlpRelaxBounds::Cbool
+		IP_NlpRelaxBoundsIter::Cbool
+		IP_NlpStressBounds::Cbool
 		IP_NlpObjLow::𝐣𝐥.Cdouble
 		IP_NlpObjUp::𝐣𝐥.Cdouble
 		IP_BarrierType::𝐣𝐥.Cint
@@ -5104,13 +5104,13 @@ using CBinding: 𝐣𝐥
 		IP_PenaltyAdaptImprFeas::𝐣𝐥.Cdouble
 		IP_PenaltyAdaptImprQuad::𝐣𝐥.Cdouble
 		IP_PenaltyAdaptAugTol::𝐣𝐥.Cdouble
-		IP_PenaltyAllowReduce::𝐣𝐥.Cbool
+		IP_PenaltyAllowReduce::Cbool
 		IP_AdaptCheckMethod::𝐣𝐥.Cint
 		IP_AdaptFilterNonmon::𝐣𝐥.Cint
 		IP_InitMethodDual::𝐣𝐥.Cint
 		IP_InitMethodDualBox::𝐣𝐥.Cint
-		IP_InitDualEstimation::𝐣𝐥.Cbool
-		IP_InitDualAdjustment::𝐣𝐥.Cbool
+		IP_InitDualEstimation::Cbool
+		IP_InitDualAdjustment::Cbool
 		IP_InitCenteringSteps::𝐣𝐥.Cint
 		IP_InitDual::𝐣𝐥.Cdouble
 		IP_InitDualBox::𝐣𝐥.Cdouble
@@ -5119,12 +5119,12 @@ using CBinding: 𝐣𝐥
 		IP_InitBoundDistSAbs::𝐣𝐥.Cdouble
 		IP_InitBoundDistSRel::𝐣𝐥.Cdouble
 		IP_InitBoundDistDual::𝐣𝐥.Cdouble
-		IP_WarmStore::𝐣𝐥.Cbool
-		IP_WarmSensUpdate::𝐣𝐥.Cbool
+		IP_WarmStore::Cbool
+		IP_WarmSensUpdate::Cbool
 		IP_WarmMethodDual::𝐣𝐥.Cint
 		IP_WarmMethodDualBox::𝐣𝐥.Cint
-		IP_WarmDualEstimation::𝐣𝐥.Cbool
-		IP_WarmDualAdjustment::𝐣𝐥.Cbool
+		IP_WarmDualEstimation::Cbool
+		IP_WarmDualAdjustment::Cbool
 		IP_WarmCenteringSteps::𝐣𝐥.Cint
 		IP_WarmDual::𝐣𝐥.Cdouble
 		IP_WarmDualBox::𝐣𝐥.Cdouble
@@ -5133,9 +5133,9 @@ using CBinding: 𝐣𝐥
 		IP_WarmBoundDistSAbs::𝐣𝐥.Cdouble
 		IP_WarmBoundDistSRel::𝐣𝐥.Cdouble
 		IP_WarmBoundDistDual::𝐣𝐥.Cdouble
-		IP_RegCheckInertia::𝐣𝐥.Cbool
+		IP_RegCheckInertia::Cbool
 		IP_RegMethodDual::𝐣𝐥.Cint
-		IP_RegFailUseIdentity::𝐣𝐥.Cbool
+		IP_RegFailUseIdentity::Cbool
 		IP_RegMinDescent::𝐣𝐥.Cdouble
 		IP_RegHessStart::𝐣𝐥.Cdouble
 		IP_RegHessOldFrac::𝐣𝐥.Cdouble
@@ -5143,17 +5143,17 @@ using CBinding: 𝐣𝐥
 		IP_RegHessIncrStd::𝐣𝐥.Cdouble
 		IP_RegHessMax::𝐣𝐥.Cdouble
 		IP_RegJac::𝐣𝐥.Cdouble
-		IP_LeqIncQuality::𝐣𝐥.Cbool
+		IP_LeqIncQuality::Cbool
 		IP_LeqReduce::𝐣𝐥.Cint
 		IP_LeqItRefRedMaxIter::𝐣𝐥.Cint
 		IP_LeqItRefMinIter::𝐣𝐥.Cint
 		IP_LeqItRefMaxIter::𝐣𝐥.Cint
 		IP_LeqItRefTol::𝐣𝐥.Cdouble
 		IP_LeqItRefImprFac::𝐣𝐥.Cdouble
-		IP_LeqCheck::𝐣𝐥.Cbool
+		IP_LeqCheck::Cbool
 		IP_LeqCheckTolAbs::𝐣𝐥.Cdouble
 		IP_LeqCheckTolRel::𝐣𝐥.Cdouble
-		IP_LeqMa97Auto::𝐣𝐥.Cbool
+		IP_LeqMa97Auto::Cbool
 		IP_RefineStep::𝐣𝐥.Cint
 		IP_RefineStepMaxIter::𝐣𝐥.Cint
 		IP_LineMethod::𝐣𝐥.Cint
@@ -5169,10 +5169,10 @@ using CBinding: 𝐣𝐥
 		IP_LineAlphaMin::𝐣𝐥.Cdouble
 		IP_LinePenaltyFeasPen::𝐣𝐥.Cdouble
 		IP_LinePenaltyComplBarr::𝐣𝐥.Cdouble
-		IP_LineInterp::𝐣𝐥.Cbool
+		IP_LineInterp::Cbool
 		IP_LineInterpMin::𝐣𝐥.Cdouble
 		IP_LineInterpMax::𝐣𝐥.Cdouble
-		IP_LineSlackReset::𝐣𝐥.Cbool
+		IP_LineSlackReset::Cbool
 		IP_LineFracToBound::𝐣𝐥.Cdouble
 		IP_LineFracToBoundThres::𝐣𝐥.Cdouble
 		IP_LineTrustDual::𝐣𝐥.Cdouble
@@ -5182,26 +5182,26 @@ using CBinding: 𝐣𝐥
 		IP_CheckNanInf::𝐣𝐥.Cint
 		IP_CheckMaxPrimal::𝐣𝐥.Cdouble
 		IP_CheckMaxDual::𝐣𝐥.Cdouble
-		IP_CheckLowPassBarr::𝐣𝐥.Cbool
-		IP_CheckLowPassPen::𝐣𝐥.Cbool
+		IP_CheckLowPassBarr::Cbool
+		IP_CheckLowPassPen::Cbool
 		IP_CheckLowPassTol::𝐣𝐥.Cdouble
-		IP_CheckOrigCont::𝐣𝐥.Cbool
-		IP_CheckOrigContUnscale::𝐣𝐥.Cbool
+		IP_CheckOrigCont::Cbool
+		IP_CheckOrigContUnscale::Cbool
 		IP_CheckOrigContMaxIter::𝐣𝐥.Cint
-		IP_ScaleF::𝐣𝐥.Cbool
-		IP_ScaleG::𝐣𝐥.Cbool
+		IP_ScaleF::Cbool
+		IP_ScaleG::Cbool
 		IP_ScaleMaxGrad::𝐣𝐥.Cdouble
 		IP_ScaleMin::𝐣𝐥.Cdouble
-		UseZen::𝐣𝐥.Cbool
-		UserZenDGp::𝐣𝐥.Cbool
-		UserZenDLxp::𝐣𝐥.Cbool
-		UserZenDLp::𝐣𝐥.Cbool
-		UserZenDLpp::𝐣𝐥.Cbool
-		ZenCheckMaxPert::𝐣𝐥.Cbool
-		ZenRenewLU::𝐣𝐥.Cbool
+		UseZen::Cbool
+		UserZenDGp::Cbool
+		UserZenDLxp::Cbool
+		UserZenDLp::Cbool
+		UserZenDLpp::Cbool
+		ZenCheckMaxPert::Cbool
+		ZenRenewLU::Cbool
 		ZenStore::𝐣𝐥.Cint
-		MA97blas3::𝐣𝐥.Cbool
-		MA97mf::𝐣𝐥.Cbool
+		MA97blas3::Cbool
+		MA97mf::Cbool
 		MA97ordering::𝐣𝐥.Cint
 		MA97scaling::𝐣𝐥.Cint
 		MA97print::𝐣𝐥.Cint
@@ -5214,26 +5214,26 @@ using CBinding: 𝐣𝐥
 		IncreaseIWS::𝐣𝐥.Cdouble
 		IncreaseRWS::𝐣𝐥.Cdouble
 		internalParChanged::𝐣𝐥.Cint
-		MatrixCC::𝐣𝐥.Cbool
+		MatrixCC::Cbool
 		QPscaleParam::𝐣𝐥.Cdouble
 		PrecisionF::𝐣𝐥.Cdouble
 		PrecisionG::𝐣𝐥.Cdouble
 		TolWeakActive::𝐣𝐥.Cdouble
-		WeakActiveSet::𝐣𝐥.Cbool
+		WeakActiveSet::Cbool
 		qp::QPParams
 		licenseFileContent::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 		DebugMarker06::𝐣𝐥.Cint
-		initialised::𝐣𝐥.Cbool
+		initialised::Cbool
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:4898](/usr/include/worhp/C_Worhp_Data.h:4898:16)
 	""" ControlStruct
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:4932](/usr/include/worhp/C_Worhp_Data.h:4932:3)
 	""" Control
 	export Control, ControlStruct
@@ -5241,157 +5241,157 @@ using CBinding: 𝐣𝐥
 		Date::DateType
 		Timer::TimerType
 		Stage::𝐣𝐥.Cint[10]
-		UserAction::𝐣𝐥.Cbool[14]
+		UserAction::Cbool[14]
 		status::𝐣𝐥.Cint
 		int_status::𝐣𝐥.Cint
 		pre_zen_status::𝐣𝐥.Cint
 		currentStage::𝐣𝐥.Cint
-		Warmstarted::𝐣𝐥.Cbool
+		Warmstarted::Cbool
 		ZenRCcounter1::counter
 		ZenRCcounter2::counter
-		ZenInit::𝐣𝐥.Cbool
-		initialised::𝐣𝐥.Cbool
+		ZenInit::Cbool
+		initialised::Cbool
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4935](/usr/include/worhp/C_Worhp_Data.h:4935:17)
 	""" GetUserAction
 	export GetUserAction
-	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern GetUserAction(cnt::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)}, action::𝐣𝐥.Cint)::Cbool
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern DoneUserAction(cnt::𝐣𝐥.Ptr{Control}, done::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4936](/usr/include/worhp/C_Worhp_Data.h:4936:17)
 	""" DoneUserAction
 	export DoneUserAction
 	𝐣𝐥.@cextern DoneUserAction(cnt::𝐣𝐥.Ptr{Control}, done::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern AddUserAction(cnt::𝐣𝐥.Ptr{Control}, add::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4937](/usr/include/worhp/C_Worhp_Data.h:4937:17)
 	""" AddUserAction
 	export AddUserAction
 	𝐣𝐥.@cextern AddUserAction(cnt::𝐣𝐥.Ptr{Control}, add::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern SetNextStage(var\"?1?\"::𝐣𝐥.Ptr{Control}, var\"?2?\"::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4938](/usr/include/worhp/C_Worhp_Data.h:4938:17)
 	""" SetNextStage
 	export SetNextStage
 	𝐣𝐥.@cextern SetNextStage(var"?1?"::𝐣𝐥.Ptr{Control}, var"?2?"::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern GetCurrentStage(var\"?1?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cint
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4939](/usr/include/worhp/C_Worhp_Data.h:4939:17)
 	""" GetCurrentStage
 	export GetCurrentStage
 	𝐣𝐥.@cextern GetCurrentStage(var"?1?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern GetPreviousStage(var\"?1?\"::𝐣𝐥.Ptr{Control}, var\"?2?\"::𝐣𝐥.Cint)::𝐣𝐥.Cint
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4940](/usr/include/worhp/C_Worhp_Data.h:4940:17)
 	""" GetPreviousStage
 	export GetPreviousStage
 	𝐣𝐥.@cextern GetPreviousStage(var"?1?"::𝐣𝐥.Ptr{Control}, var"?2?"::𝐣𝐥.Cint)::𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpVersion(major::𝐣𝐥.Ptr{𝐣𝐥.Cint}, minor::𝐣𝐥.Ptr{𝐣𝐥.Cint}, patch::𝐣𝐥.Cchar[8])::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4943](/usr/include/worhp/C_Worhp_Data.h:4943:17)
 	""" WorhpVersion
 	export WorhpVersion
 	𝐣𝐥.@cextern WorhpVersion(major::𝐣𝐥.Ptr{𝐣𝐥.Cint}, minor::𝐣𝐥.Ptr{𝐣𝐥.Cint}, patch::𝐣𝐥.Cchar[8])::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern CheckWorhpVersion(major::𝐣𝐥.Cint, minor::𝐣𝐥.Cint, patch::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cint
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Data.h:4944](/usr/include/worhp/C_Worhp_Data.h:4944:16)
 	""" CheckWorhpVersion
 	export CheckWorhpVersion
 	𝐣𝐥.@cextern CheckWorhpVersion(major::𝐣𝐥.Cint, minor::𝐣𝐥.Cint, patch::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:47](/usr/include/worhp/C_Worhp_Members.h:47:3)
 	""" WorhpType
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:42](/usr/include/worhp/C_Worhp_Members.h:42:3)
 	""" WORHP_INT_T
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:44](/usr/include/worhp/C_Worhp_Members.h:44:3)
 	""" WORHP_SINGLE_T
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:45](/usr/include/worhp/C_Worhp_Members.h:45:3)
 	""" WORHP_SIZE_T
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:46](/usr/include/worhp/C_Worhp_Members.h:46:3)
 	""" WORHP_CONST_C_STRING_T
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:43](/usr/include/worhp/C_Worhp_Members.h:43:3)
 	""" WORHP_NO_T
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:40](/usr/include/worhp/C_Worhp_Members.h:40:3)
 	""" WORHP_CUSTOM_T
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:39](/usr/include/worhp/C_Worhp_Members.h:39:3)
 	""" WORHP_BOOL_T
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:41](/usr/include/worhp/C_Worhp_Members.h:41:3)
 	""" WORHP_DOUBLE_T
 	export WORHP_BOOL_T, WORHP_CONST_C_STRING_T, WORHP_CUSTOM_T, WORHP_DOUBLE_T, WORHP_INT_T, WORHP_NO_T, WORHP_SINGLE_T, WORHP_SIZE_T, WorhpType
@@ -5405,256 +5405,256 @@ using CBinding: 𝐣𝐥
 		WORHP_SIZE_T = 𝐣𝐥.Cuint(6)
 		WORHP_CONST_C_STRING_T = 𝐣𝐥.Cuint(7)
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpGetParamCount()::𝐣𝐥.Cint
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:53](/usr/include/worhp/C_Worhp_Members.h:53:16)
 	""" WorhpGetParamCount
 	export WorhpGetParamCount
 	𝐣𝐥.@cextern WorhpGetParamCount()::𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpGetParamName(i::𝐣𝐥.Cint)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:57](/usr/include/worhp/C_Worhp_Members.h:57:24)
 	""" WorhpGetParamName
 	export WorhpGetParamName
 	𝐣𝐥.@cextern WorhpGetParamName(i::𝐣𝐥.Cint)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpGetParamType(i::𝐣𝐥.Cint)::WorhpType
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:61](/usr/include/worhp/C_Worhp_Members.h:61:22)
 	""" WorhpGetParamType
 	export WorhpGetParamType
 	𝐣𝐥.@cextern WorhpGetParamType(i::𝐣𝐥.Cint)::WorhpType
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpGetParamDescription(i::𝐣𝐥.Cint)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:65](/usr/include/worhp/C_Worhp_Members.h:65:24)
 	""" WorhpGetParamDescription
 	export WorhpGetParamDescription
 	𝐣𝐥.@cextern WorhpGetParamDescription(i::𝐣𝐥.Cint)::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}
-	
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cbool})::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{Cbool})::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:69](/usr/include/worhp/C_Worhp_Members.h:69:17)
 	""" WorhpGetBoolParam
 	export WorhpGetBoolParam
-	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cbool})::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern WorhpGetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{Cbool})::Cbool
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:70](/usr/include/worhp/C_Worhp_Members.h:70:17)
 	""" WorhpGetIntParam
 	export WorhpGetIntParam
-	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern WorhpGetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cint})::Cbool
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:71](/usr/include/worhp/C_Worhp_Members.h:71:17)
 	""" WorhpGetDoubleParam
 	export WorhpGetDoubleParam
-	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern WorhpGetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::Cbool
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cbool)::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::Cbool)::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:75](/usr/include/worhp/C_Worhp_Members.h:75:17)
 	""" WorhpSetBoolParam
 	export WorhpSetBoolParam
-	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cbool)::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern WorhpSetBoolParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::Cbool)::Cbool
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:76](/usr/include/worhp/C_Worhp_Members.h:76:17)
 	""" WorhpSetIntParam
 	export WorhpSetIntParam
-	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern WorhpSetIntParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cint)::Cbool
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[C_Worhp_Members.h:77](/usr/include/worhp/C_Worhp_Members.h:77:17)
 	""" WorhpSetDoubleParam
 	export WorhpSetDoubleParam
-	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern WorhpSetDoubleParam(par::𝐣𝐥.Ptr{Params}, name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, value::𝐣𝐥.Cdouble)::Cbool
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_ccm.h:13](/usr/include/worhp/C_ccm.h:13:3)
 	""" CCMatrixOK
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_ccm.h:15](/usr/include/worhp/C_ccm.h:15:3)
 	""" CCMatrixKindError
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_ccm.h:19](/usr/include/worhp/C_ccm.h:19:3)
 	""" CCMatrixStatus
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_ccm.h:17](/usr/include/worhp/C_ccm.h:17:3)
 	""" CCMatrixNotEnoughRWS
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_ccm.h:14](/usr/include/worhp/C_ccm.h:14:3)
 	""" CCMatrixDimError
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_ccm.h:16](/usr/include/worhp/C_ccm.h:16:3)
-	""" CCMatrixInitError
+	""" CCMatrixInitErr
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_ccm.h:18](/usr/include/worhp/C_ccm.h:18:3)
 	""" CCMatrixNotEnoughIWS
-	export CCMatrixDimError, CCMatrixInitError, CCMatrixKindError, CCMatrixNotEnoughIWS, CCMatrixNotEnoughRWS, CCMatrixOK, CCMatrixStatus
+	export CCMatrixDimError, CCMatrixInitErr, CCMatrixKindError, CCMatrixNotEnoughIWS, CCMatrixNotEnoughRWS, CCMatrixOK, CCMatrixStatus
 	𝐣𝐥.@ctypedef CCMatrixStatus 𝐣𝐥.@cenum {
 		CCMatrixOK = 𝐣𝐥.Cint(0)
 		CCMatrixDimError = 𝐣𝐥.Cint(-1)
 		CCMatrixKindError = 𝐣𝐥.Cint(-2)
-		CCMatrixInitError = 𝐣𝐥.Cint(-3)
+		CCMatrixInitErr = 𝐣𝐥.Cint(-3)
 		CCMatrixNotEnoughRWS = 𝐣𝐥.Cint(-9001)
 		CCMatrixNotEnoughIWS = 𝐣𝐥.Cint(-9002)
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpDiag(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_aux.h:10](/usr/include/worhp/C_worhp_aux.h:10:17)
 	""" WorhpDiag
 	export WorhpDiag
 	𝐣𝐥.@cextern WorhpDiag(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern PrintIWMT(var\"?1?\"::𝐣𝐥.Ptr{Workspace})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_aux.h:11](/usr/include/worhp/C_worhp_aux.h:11:17)
 	""" PrintIWMT
 	export PrintIWMT
 	𝐣𝐥.@cextern PrintIWMT(var"?1?"::𝐣𝐥.Ptr{Workspace})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern PrintRWMT(var\"?1?\"::𝐣𝐥.Ptr{Workspace})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_aux.h:12](/usr/include/worhp/C_worhp_aux.h:12:17)
 	""" PrintRWMT
 	export PrintRWMT
 	𝐣𝐥.@cextern PrintRWMT(var"?1?"::𝐣𝐥.Ptr{Workspace})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:18](/usr/include/worhp/C_worhp_io.h:18:3)
 	""" WORHP_PRINT_CONTINUE_NEXT
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:17](/usr/include/worhp/C_worhp_io.h:17:3)
 	""" WORHP_PRINT_BLUE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:21](/usr/include/worhp/C_worhp_io.h:21:3)
 	""" WORHP_PRINT_RED
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:16](/usr/include/worhp/C_worhp_io.h:16:3)
 	""" WORHP_PRINT_GREEN
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:15](/usr/include/worhp/C_worhp_io.h:15:3)
 	""" WORHP_PRINT_BOLD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:14](/usr/include/worhp/C_worhp_io.h:14:3)
 	""" WORHP_PRINT_ERROR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:13](/usr/include/worhp/C_worhp_io.h:13:3)
 	""" WORHP_PRINT_WARNING
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:12](/usr/include/worhp/C_worhp_io.h:12:3)
 	""" WORHP_PRINT_MESSAGE
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:20](/usr/include/worhp/C_worhp_io.h:20:3)
 	""" WORHP_PRINT_CONTINUE_BOTH
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:19](/usr/include/worhp/C_worhp_io.h:19:3)
 	""" WORHP_PRINT_CONTINUE_PREV
 	export WORHP_PRINT_BLUE, WORHP_PRINT_BOLD, WORHP_PRINT_CONTINUE_BOTH, WORHP_PRINT_CONTINUE_NEXT, WORHP_PRINT_CONTINUE_PREV, WORHP_PRINT_ERROR, WORHP_PRINT_GREEN, WORHP_PRINT_MESSAGE, WORHP_PRINT_RED, WORHP_PRINT_WARNING
@@ -5670,200 +5670,200 @@ using CBinding: 𝐣𝐥
 		WORHP_PRINT_CONTINUE_BOTH = 𝐣𝐥.Cuint(192)
 		WORHP_PRINT_RED = 𝐣𝐥.Cuint(256)
 	}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_worhp_io.h:24](/usr/include/worhp/C_worhp_io.h:24:16)
 	""" worhp_print_t
 	export worhp_print_t
 	𝐣𝐥.@ctypedef worhp_print_t 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Cint, 𝐣𝐥.Cconst(𝐣𝐥.Cchar)[]}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpPrint(mode::𝐣𝐥.Cconst(𝐣𝐥.Cint), message::𝐣𝐥.Cconst(𝐣𝐥.Cchar)[])::𝐣𝐥.Cvoid
 	```
-	
+
 	 Print function used internally by WORHP. Call it to print your message the same way WORHP currently would.
-	
+
 	## Details
-	
+
 	NOTE: WorhpPrint is a wrapper around the actual print function to ensure the function-pointer is non-null. Do not pass WorhpPrint to SetWorhpPrint, since this will cause an infinite recursion error (i.e. hangs or segfaults). SetWorhpPrint detects this and falls back to the default print function.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:37](/usr/include/worhp/C_worhp_io.h:37:17)
 	""" WorhpPrint
 	export WorhpPrint
 	𝐣𝐥.@cextern WorhpPrint(mode::𝐣𝐥.Cconst(𝐣𝐥.Cint), message::𝐣𝐥.Cconst(𝐣𝐥.Cchar)[])::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpDefaultPrintFunction(mode::𝐣𝐥.Cint, message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cvoid
 	```
-	
+
 	 The actual function that does the printing by default. Pass this function to SetWorhpPrint to restore the default printing behaviour.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:44](/usr/include/worhp/C_worhp_io.h:44:17)
 	""" WorhpDefaultPrintFunction
 	export WorhpDefaultPrintFunction
 	𝐣𝐥.@cextern WorhpDefaultPrintFunction(mode::𝐣𝐥.Cint, message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern SetWorhpPrint(f::worhp_print_t)::𝐣𝐥.Cvoid
 	```
-	
+
 	 Function for defining the low-level print function to be used by WORHP
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:49](/usr/include/worhp/C_worhp_io.h:49:17)
 	""" SetWorhpPrint
 	export SetWorhpPrint
 	𝐣𝐥.@cextern SetWorhpPrint(f::worhp_print_t)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpMessage(message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, source::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, prn::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
-	 Prints an informative message including its origin, or continues a message. 
-	
+
+	 Prints an informative message including its origin, or continues a message.
+
 	## Details
-	
-	NOTE: Fortran-independent C implementation, since string interoperability is inconvenient. 
-	
+
+	NOTE: Fortran-independent C implementation, since string interoperability is inconvenient.
+
 	See also: [`WorhpMessage`](@ref)
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:57](/usr/include/worhp/C_worhp_io.h:57:17)
 	""" WorhpMessage
 	export WorhpMessage
 	𝐣𝐥.@cextern WorhpMessage(message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, source::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, prn::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpWarning(message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, source::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, prn::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
-	 Prints a warning message including its origin, or continues a warning message. 
-	
+
+	 Prints a warning message including its origin, or continues a warning message.
+
 	## Details
-	
-	NOTE: Fortran-independent C implementation, since string interoperability is inconvenient. 
-	
+
+	NOTE: Fortran-independent C implementation, since string interoperability is inconvenient.
+
 	See also: [`WorhpError`](@ref)
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:67](/usr/include/worhp/C_worhp_io.h:67:17)
 	""" WorhpWarning
 	export WorhpWarning
 	𝐣𝐥.@cextern WorhpWarning(message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, source::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, prn::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpError(message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, source::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, prn::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
-	 Prints an error message including its origin, or continues an error message. 
-	
+
+	 Prints an error message including its origin, or continues an error message.
+
 	## Details
-	
-	NOTE: Fortran-independent C implementation, since string interoperability is inconvenient. 
-	
+
+	NOTE: Fortran-independent C implementation, since string interoperability is inconvenient.
+
 	See also: [`WorhpError`](@ref)
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:77](/usr/include/worhp/C_worhp_io.h:77:17)
 	""" WorhpError
 	export WorhpError
 	𝐣𝐥.@cextern WorhpError(message::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, source::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, prn::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern StatusMsg(o::𝐣𝐥.Ptr{OptVar}, w::𝐣𝐥.Ptr{Workspace}, p::𝐣𝐥.Ptr{Params}, c::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	 Prints a status message with information about the current solver status to the standard output. Typically used to print the solver result.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:90](/usr/include/worhp/C_worhp_io.h:90:17)
 	""" StatusMsg
 	export StatusMsg
 	𝐣𝐥.@cextern StatusMsg(o::𝐣𝐥.Ptr{OptVar}, w::𝐣𝐥.Ptr{Workspace}, p::𝐣𝐥.Ptr{Params}, c::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern StatusMsgString(o::𝐣𝐥.Ptr{OptVar}, w::𝐣𝐥.Ptr{Workspace}, p::𝐣𝐥.Ptr{Params}, c::𝐣𝐥.Ptr{Control}, message::𝐣𝐥.Cchar[])::𝐣𝐥.Cvoid
 	```
-	
+
 	 Writes a status message with information about the current solver status into the given C-string. The 'message' parameter has to be allocated and large enough.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:96](/usr/include/worhp/C_worhp_io.h:96:17)
 	""" StatusMsgString
 	export StatusMsgString
 	𝐣𝐥.@cextern StatusMsgString(o::𝐣𝐥.Ptr{OptVar}, w::𝐣𝐥.Ptr{Workspace}, p::𝐣𝐥.Ptr{Params}, c::𝐣𝐥.Ptr{Control}, message::𝐣𝐥.Cchar[])::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern Status2String(status::𝐣𝐥.Cint, str::𝐣𝐥.Cchar[])::𝐣𝐥.Cvoid
 	```
-	
+
 	 Writes a string describing the given solver status into the given C-string. The 'message' parameter has to be allocated and large enough, use the constant 'WORHP_MAX_STATUS_LENGTH' for this.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:103](/usr/include/worhp/C_worhp_io.h:103:17)
 	""" Status2String
 	export Status2String
 	𝐣𝐥.@cextern Status2String(status::𝐣𝐥.Cint, str::𝐣𝐥.Cchar[])::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ErrorOutput(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	 Prints a message that gives some information about issues that might be the reason for WORHP not terminating successfully.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:109](/usr/include/worhp/C_worhp_io.h:109:17)
 	""" ErrorOutput
 	export ErrorOutput
 	𝐣𝐥.@cextern ErrorOutput(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	 Structure containing information that can be used for printing the major iteration message.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:116](/usr/include/worhp/C_worhp_io.h:116:16)
 	""" MajorIterNoticeStruct
 	𝐣𝐥.@doc """
 	 Structure containing information that can be used for printing the major iteration message.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:165](/usr/include/worhp/C_worhp_io.h:165:3)
 	""" MajorIterNotice
 	export MajorIterNotice, MajorIterNoticeStruct
 	𝐣𝐥.@ctypedef MajorIterNotice 𝐣𝐥.@cstruct MajorIterNoticeStruct {
 		F::𝐣𝐥.Cdouble
-		AcceptFeasible::𝐣𝐥.Cbool
-		AcceptOptimal::𝐣𝐥.Cbool
-		Feasible::𝐣𝐥.Cbool
-		FeasRest::𝐣𝐥.Cbool
-		Optimal::𝐣𝐥.Cbool
-		UseId::𝐣𝐥.Cbool
+		AcceptFeasible::Cbool
+		AcceptOptimal::Cbool
+		Feasible::Cbool
+		FeasRest::Cbool
+		Optimal::Cbool
+		UseId::Cbool
 		aresId::𝐣𝐥.Cint
 		CurrentFeasMode::𝐣𝐥.Cint
 		Line_AcceptMethod::𝐣𝐥.Cint
@@ -5890,11 +5890,11 @@ using CBinding: 𝐣𝐥
 		penMaxVal::𝐣𝐥.Cdouble
 		relaxMaxVal::𝐣𝐥.Cdouble
 		ScaleObj::𝐣𝐥.Cdouble
-		FidifHM::𝐣𝐥.Cbool
-		RelaxCon::𝐣𝐥.Cbool
-		ScaledKKT::𝐣𝐥.Cbool
-		ScaledObj::𝐣𝐥.Cbool
-		UserHM::𝐣𝐥.Cbool
+		FidifHM::Cbool
+		RelaxCon::Cbool
+		ScaledKKT::Cbool
+		ScaledObj::Cbool
+		UserHM::Cbool
 		Algorithm::𝐣𝐥.Cint
 		LineSearchMethod::𝐣𝐥.Cint
 		MaxIter::𝐣𝐥.Cint
@@ -5902,597 +5902,597 @@ using CBinding: 𝐣𝐥
 		RefineFeasibility::𝐣𝐥.Cint
 		time::𝐣𝐥.Cdouble
 	}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern CreateMajorIterNotice(var\"?1?\"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(OptVar)}, var\"?2?\"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Workspace)}, var\"?3?\"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Params)}, var\"?4?\"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)})::MajorIterNotice
 	```
-	
+
 	 Create a MajorIterNotice, containing information about the current major iteration that can be used for printing.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:171](/usr/include/worhp/C_worhp_io.h:171:28)
 	""" CreateMajorIterNotice
 	export CreateMajorIterNotice
 	𝐣𝐥.@cextern CreateMajorIterNotice(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(OptVar)}, var"?2?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Workspace)}, var"?3?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Params)}, var"?4?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(Control)})::MajorIterNotice
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern MajorIterOutput(notice::𝐣𝐥.Ptr{𝐣𝐥.Cconst(MajorIterNotice)})::𝐣𝐥.Cvoid
 	```
-	
+
 	 Print a message for the major iteration based on the MajorIterNotice
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:176](/usr/include/worhp/C_worhp_io.h:176:17)
 	""" MajorIterOutput
 	export MajorIterOutput
 	𝐣𝐥.@cextern MajorIterOutput(notice::𝐣𝐥.Ptr{𝐣𝐥.Cconst(MajorIterNotice)})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern IterationOutput(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	 Prints the iteration output.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:181](/usr/include/worhp/C_worhp_io.h:181:17)
 	""" IterationOutput
 	export IterationOutput
 	𝐣𝐥.@cextern IterationOutput(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern StageMsg(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	 Prints the stage message.
-	
+
 	## Reference
-	
+
 	[C_worhp_io.h:187](/usr/include/worhp/C_worhp_io.h:187:17)
 	""" StageMsg
 	export StageMsg
 	𝐣𝐥.@cextern StageMsg(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WriteMatrixMatlab(name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, row::𝐣𝐥.Ptr{𝐣𝐥.Cint}, col::𝐣𝐥.Ptr{𝐣𝐥.Cint}, val::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, nrow::𝐣𝐥.Cint, ncol::𝐣𝐥.Cint, nnz::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
-	 Writes a sparse Matrix to a Matlab .m file. 
-	
+
+	 Writes a sparse Matrix to a Matlab .m file.
+
 	## Reference
-	
+
 	[C_worhp_io.h:193](/usr/include/worhp/C_worhp_io.h:193:17)
 	""" WriteMatrixMatlab
 	export WriteMatrixMatlab
 	𝐣𝐥.@cextern WriteMatrixMatlab(name::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, row::𝐣𝐥.Ptr{𝐣𝐥.Cint}, col::𝐣𝐥.Ptr{𝐣𝐥.Cint}, val::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, nrow::𝐣𝐥.Cint, ncol::𝐣𝐥.Cint, nnz::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpPreInit(opt::𝐣𝐥.Ptr{OptVar}, wsp::𝐣𝐥.Ptr{Workspace}, par::𝐣𝐥.Ptr{Params}, cnt::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[C_worhp_setup.h:12](/usr/include/worhp/C_worhp_setup.h:12:1)
 	""" WorhpPreInit
 	export WorhpPreInit
 	𝐣𝐥.@cextern WorhpPreInit(opt::𝐣𝐥.Ptr{OptVar}, wsp::𝐣𝐥.Ptr{Workspace}, par::𝐣𝐥.Ptr{Params}, cnt::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp.h:22](/usr/include/worhp/worhp.h:22:16)
 	""" fp_obj
 	export fp_obj
 	𝐣𝐥.@ctypedef fp_obj 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble})}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp.h:24](/usr/include/worhp/worhp.h:24:16)
 	""" fp_con
 	export fp_con
 	𝐣𝐥.@ctypedef fp_con 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble})}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp.h:26](/usr/include/worhp/worhp.h:26:16)
 	""" fp_dobj
 	export fp_dobj
 	𝐣𝐥.@ctypedef fp_dobj 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble})}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp.h:29](/usr/include/worhp/worhp.h:29:16)
 	""" fp_dcon
 	export fp_dcon
 	𝐣𝐥.@ctypedef fp_dcon 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble})}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp.h:33](/usr/include/worhp/worhp.h:33:16)
 	""" fp_hess
 	export fp_hess
 	𝐣𝐥.@ctypedef fp_hess 𝐣𝐥.Ptr{𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble})}, 𝐣𝐥.CDECL}}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpSimple(Mode::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cint}), N::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), M::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), X::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble}), L::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble}), U::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble}), Dparam::𝐣𝐥.Cdouble[10], Iparam::𝐣𝐥.Cint[10], DFnnz::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DFrow::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DGnnz::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DGrow::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DGcol::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), HMnnz::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), HMrow::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), HMcol::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), var\"?17?\"::fp_obj, var\"?18?\"::fp_con, var\"?19?\"::fp_dobj, var\"?20?\"::fp_dcon, var\"?21?\"::fp_hess)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:114](/usr/include/worhp/worhp.h:114:6)
 	""" WorhpSimple
 	export WorhpSimple
 	𝐣𝐥.@cextern WorhpSimple(Mode::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cint}), N::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), M::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), X::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble}), L::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble}), U::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cdouble}), Dparam::𝐣𝐥.Cdouble[10], Iparam::𝐣𝐥.Cint[10], DFnnz::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DFrow::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DGnnz::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DGrow::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), DGcol::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), HMnnz::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), HMrow::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), HMcol::𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)}), var"?17?"::fp_obj, var"?18?"::fp_con, var"?19?"::fp_dobj, var"?20?"::fp_dcon, var"?21?"::fp_hess)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp.h:125](/usr/include/worhp/worhp.h:125:14)
 	""" USI
 	export USI
 	𝐣𝐥.@ctypedef USI 𝐣𝐥.Cfunction{𝐣𝐥.Cvoid, 𝐣𝐥.Tuple{𝐣𝐥.Cconst(𝐣𝐥.Ptr{OptVar}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{Workspace}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{𝐣𝐥.Cconst(Params)}), 𝐣𝐥.Cconst(𝐣𝐥.Ptr{Control})}, 𝐣𝐥.CDECL}
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern Worhp(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:131](/usr/include/worhp/worhp.h:131:6)
 	""" Worhp
 	export Worhp
 	𝐣𝐥.@cextern Worhp(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpBasic(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control}, F::𝐣𝐥.Ptr{USI}, G::𝐣𝐥.Ptr{USI}, DF::𝐣𝐥.Ptr{USI}, DG::𝐣𝐥.Ptr{USI}, HM::𝐣𝐥.Ptr{USI})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:132](/usr/include/worhp/worhp.h:132:6)
 	""" WorhpBasic
 	export WorhpBasic
 	𝐣𝐥.@cextern WorhpBasic(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control}, F::𝐣𝐥.Ptr{USI}, G::𝐣𝐥.Ptr{USI}, DF::𝐣𝐥.Ptr{USI}, DG::𝐣𝐥.Ptr{USI}, HM::𝐣𝐥.Ptr{USI})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpFree(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:134](/usr/include/worhp/worhp.h:134:6)
 	""" WorhpFree
 	export WorhpFree
 	𝐣𝐥.@cextern WorhpFree(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpFidif(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:135](/usr/include/worhp/worhp.h:135:6)
 	""" WorhpFidif
 	export WorhpFidif
 	𝐣𝐥.@cextern WorhpFidif(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpInit(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:136](/usr/include/worhp/worhp.h:136:6)
 	""" WorhpInit
 	export WorhpInit
 	𝐣𝐥.@cextern WorhpInit(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpRestart(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:137](/usr/include/worhp/worhp.h:137:6)
 	""" WorhpRestart
 	export WorhpRestart
 	𝐣𝐥.@cextern WorhpRestart(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpCrossover(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:138](/usr/include/worhp/worhp.h:138:6)
 	""" WorhpCrossover
 	export WorhpCrossover
 	𝐣𝐥.@cextern WorhpCrossover(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ReadParams(var\"?1?\"::𝐣𝐥.Ptr{𝐣𝐥.Cint}, var\"?2?\"::𝐣𝐥.Cconst(𝐣𝐥.Cchar)[], var\"?3?\"::𝐣𝐥.Ptr{Params})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:139](/usr/include/worhp/worhp.h:139:6)
 	""" ReadParams
 	export ReadParams
 	𝐣𝐥.@cextern ReadParams(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cint}, var"?2?"::𝐣𝐥.Cconst(𝐣𝐥.Cchar)[], var"?3?"::𝐣𝐥.Ptr{Params})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZenGetD(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, dim::𝐣𝐥.Ptr{𝐣𝐥.Cint}, d::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:144](/usr/include/worhp/worhp.h:144:6)
 	""" ZenGetD
 	export ZenGetD
 	𝐣𝐥.@cextern ZenGetD(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, dim::𝐣𝐥.Ptr{𝐣𝐥.Cint}, d::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZenGetDMatrix(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, val::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:146](/usr/include/worhp/worhp.h:146:6)
 	""" ZenGetDMatrix
 	export ZenGetDMatrix
 	𝐣𝐥.@cextern ZenGetDMatrix(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, val::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZenGetMaxPert(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control}, max_dp::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, max_dr::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, max_dq::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, max_db::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:148](/usr/include/worhp/worhp.h:148:6)
 	""" ZenGetMaxPert
 	export ZenGetMaxPert
 	𝐣𝐥.@cextern ZenGetMaxPert(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control}, max_dp::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, max_dr::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, max_dq::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, max_db::𝐣𝐥.Ptr{𝐣𝐥.Cdouble})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZenCalcD(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, dim::𝐣𝐥.Ptr{𝐣𝐥.Cint})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:151](/usr/include/worhp/worhp.h:151:6)
 	""" ZenCalcD
 	export ZenCalcD
 	𝐣𝐥.@cextern ZenCalcD(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, dim::𝐣𝐥.Ptr{𝐣𝐥.Cint})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZenUpdate(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, varnew::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, dp::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, dr::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, dq::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, db::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, order::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:153](/usr/include/worhp/worhp.h:153:6)
 	""" ZenUpdate
 	export ZenUpdate
 	𝐣𝐥.@cextern ZenUpdate(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, varnew::𝐣𝐥.Ptr{𝐣𝐥.Cdouble}, dp::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, dr::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, dq::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, db::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cdouble)}, order::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cint)})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZenQP2Diff(var\"?1?\"::𝐣𝐥.Ptr{OptVar}, var\"?2?\"::𝐣𝐥.Ptr{Workspace}, var\"?3?\"::𝐣𝐥.Ptr{Params}, var\"?4?\"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:157](/usr/include/worhp/worhp.h:157:6)
 	""" ZenQP2Diff
 	export ZenQP2Diff
 	𝐣𝐥.@cextern ZenQP2Diff(var"?1?"::𝐣𝐥.Ptr{OptVar}, var"?2?"::𝐣𝐥.Ptr{Workspace}, var"?3?"::𝐣𝐥.Ptr{Params}, var"?4?"::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ZenN(var\"?1?\"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(OptVar)}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cint
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:158](/usr/include/worhp/worhp.h:158:6)
 	""" ZenN
 	export ZenN
 	𝐣𝐥.@cextern ZenN(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(OptVar)}, var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cint
-	
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:159](/usr/include/worhp/worhp.h:159:6)
 	""" ZenIsVar
 	export ZenIsVar
-	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern ZenIsVar(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
+
 	𝐣𝐥.@doc """
 	```
-	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
+	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:160](/usr/include/worhp/worhp.h:160:6)
 	""" ZenIsPert
 	export ZenIsPert
-	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::𝐣𝐥.Cbool
-	
+	𝐣𝐥.@cextern ZenIsPert(var_pert::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)})::Cbool
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern InitParams(var\"?1?\"::𝐣𝐥.Ptr{𝐣𝐥.Cint}, var\"?2?\"::𝐣𝐥.Ptr{Params})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:171](/usr/include/worhp/worhp.h:171:6)
 	""" InitParams
 	export InitParams
 	𝐣𝐥.@cextern InitParams(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cint}, var"?2?"::𝐣𝐥.Ptr{Params})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern ReadParamsNoInit(var\"?1?\"::𝐣𝐥.Ptr{𝐣𝐥.Cint}, var\"?2?\"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, var\"?3?\"::𝐣𝐥.Ptr{Params})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:172](/usr/include/worhp/worhp.h:172:6)
 	""" ReadParamsNoInit
 	export ReadParamsNoInit
 	𝐣𝐥.@cextern ReadParamsNoInit(var"?1?"::𝐣𝐥.Ptr{𝐣𝐥.Cint}, var"?2?"::𝐣𝐥.Ptr{𝐣𝐥.Cconst(𝐣𝐥.Cchar)}, var"?3?"::𝐣𝐥.Ptr{Params})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern HotStartSave(status::𝐣𝐥.Ptr{𝐣𝐥.Cint}, file::𝐣𝐥.Cchar[], var\"?3?\"::𝐣𝐥.Ptr{OptVar}, var\"?4?\"::𝐣𝐥.Ptr{Workspace}, var\"?5?\"::𝐣𝐥.Ptr{Params}, var\"?6?\"::𝐣𝐥.Ptr{Control}, cmpr::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:181](/usr/include/worhp/worhp.h:181:6)
 	""" HotStartSave
 	export HotStartSave
 	𝐣𝐥.@cextern HotStartSave(status::𝐣𝐥.Ptr{𝐣𝐥.Cint}, file::𝐣𝐥.Cchar[], var"?3?"::𝐣𝐥.Ptr{OptVar}, var"?4?"::𝐣𝐥.Ptr{Workspace}, var"?5?"::𝐣𝐥.Ptr{Params}, var"?6?"::𝐣𝐥.Ptr{Control}, cmpr::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern HotStartLoad(status::𝐣𝐥.Ptr{𝐣𝐥.Cint}, file::𝐣𝐥.Cchar[], var\"?3?\"::𝐣𝐥.Ptr{OptVar}, var\"?4?\"::𝐣𝐥.Ptr{Workspace}, var\"?5?\"::𝐣𝐥.Ptr{Params}, var\"?6?\"::𝐣𝐥.Ptr{Control}, cmpr::𝐣𝐥.Cint, verb::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp.h:191](/usr/include/worhp/worhp.h:191:6)
 	""" HotStartLoad
 	export HotStartLoad
 	𝐣𝐥.@cextern HotStartLoad(status::𝐣𝐥.Ptr{𝐣𝐥.Cint}, file::𝐣𝐥.Cchar[], var"?3?"::𝐣𝐥.Ptr{OptVar}, var"?4?"::𝐣𝐥.Ptr{Workspace}, var"?5?"::𝐣𝐥.Ptr{Params}, var"?6?"::𝐣𝐥.Ptr{Control}, cmpr::𝐣𝐥.Cint, verb::𝐣𝐥.Cint)::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpMonitorInit()::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp_monitor.h:9](/usr/include/worhp/worhp_monitor.h:9:6)
 	""" WorhpMonitorInit
 	export WorhpMonitorInit
 	𝐣𝐥.@cextern WorhpMonitorInit()::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpMonitorClear()::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp_monitor.h:11](/usr/include/worhp/worhp_monitor.h:11:6)
 	""" WorhpMonitorClear
 	export WorhpMonitorClear
 	𝐣𝐥.@cextern WorhpMonitorClear()::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpMonitorIter(opt::𝐣𝐥.Ptr{OptVar}, wsp::𝐣𝐥.Ptr{Workspace}, par::𝐣𝐥.Ptr{Params}, cnt::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp_monitor.h:13](/usr/include/worhp/worhp_monitor.h:13:6)
 	""" WorhpMonitorIter
 	export WorhpMonitorIter
 	𝐣𝐥.@cextern WorhpMonitorIter(opt::𝐣𝐥.Ptr{OptVar}, wsp::𝐣𝐥.Ptr{Workspace}, par::𝐣𝐥.Ptr{Params}, cnt::𝐣𝐥.Ptr{Control})::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	```
 	𝐣𝐥.@cextern WorhpMonitorText()::𝐣𝐥.Cvoid
 	```
-	
+
 	## Reference
-	
+
 	[worhp_monitor.h:15](/usr/include/worhp/worhp_monitor.h:15:6)
 	""" WorhpMonitorText
 	export WorhpMonitorText
 	𝐣𝐥.@cextern WorhpMonitorText()::𝐣𝐥.Cvoid
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:12](/usr/include/worhp/C_Worhp_Data.h:12:9)
 	""" HEADER_C_WORHP_DATA_H_GUARD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:12](/usr/include/worhp/C_Worhp_Data.h:12:9)
 	""" :(@HEADER_C_WORHP_DATA_H_GUARD)
 	export @HEADER_C_WORHP_DATA_H_GUARD, HEADER_C_WORHP_DATA_H_GUARD
 	macro HEADER_C_WORHP_DATA_H_GUARD() return quote 1 end end
 	const HEADER_C_WORHP_DATA_H_GUARD = (@HEADER_C_WORHP_DATA_H_GUARD)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[stdbool.h:32](~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/lib/clang/8.0.1/include/stdbool.h:32:9)
 	""" var"true"
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[stdbool.h:32](~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/lib/clang/8.0.1/include/stdbool.h:32:9)
 	""" :(@var"true")
 	export @var"true", var"true"
 	macro var"true"() return quote 1 end end
 	const var"true" = (@var"true")
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[stdbool.h:33](~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/lib/clang/8.0.1/include/stdbool.h:33:9)
 	""" var"false"
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[stdbool.h:33](~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/lib/clang/8.0.1/include/stdbool.h:33:9)
 	""" :(@var"false")
 	export @var"false", var"false"
 	macro var"false"() return quote 0 end end
 	const var"false" = (@var"false")
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[stdbool.h:45](~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/lib/clang/8.0.1/include/stdbool.h:45:9)
 	""" :(@__bool_true_false_are_defined)
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[stdbool.h:45](~/.julia/artifacts/24cf82e3b0e1edd69d7399a3912c9dcd5ba0f55d/lib/clang/8.0.1/include/stdbool.h:45:9)
 	""" __bool_true_false_are_defined
 	export @__bool_true_false_are_defined
 	macro __bool_true_false_are_defined() return quote 1 end end
 	const __bool_true_false_are_defined = (@__bool_true_false_are_defined)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:28](/usr/include/worhp/C_std.h:28:9)
 	""" STRING_LENGTH
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_std.h:28](/usr/include/worhp/C_std.h:28:9)
 	""" :(@STRING_LENGTH)
 	export @STRING_LENGTH, STRING_LENGTH
 	macro STRING_LENGTH() return quote 128 end end
 	const STRING_LENGTH = (@STRING_LENGTH)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:5](/usr/include/worhp/worhp_version.h:5:10)
 	""" :(@WORHP_MAJOR)
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:5](/usr/include/worhp/worhp_version.h:5:10)
 	""" WORHP_MAJOR
 	export @WORHP_MAJOR, WORHP_MAJOR
 	macro WORHP_MAJOR() return quote 1 end end
 	const WORHP_MAJOR = (@WORHP_MAJOR)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:8](/usr/include/worhp/worhp_version.h:8:10)
 	""" WORHP_MINOR
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:8](/usr/include/worhp/worhp_version.h:8:10)
 	""" :(@WORHP_MINOR)
 	export @WORHP_MINOR, WORHP_MINOR
 	macro WORHP_MINOR() return quote 14 end end
 	const WORHP_MINOR = (@WORHP_MINOR)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:11](/usr/include/worhp/worhp_version.h:11:10)
 	""" :(@WORHP_PATCH)
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:11](/usr/include/worhp/worhp_version.h:11:10)
 	""" WORHP_PATCH
 	export @WORHP_PATCH, WORHP_PATCH
 	macro WORHP_PATCH() return quote "0" end end
 	const WORHP_PATCH = (@WORHP_PATCH)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:14](/usr/include/worhp/worhp_version.h:14:10)
 	""" :(@WORHP_VERSION)
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[worhp_version.h:14](/usr/include/worhp/worhp_version.h:14:10)
 	""" WORHP_VERSION
 	export @WORHP_VERSION, WORHP_VERSION
 	macro WORHP_VERSION() return quote "1.14.0" end end
 	const WORHP_VERSION = (@WORHP_VERSION)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:25](/usr/include/worhp/C_Worhp_Data.h:25:9)
 	""" PATCH_STRING_LENGTH
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Data.h:25](/usr/include/worhp/C_Worhp_Data.h:25:9)
 	""" :(@PATCH_STRING_LENGTH)
 	export @PATCH_STRING_LENGTH, PATCH_STRING_LENGTH
 	macro PATCH_STRING_LENGTH() return quote 8 end end
 	const PATCH_STRING_LENGTH = (@PATCH_STRING_LENGTH)
-	
+
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:2](/usr/include/worhp/C_Worhp_Members.h:2:9)
 	""" C_WORHP_MEMBERS_H_GUARD
 	𝐣𝐥.@doc """
 	## Reference
-	
+
 	[C_Worhp_Members.h:2](/usr/include/worhp/C_Worhp_Members.h:2:9)
 	""" :(@C_WORHP_MEMBERS_H_GUARD)
 	export @C_WORHP_MEMBERS_H_GUARD, C_WORHP_MEMBERS_H_GUARD
