@@ -7,7 +7,7 @@ cnt = Worhp.LibWorhp.Control(undef);
 
 @test 0 == Worhp.LibWorhp.CheckWorhpVersion(Worhp.LibWorhp.WORHP_MAJOR, Worhp.LibWorhp.WORHP_MINOR, Worhp.LibWorhp.WORHP_PATCH)
 
-status = Ref{Cint}(123)
+status = Ref{Cint}(123);
 
 optR, wspR, parR, cntR = Ref(opt), Ref(wsp), Ref(par), Ref(cnt)
 
@@ -32,26 +32,19 @@ Worhp.LibWorhp.WorhpInit(optR,wspR,parR,cntR)
 
 @test Worhp.LibWorhp.FirstCall == cnt.status
 
-X = unsafe_wrap(Array{Float64,1}, opt.X, 4; own=false)
-X .= [2.0, 2.0, 1.0, 0.0]
+unsafe_wrap(Array{Float64,1}, opt.X, 4; own=false) .= [2.0, 2.0, 1.0, 0.0]
 
-Lambda = unsafe_wrap(Array{Float64,1}, opt.Lambda, 4; own=false)
-Lambda .= [0.0, 0.0, 0.0, 0.0]
+unsafe_wrap(Array{Float64,1}, opt.Lambda, 4; own=false) .= [0.0, 0.0, 0.0, 0.0]
 
-Mu = unsafe_wrap(Array{Float64,1}, opt.Mu, 3; own=false)
-Mu .= [0.0, 0.0, 0.0]
+unsafe_wrap(Array{Float64,1}, opt.Mu, 3; own=false) .= [0.0, 0.0, 0.0]
 
-XL = unsafe_wrap(Array{Float64,1}, opt.XL, 4; own=false)
-XL .= [-0.5, -2.0, 0.0, -2.0]
+unsafe_wrap(Array{Float64,1}, opt.XL, 4; own=false) .= [-0.5, -2.0, 0.0, -2.0]
 
-XU = unsafe_wrap(Array{Float64,1}, opt.XU, 4; own=false)
-XU .= [par.Infty, par.Infty, 2.0, 2.0]
+unsafe_wrap(Array{Float64,1}, opt.XU, 4; own=false) .= [par.Infty, par.Infty, 2.0, 2.0]
 
-GL = unsafe_wrap(Array{Float64,1}, opt.GL, 3; own=false)
-GL .= [1.0, -par.Infty, 2.5]
+unsafe_wrap(Array{Float64,1}, opt.GL, 3; own=false) .= [1.0, -par.Infty, 2.5]
 
-GU = unsafe_wrap(Array{Float64,1}, opt.GU, 3; own=false)
-GU .= [1.0, -1.0, 5.0]
+unsafe_wrap(Array{Float64,1}, opt.GU, 3; own=false).= [1.0, -1.0, 5.0]
 
 if wsp.DG.NeedStructure == true
     row = unsafe_wrap(Array{Int32,1}, wsp.DG.row, 6; own=false)
