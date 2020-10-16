@@ -5,11 +5,12 @@ wsp = Worhp.LibWorhp.Workspace(undef);
 par = Worhp.LibWorhp.Params(undef);
 cnt = Worhp.LibWorhp.Control(undef);
 
+GC.@preserve opt wsp par cnt begin
 @test 0 == Worhp.LibWorhp.CheckWorhpVersion(Worhp.LibWorhp.WORHP_MAJOR, Worhp.LibWorhp.WORHP_MINOR, Worhp.LibWorhp.WORHP_PATCH)
 
 status = Ref{Cint}(123);
 
-optR, wspR, parR, cntR = Ref(opt), Ref(wsp), Ref(par), Ref(cnt)
+optR, wspR, parR, cntR = pointer_from_objref(opt), pointer_from_objref(wsp), pointer_from_objref(par), pointer_from_objref(cnt)
 
 Worhp.LibWorhp.WorhpPreInit(optR, wspR, parR, cntR)
 Worhp.LibWorhp.InitParams(status, parR)
@@ -153,3 +154,5 @@ end
 
 Worhp.LibWorhp.StatusMsg(optR,wspR,parR,cntR)
 Worhp.LibWorhp.WorhpFree(optR, wspR, parR, cntR);
+
+end
