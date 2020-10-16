@@ -1,4 +1,4 @@
-using Worph
+using Worhp
 using Test
 opt = Worph.LibWorhp.OptVarStruct(undef);
 wsp = Worph.LibWorhp.Workspace(undef);
