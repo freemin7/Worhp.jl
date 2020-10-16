@@ -27,3 +27,9 @@ end
 open("bindings.jl", "w+") do io
 	generate(io,shared_library_so => converted_header)
 end
+
+txt = read("bindings.jl", String)
+
+open("bindings.jl", "w") do f
+	write(f, replace(txt, "InitError" => "InitErr"))
+end
