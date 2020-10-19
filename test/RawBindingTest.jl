@@ -1,26 +1,26 @@
-using Worhp
+using WorhpOpt
 using Test
-opt = Worhp.LibWorhp.OptVarStruct(undef);
-wsp = Worhp.LibWorhp.Workspace(undef);
-par = Worhp.LibWorhp.Params(undef);
-cnt = Worhp.LibWorhp.Control(undef);
+opt = LibWorhp.OptVarStruct(undef);
+wsp = LibWorhp.Workspace(undef);
+par = LibWorhp.Params(undef);
+cnt = LibWorhp.Control(undef);
 
-@test 0 == Worhp.LibWorhp.CheckWorhpVersion(Worhp.LibWorhp.WORHP_MAJOR, Worhp.LibWorhp.WORHP_MINOR, Worhp.LibWorhp.WORHP_PATCH)
+@test 0 == LibWorhp.CheckWorhpVersion(LibWorhp.WORHP_MAJOR, LibWorhp.WORHP_MINOR, LibWorhp.WORHP_PATCH)
 
 status = Ref{Cint}(123);
 
 optR, wspR, parR, cntR = Ref(opt), Ref(wsp), Ref(par), Ref(cnt)
 
-Worhp.LibWorhp.WorhpPreInit(optR, wspR, parR, cntR)
+LibWorhp.WorhpPreInit(optR, wspR, parR, cntR)
 
-Worhp.LibWorhp.InitParams(status, parR)
+LibWorhp.InitParams(status, parR)
 
 par.NLPprint = 1
 
-Worhp.LibWorhp.ReadParamsNoInit(status, "worhp.xml", parR)
+LibWorhp.ReadParamsNoInit(status, "worhp.xml", parR)
 
-@test status[] != Worhp.LibWorhp.DataError
-@test status[] != Worhp.LibWorhp.InitErr
+@test status[] != LibWorhp.DataError
+@test status[] != LibWorhp.InitErr
 
 opt.n = 4
 opt.m = 3
@@ -29,9 +29,9 @@ wsp.DF.nnz = 3
 wsp.DG.nnz = 6
 wsp.HM.nnz = 1 + opt.n
 
-Worhp.LibWorhp.WorhpInit(optR,wspR,parR,cntR)
+LibWorhp.WorhpInit(optR,wspR,parR,cntR)
 
-@test Worhp.LibWorhp.FirstCall == cnt.status
+@test LibWorhp.FirstCall == cnt.status
 
 unsafe_wrap(Array{Float64,1}, opt.X, 4; own=false) .= [2.0, 2.0, 1.0, 0.0]
 
@@ -121,44 +121,44 @@ function UserHM(opt, wsp, par, cnt)
 end
 
 
-while cnt.status < Worhp.LibWorhp.TerminateSuccess && cnt.status > Worhp.LibWorhp.TerminateError
+while cnt.status < LibWorhp.TerminateSuccess && cnt.status > LibWorhp.TerminateError
 
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.callWorhp) == true
-        Worhp.LibWorhp.Worhp(optR,wspR,parR,cntR)
+    if LibWorhp.GetUserAction(cntR, LibWorhp.callWorhp) == true
+        LibWorhp.Worhp(optR,wspR,parR,cntR)
     end
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.iterOutput) == true
-        Worhp.LibWorhp.IterationOutput(optR,wspR,parR,cntR)
-        Worhp.LibWorhp.DoneUserAction(cntR,Worhp.LibWorhp.iterOutput)
+    if LibWorhp.GetUserAction(cntR, LibWorhp.iterOutput) == true
+        LibWorhp.IterationOutput(optR,wspR,parR,cntR)
+        LibWorhp.DoneUserAction(cntR, LibWorhp.iterOutput)
     end
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.evalF) == true
+    if LibWorhp.GetUserAction(cntR, LibWorhp.evalF) == true
         UserF(opt, wsp, par, cnt)
-        Worhp.LibWorhp.DoneUserAction(cntR,Worhp.LibWorhp.evalF)
+        LibWorhp.DoneUserAction(cntR,LibWorhp.evalF)
     end
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.evalG) == true
+    if LibWorhp.GetUserAction(cntR, LibWorhp.evalG) == true
         UserG(opt, wsp, par, cnt)
-        Worhp.LibWorhp.DoneUserAction(cntR,Worhp.LibWorhp.evalG)
+        LibWorhp.DoneUserAction(cntR, LibWorhp.evalG)
     end
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.evalDF) == true
+    if LibWorhp.GetUserAction(cntR, LibWorhp.evalDF) == true
         UserDF(opt, wsp, par, cnt)
-        Worhp.LibWorhp.DoneUserAction(cntR,Worhp.LibWorhp.evalDF)
+        LibWorhp.DoneUserAction(cntR, LibWorhp.evalDF)
     end
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.evalDG) == true
+    if LibWorhp.GetUserAction(cntR, LibWorhp.evalDG) == true
         UserDG(opt, wsp, par, cnt)
-        Worhp.LibWorhp.DoneUserAction(cntR,Worhp.LibWorhp.evalDG)
+        LibWorhp.DoneUserAction(cntR, LibWorhp.evalDG)
     end
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.evalHM) == true
+    if LibWorhp.GetUserAction(cntR, LibWorhp.evalHM) == true
         UserHM(opt, wsp, par, cnt)
-        Worhp.LibWorhp.DoneUserAction(cntR,Worhp.LibWorhp.evalHM)
+        LibWorhp.DoneUserAction(cntR, LibWorhp.evalHM)
     end
-    if Worhp.LibWorhp.GetUserAction(cntR, Worhp.LibWorhp.fidif) == true
-        Worhp.LibWorhp.WorhpFidif(optR,wspR,parR,cntR)
+    if LibWorhp.GetUserAction(cntR, LibWorhp.fidif) == true
+        LibWorhp.WorhpFidif(optR,wspR,parR,cntR)
     end
 
 end
 
-Worhp.LibWorhp.StatusMsg(optR,wspR,parR,cntR)
+LibWorhp.StatusMsg(optR,wspR,parR,cntR)
 
-@test abs(opt.F + 0.5) < 10e-6 "Objective within 10e-6"
+@test abs(opt.F + 0.5) < 10e-6 
 
-@test sum(abs,unsafe_wrap(Array{Float64,1}, opt.X,4) - [0, 0.5, 1., 2.]) < 10e-6 "total error within 10e-6"
-Worhp.LibWorhp.WorhpFree(optR, wspR, parR, cntR);
+@test sum(abs,unsafe_wrap(Array{Float64,1}, opt.X,4) - [0, 0.5, 1., 2.]) < 10e-6
+LibWorhp.WorhpFree(optR, wspR, parR, cntR);
