@@ -223,4 +223,7 @@ end
 
 export solveProblem, WorhpProblem, LibWorhp
 
+include("MOI_wrapper.jl")
+
+
 end # module
