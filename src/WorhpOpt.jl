@@ -18,7 +18,7 @@ using .LibWorhp
 
 function versionCheck()
     if 0 != LibWorhp.CheckWorhpVersion(LibWorhp.WORHP_MAJOR, LibWorhp.WORHP_MINOR, LibWorhp.WORHP_PATCH)
-        @error "Worhp version of headers doesn't match shared object. If you upgrade Worhp run ]build again"
+        @error "Worhp version of headers doesn't match shared object. If you upgraded Worhp run ]build again"
     end
 end
 
