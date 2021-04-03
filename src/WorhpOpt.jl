@@ -28,15 +28,9 @@ mutable struct WorhpProblem
     wsp::LibWorhp.Workspace
     par::LibWorhp.Params
     cnt::LibWorhp.Control
-    f::Function
-    g::Function
-    df::Union{Function, Missing}
-    dg::Union{Function, Missing}
-    hm::Union{Function, Missing}
     function WorhpProblem(
-        n::Int32,m::Int32,DFnz::Int32,DGnz::Int32,HMnz::Int32,
-        f::Function, g::Function, df::Union{Function, Missing}, dg::Union{Function, Missing},
-        hm::Union{Function, Missing},
+        n::Int32,m::Int32,DFnz::Int32,DGnz::Int32,HMnz::Int32, 
+        has_df::Bool, has_dg::Bool, has_hm::Bool,
         dfrow::Vector{Int32},
         dgrow::Vector{Int32}, dgcol::Vector{Int32},
         hmrow::Vector{Int32}, hmcol::Vector{Int32},
@@ -44,11 +38,10 @@ mutable struct WorhpProblem
         X0::Vector{Float64},
         Lambda::Vector{Float64},Mu::Vector{Float64},
         XL::Vector{Float64},XU::Vector{Float64},
-        GL::Vector{Float64},GU::Vector{Float64};
-        config_path::String="worhp.xml",
-        F_Type::Int32=Int32(4),
-        G_Type::Union{Vector{Int32},Missing}=missing
-
+        GL::Vector{Float64},GU::Vector{Float64},
+        F_Type::Int32,
+        G_Type::Vector{Int32};
+        config_path::String="worhp.xml"
         )
 
         opt = LibWorhp.OptVarStruct(undef);
@@ -77,23 +70,23 @@ mutable struct WorhpProblem
 
         par.UserHMstructure = Int32(1);  # Worph is allowed to remove wrong hessian values
 
-        if df isa Missing
-            par.UserDF = false
-        end
-        if dg isa Missing
-            par.UserDG = false
-        end
-        if hm isa Missing
-            par.UserHM = false
-        end
-        opt.FType = F_Type
+        par.UserDF = has_df
+        par.UserDG = has_dg
+        par.UserHM = has_hm
 
-        if !(G_Type isa Missing) && length(G_Type) == m
-            unsafe_wrap(Vector{Int32},opt.GType,m) .= G_Type
-        end
-
+ 
 
         LibWorhp.WorhpInit(Ref(opt), Ref(wsp), Ref(par), Ref(cnt))
+
+        opt.FType = F_Type
+
+        if m>0
+        if length(G_Type) == m 
+            unsafe_wrap(Vector{Int32},opt.GType,m) .= G_Type
+        else
+            @error "G_Type has wrong length"
+        end
+        end
 
         if cnt.status != LibWorhp.FirstCall
             @error "Main: Initialisation failed with status $(cnt.status)"
@@ -104,11 +97,11 @@ mutable struct WorhpProblem
         unsafe_wrap(Vector{Float64},opt.XU,n) .= clamp.(XU,-par.Infty,par.Infty);;
         unsafe_wrap(Vector{Float64},opt.Lambda,n) .= Lambda;
 
-
-        unsafe_wrap(Vector{Float64},opt.GL,m) .= clamp.(GL,-par.Infty,par.Infty);
-        unsafe_wrap(Vector{Float64},opt.GU,m) .= clamp.(GU,-par.Infty,par.Infty);
-        unsafe_wrap(Vector{Float64},opt.Mu,m) .= Mu;
-
+        if m>0
+            unsafe_wrap(Vector{Float64},opt.GL,m) .= clamp.(GL,-par.Infty,par.Infty);
+            unsafe_wrap(Vector{Float64},opt.GU,m) .= clamp.(GU,-par.Infty,par.Infty);
+            unsafe_wrap(Vector{Float64},opt.Mu,m) .= Mu;
+        end
 
         if wsp.DF.NeedStructure == true
             #= if DFnz == LibWorhp.WorhpMatrix_Init_Dense or DFnz >= n
@@ -162,27 +155,17 @@ mutable struct WorhpProblem
 
                 println("HM")
 
-        res = new(opt, wsp, par, cnt, f, g, df, dg, hm)
+        res = new(opt, wsp, par, cnt)
 
         return finalizer(ww->LibWorhp.WorhpFree(Ref(ww.opt), Ref(ww.wsp), Ref(ww.par), Ref(ww.cnt)), res)
     end
 end
 
-struct DefaultLoop
-end
 
-function solveProblem(prob::WorhpProblem)
-    solveProblem(prob, DefaultLoop)
-end
-
-function solveProblem(prob::WorhpProblem, DefaultLoop)
+function solveProblem(prob::WorhpProblem, UserF, UserG, UserDF, UserDG,
+    UserHM)
     opt, wsp, par, cnt = prob.opt, prob.wsp, prob.par, prob.cnt;
     optR, wspR, parR, cntR = Ref(prob.opt), Ref(prob.wsp), Ref(prob.par), Ref(prob.cnt)
-    UserF = prob.f;
-    UserG = prob.g;
-    UserDF = prob.df;
-    UserHM = prob.hm;
-    UserDG = prob.dg;
 
     while prob.cnt.status < LibWorhp.TerminateSuccess && prob.cnt.status > LibWorhp.TerminateError
         if GetUserAction(cntR, callWorhp) == true

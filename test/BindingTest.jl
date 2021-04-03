@@ -51,12 +51,11 @@ function UserHM(opt, wsp, par, cnt)
 
 end
 
-
+println("Before WorhpProblem")
 
 p = WorhpProblem(
     Int32(4),Int32(3),Int32(3),Int32(6),Int32(5),
-    UserF, UserG, UserDF, UserDG,
-    UserHM,
+    true, true, true,
     Vector{Int32}([1,2,3]),
     Vector{Int32}([1,3,1,2,2,3]), Vector{Int32}([1,2,3,3,4,4]),
     Vector{Int32}([3,1,2,3,4]), Vector{Int32}([1,1,2,3,4]),
@@ -64,10 +63,16 @@ p = WorhpProblem(
     [2.0, 2.0, 1.0, 0.0],
     [0.0, 0.0, 0.0, 0.0],[0.0, 0.0, 0.0],
     [-0.5, -2.0, 0.0, -2.0],[Inf64, Inf64, 2.0, 2.0],
-    [1.0, -Inf64, 2.5],[1.0, -1.0, 5.0]
+    [1.0, -Inf64, 2.5],[1.0, -1.0, 5.0],
+    LibWorhp.WORHP_QUADRATIC,
+    Vector{Int32}([LibWorhp.WORHP_QUADRATIC, LibWorhp.WORHP_LINEAR, LibWorhp.WORHP_LINEAR])
+
     )
 
-solveProblem(p)
+    println("Before solveProblem")
+
+solveProblem(p, UserF, UserG, UserDF, UserDG,
+UserHM)
 
 f = p.opt.F
 sol = unsafe_wrap(Array{Float64,1}, p.opt.X,4)
